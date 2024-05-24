@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "name": "Software Development",
+      "me": "DEVELOPER",
+      "note": "Professional software developer with 4 years of experience"
+    },
+    {
+      "name": "Academic Debate",
+      "me": "DEBATER",
+      "note": "The 2024 champion of Slovakia, excellent coach and adjudicator"
+    },
+    {
+      "name": "Enterpreneurship",
+      "me": "ENTREPRENEUR",
+      "note": "President of the successful student company with the wide range of products"
+    },
+    {
+      "name": "Volunteering",
+      "me": "VOLUNTEER",
+      "note": "Event organizer and IT administrator at Slovak Debate Association"
+    },
+    {
+      "name": "Studying",
+      "me": "STUDENT",
+      "note": "Excellent student at the best grammar school in Slovakia"
+    },
+    {
+      "name": "Cycling",
+      "me": "CYCLIST",
+      "note": "Hobby road bike cyclist with over 1200 km cycled in 2024"
+    }
+  ]
+}
