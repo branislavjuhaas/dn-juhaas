@@ -19,3 +19,9 @@ body {
 #app {
   @apply h-full w-full;
 }
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 12px;
+  }
+}
