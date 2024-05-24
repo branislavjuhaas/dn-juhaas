@@ -12,10 +12,21 @@
       >
       <div class="col-start-3 text-base">
         <p>
-          <router-link to="/">Home</router-link> |
-          <router-link to="/me">Skills</router-link> |
-          <router-link to="/dn">DN Family</router-link> |
-          <router-link to="/contact">Contact</router-link>
+          <router-link class="duration-300 hover:text-blue-light" to="/"
+            >Home</router-link
+          >
+          |
+          <router-link class="duration-300 hover:text-blue-light" to="/skills"
+            >Skills</router-link
+          >
+          |
+          <router-link class="duration-300 hover:text-blue-light" to="/dn"
+            >DN Family</router-link
+          >
+          |
+          <router-link class="duration-300 hover:text-blue-light" to="/contact"
+            >Contact</router-link
+          >
         </p>
       </div>
     </div>
