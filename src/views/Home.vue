@@ -20,11 +20,9 @@ onMounted(() => {
       <div class="flex flex-row">
         <h1>->&nbsp;</h1>
         <div class="relative w-96">
-          <transition name="fly"
-            ><b :key="index" class="absolute"
-              >{{ currentSkill.me }}!</b
-            ></transition
-          >
+          <transition name="fly">
+            <b :key="index" class="absolute">{{ currentSkill.me }}!</b>
+          </transition>
         </div>
       </div>
     </div>
@@ -37,27 +35,26 @@ onMounted(() => {
     </div>
     <div class="flex flex-row gap-4 mt-3">
       <router-link class="home-link bg-yellow hover:bg-red" to="/me">
-        <img src="../assets/icons/Signpost-f.svg" />Learn more</router-link
-      >
+        <img src="../assets/icons/Signpost-f.svg" />
+        Learn more
+      </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
-        to="/skills"
-      >
-        <img src="../assets/icons/Lightning-f.svg" />Explore skills</router-link
-      >
+        to="/skills">
+        <img src="../assets/icons/Lightning-f.svg" />
+        Explore skills
+      </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
-        to="/contact"
-      >
-        <img src="../assets/icons/ChatCircleText-f.svg" />Contact
-        now</router-link
-      >
+        to="/contact">
+        <img src="../assets/icons/ChatCircleText-f.svg" />
+        Contact now
+      </router-link>
     </div>
     <img
       src="/src/assets/mellanium.png"
       alt="Mellanium"
-      class="absolute right-0 bottom-[calc(-50vh+30%)] w-[46rem] -z-10 sm:bottom-[-25rem] lg:max-w-[60%]"
-    />
+      class="mellanium absolute right-0 bottom-[calc(-50vh+30%)] w-[46rem] -z-10 sm:bottom-[-25rem] lg:max-w-[60%]" />
   </div>
 </template>
 
@@ -108,6 +105,14 @@ onMounted(() => {
   .fly-leave {
     opacity: 0;
     transform: translateY(-100%);
+  }
+}
+
+@media (max-height: 720px) {
+  .mellanium {
+    width: initial;
+    max-height: 150dvh;
+    bottom: -55dvh;
   }
 }
 </style>
