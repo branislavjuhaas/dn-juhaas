@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import skills from "../data.json";
+import data from "../data.json";
 
-let currentSkill = ref(skills.skills[0]);
+let current = ref(data.skills[0]);
 let index = 0;
 
 onMounted(() => {
   setInterval(() => {
-    index = (index + 1) % skills.skills.length;
-    currentSkill.value = skills.skills[index];
+    index = (index + 1) % data.skills.length;
+    current.value = data.skills[index];
   }, 5000);
 });
 </script>
@@ -21,7 +21,7 @@ onMounted(() => {
         <h1>->&nbsp;</h1>
         <div class="relative w-96">
           <transition name="fly">
-            <b :key="index" class="absolute">{{ currentSkill.me }}!</b>
+            <b :key="index" class="absolute">{{ current.me }}!</b>
           </transition>
         </div>
       </div>
@@ -29,30 +29,30 @@ onMounted(() => {
     <div class="mt-2 relative">
       <transition name="fade">
         <h2 :key="index" class="text-xl">
-          {{ currentSkill.note }}
+          {{ current.note }}
         </h2>
       </transition>
     </div>
     <div class="flex flex-row gap-4 mt-3">
       <router-link class="home-link bg-yellow hover:bg-red" to="/me">
-        <img src="../assets/icons/Signpost-f.svg" />
+        <img src="../assets/icons/Signpost-f.svg" alt="Signpost" />
         Learn more
       </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
         to="/skills">
-        <img src="../assets/icons/Lightning-f.svg" />
+        <img src="../assets/icons/Lightning-f.svg" alt="Lightning" />
         Explore skills
       </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
         to="/contact">
-        <img src="../assets/icons/ChatCircleText-f.svg" />
+        <img src="../assets/icons/ChatCircleText-f.svg" alt="Chat" />
         Contact now
       </router-link>
     </div>
     <img
-      src="/src/assets/mellanium.png"
+      src="/src/assets/mellanium.webp"
       alt="Mellanium"
       class="mellanium absolute right-0 bottom-[calc(-50vh+30%)] w-[46rem] -z-10 sm:bottom-[-25rem] lg:max-w-[60%]" />
   </div>
