@@ -54,7 +54,7 @@ onMounted(() => {
     <img
       src="/src/assets/mellanium.webp"
       alt="Mellanium"
-      class="mellanium absolute right-0 bottom-[calc(-50vh+30%)] w-[46rem] -z-10 sm:bottom-[-25rem] lg:max-w-[60%]" />
+      class="mellanium absolute right-0 bottom-[-5%] w-[46rem] -z-10 lg:max-w-[60%]" />
   </div>
 </template>
 
@@ -108,11 +108,10 @@ onMounted(() => {
   }
 }
 
-@media (max-height: 720px) {
+@media (max-height: 760px) and (orientation: landscape) {
   .mellanium {
     width: initial;
-    max-height: 150dvh;
-    bottom: -55dvh;
+    max-height: 80dvh;
   }
 }
 </style>
