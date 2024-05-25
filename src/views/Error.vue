@@ -3,8 +3,8 @@
 const props = defineProps(["code"]);
 
 // set the error message based on the error code
-let message = "";
-let description = "";
+let message;
+let description;
 switch (props.code) {
   case 404:
     message = "Page not found";

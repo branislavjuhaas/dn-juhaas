@@ -1,3 +1,4 @@
+<!--suppress CssUnusedSymbol, JSUnresolvedReference -->
 <script setup>
 import { ref, onMounted } from "vue";
 import data from "../data.json";
