@@ -3,8 +3,8 @@
 import { ref, onMounted } from "vue";
 import data from "../data.json";
 
-let current = ref(data.skills[0]);
-let index = 0;
+let index = Math.round(Math.random() * data.skills.length);
+let current = ref(data.skills[index]);
 
 onMounted(() => {
   setInterval(() => {
