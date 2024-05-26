@@ -96,6 +96,21 @@ onMounted(() => {
   @apply w-[14rem] px-[0.88rem] py-[0.35] grid grid-cols-[1.25rem_1fr] text-base text-black border-black dark:border-white border-2 rounded-2xl p-1 items-center gap-3 duration-300;
 }
 
+.mellanium {
+  animation: show 0.21s forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 @media (min-width: 720px) {
   .fly-enter,
   .fly-leave-to {
