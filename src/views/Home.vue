@@ -3,7 +3,7 @@
 import { ref, onMounted } from "vue";
 import data from "../data.json";
 
-let index = Math.round(Math.random() * data.skills.length);
+let index = Math.floor(Math.random() * data.skills.length);
 let current = ref(data.skills[index]);
 
 onMounted(() => {
