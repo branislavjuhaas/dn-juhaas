@@ -8,6 +8,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/contact",
+    name: "Contact",
+    component: () => import("./views/Contact.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*", // 404
     name: "404",
     component: () => import("./views/Error.vue"),

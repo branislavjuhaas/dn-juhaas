@@ -93,7 +93,7 @@ onMounted(() => {
 }
 
 .home-link {
-  @apply w-[14rem] px-[0.88rem] py-[0.35] grid grid-cols-[1.25rem_1fr] text-base text-black border-black dark:border-white border-2 rounded-2xl p-1 items-center gap-3 duration-300;
+  @apply w-[14rem] px-[0.88rem] py-[0.35rem] grid grid-cols-[1.25rem_1fr] text-base text-black border-black dark:border-white border-2 rounded-2xl p-1 items-center gap-3 duration-300;
 }
 
 .mellanium {
