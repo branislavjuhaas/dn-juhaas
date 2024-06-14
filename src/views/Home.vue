@@ -55,7 +55,8 @@ onMounted(() => {
     <img
       src="/src/assets/mellanium.webp"
       alt="Mellanium"
-      class="mellanium absolute right-0 bottom-[-5%] w-[46rem] -z-10 lg:max-w-[60%]" />
+      class="bg-blue-light mellanium absolute right-0 bottom-[-5%] w-[46rem] -z-10 lg:max-w-[60%] dark:bg-blue-dark" />
+    <!-- Alternative image for web crawlers -->
   </div>
 </template>
 
