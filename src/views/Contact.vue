@@ -25,6 +25,7 @@ onMounted(() => {
           height="20"
           viewBox="0 0 20 20"
           fill="none"
+          class="w-5"
           v-html="contact.icon" />
         <h6 class="text-base font-bold row-start-1 col-start-2">
           {{ contact.name }}

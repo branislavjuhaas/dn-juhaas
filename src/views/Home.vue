@@ -36,19 +36,25 @@ onMounted(() => {
     </div>
     <div class="flex flex-row gap-4 mt-3">
       <router-link class="home-link bg-yellow hover:bg-red" to="/me">
-        <img src="../assets/icons/Signpost-f.svg" alt="Signpost" />
+        <img class="w-5" src="../assets/icons/Signpost-f.svg" alt="Signpost" />
         Learn more
       </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
         to="/skills">
-        <img src="../assets/icons/Lightning-f.svg" alt="Lightning" />
+        <img
+          class="w-5"
+          src="../assets/icons/Lightning-f.svg"
+          alt="Lightning" />
         Explore skills
       </router-link>
       <router-link
         class="home-link bg-white dark:bg-blue-light hover:bg-green dark:hover:bg-white"
         to="/contact">
-        <img src="../assets/icons/ChatCircleText-f.svg" alt="Chat" />
+        <img
+          class="w-5"
+          src="../assets/icons/ChatCircleText-f.svg"
+          alt="Chat" />
         Contact now
       </router-link>
     </div>
