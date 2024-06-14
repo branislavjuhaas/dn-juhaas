@@ -6,6 +6,7 @@ onMounted(() => {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card, index) => {
     card.style.animationDelay = `${0.1 * index}s`;
+    card.style.animationDelay = `${0.1 * index}s`;
   });
 });
 </script>
