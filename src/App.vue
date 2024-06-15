@@ -11,7 +11,7 @@ import Header from "./components/Header.vue";
     <div class="flex flex-col items-center px-[20px] overflow-hidden">
       <router-view
         v-slot="{ Component }"
-        class="max-w-[1440px] pt-[10rem] h-full w-full overflow-hidden relative">
+        class="max-w-[1440px] pt-[6.5rem] h-full w-full overflow-hidden relative sm:pt-[10rem]">
         <transition name="slide-fade" mode="out-in">
           <component :is="Component" />
         </transition>
