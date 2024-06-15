@@ -5,8 +5,8 @@
     class="flex flex-col border-t-2 border-black dark:border-white h-14 items-center px-[20px]">
     <div
       class="flex flex-col justify-center items-center max-w-[1440px] h-full w-full sm:grid sm:grid-cols-[auto_1fr_auto]">
-      <router-link to="/" class="font-bold italic text-xl">
-        Branislav Juhás
+      <router-link to="/" class="font-bold text-xl">
+        BRANISLAV JUHÁS
       </router-link>
       <div class="col-start-3 text-base hidden sm:flex cursor-default">
         <p>
