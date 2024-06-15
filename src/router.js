@@ -20,6 +20,11 @@ const routes = [
     component: Skills,
   },
   {
+    path: "/skills/:skill",
+    name: "Skill",
+    component: Skills,
+  },
+  {
     path: "/contact",
     name: "Contact",
     component: () => import("./views/Contact.vue"),

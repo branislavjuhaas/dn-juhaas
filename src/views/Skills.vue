@@ -1,8 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import data from "../data.json";
+import router from "../router.js";
 
-let index = 0;
+const route = useRoute();
+
+// If there is a skill parameter, set the index to that skill
+const skill = route.params.skill ? route.params.skill.replace(/-/g, " ") : "";
+let index = skill
+  ? data.skills.findIndex((s) => s.name.toLowerCase() === skill.toLowerCase())
+  : 0;
+
+// If the skill was not found, set the index to 0
+index = index === -1 ? 0 : index;
 const selected = ref(data.skills[index]);
 
 let dropdown = ref(false);
