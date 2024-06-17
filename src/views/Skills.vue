@@ -6,8 +6,9 @@ import router from "../router.js";
 
 const route = useRoute();
 
-// If there is a skill parameter, set the index to that skill
-const skill = route.params.skill ? route.params.skill.replace(/-/g, " ") : "";
+const hash = route.hash ? route.hash.substring(1).replace(/%20/g, " ") : "";
+
+const skill = hash ? hash.replace(/-/g, " ") : "";
 let index = skill
   ? data.skills.findIndex((s) => s.name.toLowerCase() === skill.toLowerCase())
   : 0;
