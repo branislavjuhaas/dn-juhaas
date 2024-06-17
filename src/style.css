@@ -20,6 +20,14 @@ body {
   @apply h-full w-full;
 }
 
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.no-ligatures {
+  font-variant-ligatures: no-common-ligatures;
+}
+
 @media (max-width: 1024px) {
   :root {
     font-size: 12px;

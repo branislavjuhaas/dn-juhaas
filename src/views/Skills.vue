@@ -89,6 +89,10 @@ let dropdown = ref(false);
           </div>
         </div>
       </transition>
+      <div
+        class="scrollbar-hidden no-ligatures my-6 px-2 text-justify overflow-x-auto max-h-[calc(100dvh-25rem)]"
+        key="selected.name"
+        v-html="selected.text" />
     </div>
   </div>
 </template>
