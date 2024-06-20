@@ -1,8 +1,9 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import data from "../data.json";
 import router from "../router.js";
+import { marked } from "marked";
 
 const route = useRoute();
 
@@ -89,10 +90,12 @@ let dropdown = ref(false);
           </div>
         </div>
       </transition>
-      <div
-        class="scrollbar-hidden no-ligatures my-6 px-2 text-justify overflow-x-auto max-h-[calc(100dvh-25rem)]"
-        key="selected.name"
-        v-html="selected.text" />
+      <transition name="fade">
+        <div
+          class="content-div scrollbar-hidden no-ligatures my-6 px-2 text-justify overflow-x-auto max-h-[calc(100dvh-25rem)]"
+          :key="selected.name"
+          v-html="selected.text" />
+      </transition>
     </div>
   </div>
 </template>
@@ -117,7 +120,48 @@ let dropdown = ref(false);
   transform: translateY(-20%);
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  position: absolute;
+}
+
+.fade-enter-from,
+.fade-leave {
+  opacity: 0;
+  position: absolute;
+}
+
 .chip {
   transition: background-color 0.5s ease;
+}
+
+:deep(h2) {
+  @apply text-xl font-bold mt-2 mb-3;
+}
+
+:deep(p) {
+  @apply text-justify;
+}
+
+:deep(img) {
+  @apply w-full lg:w-1/2;
+}
+
+:deep(.content-div > div) {
+  @apply flex flex-col gap-3 mt-3 lg:flex-row overflow-hidden;
+}
+
+:deep(a) {
+  @apply text-yellow;
+}
+
+:deep(code) {
+  @apply text-green font-bold;
 }
 </style>
