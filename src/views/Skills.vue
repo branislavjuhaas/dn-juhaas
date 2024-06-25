@@ -3,7 +3,6 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import data from "../data.json";
 import router from "../router.js";
-import { marked } from "marked";
 
 const route = useRoute();
 
@@ -23,7 +22,10 @@ let dropdown = ref(false);
 
 <template>
   <div>
-    <h1 class="text-5xl font-bold">What do I do?</h1>
+    <h1 class="text-5xl font-bold text-pretty">
+      <span class="inline-block">What do I do?&nbsp;</span>
+      <span class="inline-block">-> {{ selected.name }}</span>
+    </h1>
     <div class="relative mt-6">
       <div
         class="relative grid grid-cols-[1.25rem_1fr_1.25rem] gap-3 z-10 items-center justify-center px-[0.88rem] py-[0.35rem] bg-yellow text-black rounded-2xl border-black border-2 hover:bg-red dark:border-white xl:hidden"
@@ -92,7 +94,7 @@ let dropdown = ref(false);
       </transition>
       <transition name="fade">
         <div
-          class="content-div scrollbar-hidden no-ligatures my-6 px-2 text-justify overflow-x-auto max-h-[calc(100dvh-25rem)]"
+          class="content-div scrollbar-hidden rounded-2xl no-ligatures my-6 px-2 text-justify overflow-x-auto max-h-[calc(100dvh-30rem)] xl:max-h-[calc(100dvh-25rem)] mb-6"
           :key="selected.name"
           v-html="selected.text" />
       </transition>
@@ -150,11 +152,15 @@ let dropdown = ref(false);
 }
 
 :deep(img) {
-  @apply w-full lg:w-1/2;
+  @apply w-full rounded-2xl sm:w-[calc(50%-0.375rem)];
 }
 
 :deep(.content-div > div) {
-  @apply flex flex-col gap-3 mt-3 lg:flex-row overflow-hidden;
+  @apply flex flex-col gap-3 mt-3 sm:flex-row overflow-hidden;
+}
+
+:deep(.content-div > div img:not(:first-child)) {
+  @apply hidden sm:block;
 }
 
 :deep(a) {
