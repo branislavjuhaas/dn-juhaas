@@ -10,19 +10,31 @@
       </router-link>
       <div class="col-start-3 text-base hidden sm:flex cursor-default">
         <p>
-          <router-link class="duration-300 hover:text-blue-light" to="/">
+          <router-link
+            exact
+            class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+            to="/">
             Home
           </router-link>
           |
-          <router-link class="duration-300 hover:text-blue-light" to="/skills">
+          <router-link
+            exact
+            class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+            to="/skills">
             Skills
           </router-link>
           |
-          <router-link class="duration-300 hover:text-blue-light" to="/dn">
+          <router-link
+            exact
+            class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+            to="/dn">
             DN Family
           </router-link>
           |
-          <router-link class="duration-300 hover:text-blue-light" to="/contact">
+          <router-link
+            exact
+            class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+            to="/contact">
             Contact
           </router-link>
         </p>
@@ -31,4 +43,8 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-active {
+  @apply font-bold text-black dark:text-white;
+}
+</style>

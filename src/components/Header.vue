@@ -3,24 +3,41 @@
 <template>
   <div
     class="flex flex-col border-b-2 border-black dark:border-white h-14 items-center justify-center px-[20px] cursor-default">
+    <p></p>
     <p>
-      <router-link class="duration-300 hover:text-blue-light" to="/">
+      <router-link
+        exact
+        class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+        to="/">
         Home
       </router-link>
       |
-      <router-link class="duration-300 hover:text-blue-light" to="/skills">
+      <router-link
+        exact
+        class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+        to="/skills">
         Skills
       </router-link>
       |
-      <router-link class="duration-300 hover:text-blue-light" to="/dn">
+      <router-link
+        exact
+        class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+        to="/dn">
         DN Family
       </router-link>
       |
-      <router-link class="duration-300 hover:text-blue-light" to="/contact">
+      <router-link
+        exact
+        class="duration-300 hover:text-blue-dark dark:hover:text-blue-light"
+        to="/contact">
         Contact
       </router-link>
     </p>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-active {
+  @apply font-bold text-black dark:text-white;
+}
+</style>
