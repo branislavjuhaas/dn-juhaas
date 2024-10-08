@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex flex-col border-b-2 border-black dark:border-white h-14 items-center justify-center px-[20px] cursor-default">
+    class="flex flex-col border-b-2 fixed top-0 w-full z-10 bg-blue-light dark:bg-blue-dark border-black dark:border-white h-14 items-center justify-center px-[20px] cursor-default">
     <p></p>
     <p>
       <router-link

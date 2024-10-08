@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex flex-col border-t-2 border-black dark:border-white h-14 items-center px-[20px]">
+    class="flex flex-col fixed bottom-0 w-full bg-blue-light dark:bg-blue-dark z-10 border-t-2 border-black dark:border-white h-14 items-center px-[20px]">
     <div
       class="flex flex-col justify-center items-center max-w-[1440px] h-full w-full sm:grid sm:grid-cols-[auto_1fr_auto]">
       <router-link to="/" class="font-bold text-xl">

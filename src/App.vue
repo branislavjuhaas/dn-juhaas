@@ -5,13 +5,13 @@ import Header from "./components/Header.vue";
 </script>
 
 <template>
-  <div
-    class="grid grid-cols-1 grid-rows-[auto_1fr_auto] w-full h-full sm:grid-rows-[1fr_auto]">
+  <div class="flex flex-col w-full h-full">
     <Header class="sm:hidden" />
-    <div class="flex flex-col items-center px-[20px] overflow-hidden">
+    <div
+      class="flex flex-col w-full h-full items-center px-[20px] overflow-hidden">
       <router-view
         v-slot="{ Component }"
-        class="max-w-[1440px] pt-[6.5rem] h-full w-full overflow-hidden relative sm:pt-[10rem]">
+        class="max-w-[1440px] pt-[9.5rem] h-full pb-14 w-full overflow-hidden relative sm:pt-[10rem]">
         <transition name="slide-fade" mode="out-in">
           <component :is="Component" />
         </transition>
