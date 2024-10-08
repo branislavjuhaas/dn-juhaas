@@ -31,6 +31,11 @@ const routes = [
     component: () => import("./views/Contact.vue"),
   },
   {
+    path: "/document/:id",
+    name: "Document",
+    component: () => import("./views/Document.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*", // 404
     name: "404",
     component: () => import("./views/Error.vue"),
