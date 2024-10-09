@@ -17,7 +17,9 @@ onMounted(async () => {
   if (docSnap.exists()) {
     documentData.value = docSnap.data();
   } else {
-    console.log("No such document!");
+    documentData.value = {
+      content: "<h1>Document -> Not Found</h1>",
+    };
   }
 });
 </script>
@@ -39,5 +41,6 @@ onMounted(async () => {
 :deep(p) {
   /* Document content v-html's p with proper paragraph spacing and justification */
   @apply text-justify my-4;
+  font-variant-ligatures: no-common-ligatures;
 }
 </style>
