@@ -15,8 +15,6 @@ export default defineNuxtConfig({
     public: {
       githubUrl: process.env.GITHUB_URL || "",
       linkedinUrl: process.env.LINKEDIN_URL || "",
-
-      // Years from 1.5.2022 to today (build date)
       yearsOfExperience: Math.floor(
         (new Date().getTime() - new Date("2022-05-01").getTime()) /
           (1000 * 60 * 60 * 24 * 365.25),

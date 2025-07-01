@@ -23,8 +23,9 @@
   --delay: 0s;
 
   font-size: 12px;
+  font-family: "Space Mono", monospace;
 
-  @apply bg-peach text-ebony font-[Space_Mono] font-normal;
+  @apply bg-peach text-ebony font-normal;
 }
 
 /* body {
