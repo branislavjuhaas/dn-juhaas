@@ -26,6 +26,14 @@ const message = computed(() => {
       };
   }
 });
+
+const goHomeAndReload = () => {
+  window.location.href = "/";
+  // If already on '/', force reload
+  if (window.location.pathname === "/") {
+    window.location.reload();
+  }
+};
 </script>
 
 <template>
@@ -40,10 +48,10 @@ const message = computed(() => {
             </p>
           </div>
           <div class="error-home-link">
-            <NuxtLink to="/">
+            <button @click="goHomeAndReload" class="reload-btn">
               <Icon name="ph:house-line" />
               Return Home
-            </NuxtLink>
+            </button>
           </div>
           <p class="error-status-code">
             {{ String(props.error.statusCode).replaceAll("0", "O") }}
@@ -97,16 +105,21 @@ const message = computed(() => {
   align-items: center;
   margin-bottom: 56px;
 }
-.error-home-link a {
+.reload-btn {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
   color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
   text-decoration: none;
   transition: color 0.2s;
+  padding: 0;
 }
-.error-home-link a:hover {
+.reload-btn:hover {
   color: #496580; /* ocean color */
 }
 .error-status-code {
