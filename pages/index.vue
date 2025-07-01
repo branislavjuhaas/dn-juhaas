@@ -2,7 +2,7 @@
   <div class="flex flex-col h-full justify-between relative">
     <div class="flex flex-col">
       <div class="flex flex-col sm:flex-row text-nowrap">
-        <h1 class="font-normal!">Meet Branislav&nbsp;</h1>
+        <h1>Meet Branislav&nbsp;</h1>
         <h1>&rarr; {{ animatedTitle }}</h1>
       </div>
       <transition name="fade" mode="out-in">
