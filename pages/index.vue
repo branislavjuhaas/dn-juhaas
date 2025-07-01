@@ -2,12 +2,14 @@
   <div class="flex flex-col h-full justify-between relative">
     <div class="flex flex-col">
       <div class="flex flex-col sm:flex-row text-nowrap">
-        <h1 class="font-normal!">I'm Branislav&nbsp;</h1>
-        <h1>&rarr; Developer</h1>
+        <h1 class="font-normal!">Meet Branislav&nbsp;</h1>
+        <h1>&rarr; {{ animatedTitle }}</h1>
       </div>
-      <p class="ml-0.75">
-        The best brainfuck developer on the planet with 1000+ projects
-      </p>
+      <transition name="fade" mode="out-in">
+        <p v-if="animatedSubtitle" :key="animatedSubtitle">
+          {{ animatedSubtitle }}
+        </p>
+      </transition>
       <div class="flex flex-row gap-3 mt-2 max-w-fill">
         <ContentButton
           to="/skills"
@@ -50,13 +52,45 @@
 </template>
 
 <script setup lang="ts">
+import { useTitleAnimator, type ITitle } from "~/composables/useTitleAnimator";
+import ContentButton from "~/components/content/button.vue";
+
 definePageMeta({
   layout: "minimal",
 });
+
+const titles: ITitle[] = [
+  {
+    title: "Developer",
+    subtitle: "The best brainfuck developer on the planet with 1000+ projects",
+  },
+  {
+    title: "Designer",
+    subtitle: "I design beautiful and functional user interfaces.",
+  },
+  {
+    title: "Student",
+    subtitle: "I am currently studying at the University of Life.",
+  },
+];
+const { animatedTitle, animatedSubtitle } = useTitleAnimator(
+  titles,
+  false,
+  true,
+);
 </script>
 
 <style scoped>
 @reference "./../assets/css/main.css";
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .social-link {
   @apply flex flex-row gap-2 items-center hover:text-ocean;
