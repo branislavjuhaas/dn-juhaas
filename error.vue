@@ -2,7 +2,13 @@
 import type { NuxtError } from "#app";
 
 const props = defineProps({
-  error: Object as () => NuxtError,
+  error: {
+    type: Object as () => NuxtError,
+    default: () => ({
+      statusCode: 500,
+      statusMessage: "Unknown error",
+    }),
+  },
 });
 
 const message = computed(() => {
@@ -48,7 +54,7 @@ const goHomeAndReload = () => {
             </p>
           </div>
           <div class="error-home-link">
-            <button @click="goHomeAndReload" class="reload-btn">
+            <button class="reload-btn" @click="goHomeAndReload">
               <Icon name="ph:house-line" />
               Return Home
             </button>
