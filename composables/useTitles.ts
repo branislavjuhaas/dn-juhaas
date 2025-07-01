@@ -1,8 +1,3 @@
-export interface ITitle {
-  title: string;
-  subtitle: string;
-}
-
 export function useTitles() {
   const config = useRuntimeConfig();
   return [
@@ -13,7 +8,7 @@ export function useTitles() {
     {
       title: "Designer",
       subtitle:
-        "Participating in international projects, creating minimalist user interfaces.",
+        "Participating in international projects, creating elegant user interfaces.",
     },
     {
       title: "Student",

@@ -1,9 +1,5 @@
 import { ref, onMounted, onUnmounted } from "vue";
-
-export interface ITitle {
-  title: string;
-  subtitle: string;
-}
+import type { ITitle } from "./useTitles";
 
 export const useTitleAnimator = (
   titleSubtitlePairs: ITitle[],
