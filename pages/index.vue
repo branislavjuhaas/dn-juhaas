@@ -52,27 +52,16 @@
 </template>
 
 <script setup lang="ts">
-import { useTitleAnimator, type ITitle } from "~/composables/useTitleAnimator";
+import { useTitleAnimator } from "~/composables/useTitleAnimator";
+import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
+
+const titles = useTitles();
 
 definePageMeta({
   layout: "minimal",
 });
 
-const titles: ITitle[] = [
-  {
-    title: "Developer",
-    subtitle: "The best brainfuck developer on the planet with 1000+ projects",
-  },
-  {
-    title: "Designer",
-    subtitle: "I design beautiful and functional user interfaces.",
-  },
-  {
-    title: "Student",
-    subtitle: "I am currently studying at the University of Life.",
-  },
-];
 const { animatedTitle, animatedSubtitle } = useTitleAnimator(
   titles,
   false,
