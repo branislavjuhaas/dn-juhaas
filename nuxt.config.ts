@@ -11,6 +11,10 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
   ],
   css: ["~/assets/css/main.css"],
+  app: {
+    pageTransition: { name: "slide-fade", mode: "out-in" },
+    layoutTransition: { name: "fade", mode: "out-in" },
+  },
   runtimeConfig: {
     public: {
       githubUrl: process.env.GITHUB_URL || "",
