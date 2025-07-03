@@ -6,6 +6,6 @@
 
 <style>
 body {
-  @apply overflow-y-scroll;
+  overflow-y: scroll;
 }
 </style>

@@ -6,6 +6,6 @@
 
 <style>
 body {
-  @apply overflow-hidden;
+  overflow: hidden;
 }
 </style>
