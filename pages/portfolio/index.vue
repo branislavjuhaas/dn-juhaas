@@ -33,9 +33,17 @@ useHead({
 // In the future, this can be replaced with a dynamic language selection based on user preference or locale.
 const lang = "sk";
 
-const portfolio = await queryCollection(`portfolio_${lang}`)
-  .order("development", "ASC")
-  .all();
+const portfolio = (
+  await queryCollection(`portfolio_${lang}`).order("development", "ASC").all()
+).sort((a, b) => {
+  const aStart = a.development?.start
+    ? new Date(a.development.start)
+    : new Date(0);
+  const bStart = b.development?.start
+    ? new Date(b.development.start)
+    : new Date(0);
+  return aStart.getTime() - bStart.getTime();
+});
 </script>
 
 <style scoped></style>
