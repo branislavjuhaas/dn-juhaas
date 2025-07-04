@@ -14,7 +14,14 @@ const portfolioSchema = z.object({
       message: "Status must be one of 'active', 'archived', or 'planned'",
     }),
   }),
-  tags: z.array(z.string()).optional(),
+  tags: z
+    .array(
+      z.object({
+        icon: z.string().min(1, "Tag icon is required"),
+        content: z.string().min(1, "Tag content is required"),
+      }),
+    )
+    .optional(),
   source: z.string().url("Source must be a valid URL").optional(),
   link: z.string().url("Link must be a valid URL").optional(),
 });
