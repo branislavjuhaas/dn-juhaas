@@ -37,12 +37,10 @@ jobs:
           if [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
-            echo "lockfile=yarn.lock" >> $GITHUB_OUTPUT
             exit 0
-          elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
+          elif [ -f "${{ github.workspace }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
-            echo "lockfile=package-lock.json" >> $GITHUB_OUTPUT
             exit 0
           else
             echo "Unable to determine package manager"
@@ -51,8 +49,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
-          # We cache based on the package manager, not the output of other steps
+          node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -65,31 +62,20 @@ jobs:
       - name: Restore cache
         uses: actions/cache@v4
         with:
-          # This path caches the .nuxt build directory and the node_modules directory
           path: |
+            dist
             .nuxt
-            node_modules
-          # --- FIX ---
-          # The cache key should be based on the lockfile, not the output directory.
-          # This ensures that if your dependencies change, the cache is invalidated.
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles(format('**/{0}', steps.detect-package-manager.outputs.lockfile)) }}
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Debug with tmate session
-        uses: mxschmitt/action-tmate@v3
       - name: Static HTML export with Nuxt
-        # Add an environment variable here if needed for the build
-        # env:
-        #   YOUR_ENV_VARIABLE: ${{ secrets.YOUR_SECRET }}
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # The output path for a `nuxt generate` command is typically `.output/public` in Nuxt 3
-          # Please double-check this path. Your log says `.output/public` but your workflow says `dist`.
-          path: ./.output/public
+          path: ./dist
 
   # Deployment job
   deploy:
