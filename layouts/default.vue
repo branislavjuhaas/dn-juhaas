@@ -53,5 +53,3 @@ body {
   overflow-y: scroll;
 }
 </style>
-
-<script setup lang="ts"></script>
