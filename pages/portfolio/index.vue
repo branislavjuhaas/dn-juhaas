@@ -33,11 +33,9 @@ useHead({
 // In the future, this can be replaced with a dynamic language selection based on user preference or locale.
 const lang = "sk";
 
-// const portfolio = queryCollection(`portfolio_${lang}`)
-//   .order("development", "ASC")
-//   .all();
-
-const portfolio: any = [];
+const portfolio = await queryCollection(`portfolio_${lang}`)
+  .order("development", "ASC")
+  .all();
 </script>
 
 <style scoped></style>
