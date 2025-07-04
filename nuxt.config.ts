@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   ],
   css: ["~/assets/css/main.css"],
   app: {
-    pageTransition: { name: "slide-fade", mode: "out-in" },
+    pageTransition: { name: "fade", mode: "out-in" },
     layoutTransition: { name: "fade", mode: "out-in" },
     head: {
       charset: "utf-8",
@@ -55,6 +55,11 @@ export default defineNuxtConfig({
         owner: "branislavjuhaas",
         url: "https://github.com/branislavjuhaas/dn-juhaas",
       },
+    },
+    watch: {
+      enabled: true,
+      port: 4000,
+      showURL: false,
     },
   },
 });

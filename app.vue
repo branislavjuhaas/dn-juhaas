@@ -11,7 +11,7 @@
 </template>
 
 <style scoped>
-.slide-fade-enter-active,
+/* .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition:
     transform 0.21s,
@@ -27,7 +27,7 @@
 .slide-fade-leave {
   opacity: 0;
   transform: translateY(0%);
-}
+} */
 
 .fade-enter-active,
 .fade-leave-active {
