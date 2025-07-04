@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="`/portfolio/${props.slug}`"
-    class="flex flex-col w-full rounded-2xl p-8 border-3 border-ebony gap-4 transition-colors duration-200"
+    class="flex flex-col w-full rounded-2xl p-8 border-2 border-ebony gap-4 transition-colors duration-200"
     :class="['card-' + (props.dark ? 'dark' : 'light')]">
     <div class="flex flex-col gap-0">
       <h4>{{ props.title }}</h4>
@@ -22,7 +22,7 @@
       v-if="props.image"
       :src="props.image"
       alt="Project image"
-      class="w-full aspect-video object-cover rounded-[0.625rem] border-3" />
+      class="w-full aspect-video object-cover rounded-[0.625rem] border-2" />
   </NuxtLink>
 </template>
 
