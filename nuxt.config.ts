@@ -49,4 +49,14 @@ export default defineNuxtConfig({
       },
     ],
   },
+  content: {
+    preview: {
+      api: "https://api.nuxt.studio",
+      gitInfo: {
+        name: "dn-juhaas",
+        owner: "branislavjuhaas",
+        url: "https://github.com/branislavjuhaas/dn-juhaas",
+      },
+    },
+  },
 });
