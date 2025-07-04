@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full gap-8">
     <h1>Selection of the finest work</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-12">
       <PortfolioCard
         v-for="(item, index) in portfolio"
         :key="item.id"
@@ -37,17 +37,10 @@ useHead({
 // In the future, this can be replaced with a dynamic language selection based on user preference or locale.
 const lang = "sk";
 
-const portfolio = (
-  await queryCollection(`portfolio_${lang}`).order("development", "ASC").all()
-).sort((a, b) => {
-  const aStart = a.development?.start
-    ? new Date(a.development.start)
-    : new Date(0);
-  const bStart = b.development?.start
-    ? new Date(b.development.start)
-    : new Date(0);
-  return aStart.getTime() - bStart.getTime();
-});
+//Sort alphabetically by development.start
+const portfolio = await queryCollection(`portfolio_${lang}`)
+  .order("development", "ASC")
+  .all();
 </script>
 
 <style scoped></style>

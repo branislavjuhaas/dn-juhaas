@@ -14,7 +14,6 @@ technology: Vue Js
 development:
   start: 2024-05-09
   status: active
-  end: 2024-07-13
 link: http://debrief.sda.sk
 image: /thumbnails/dn-cascade.png
 ---
