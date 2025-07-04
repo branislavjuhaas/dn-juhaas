@@ -23,8 +23,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      githubUrl: process.env.GITHUB_URL || "",
-      linkedinUrl: process.env.LINKEDIN_URL || "",
       yearsOfExperience: Math.floor(
         (new Date().getTime() - new Date("2022-05-01").getTime()) /
           (1000 * 60 * 60 * 24 * 365.25),

@@ -28,7 +28,7 @@
         class="mb-14 max-md:bg-peach px-4 py-2 border-2 rounded-2xl md:p-0 md:rounded-none md:border-0 flex flex-row gap-8">
         <a
           class="social-link"
-          :href="$config.public.githubUrl"
+          href="https://github.com/branislavjuhaas"
           target="_blank"
           rel="noopener noreferrer">
           <Icon name="ph:github-logo" />
@@ -36,7 +36,7 @@
         </a>
         <a
           class="social-link"
-          :href="$config.public.linkedinUrl"
+          href="https://www.linkedin.com/in/juhaas/"
           target="_blank"
           rel="noopener noreferrer">
           <Icon name="ph:linkedin-logo" />
@@ -47,7 +47,7 @@
     <img
       src="./../assets/images/juhaas.webp"
       alt="Branislav's photo"
-      class="absolute aspect-square w-125 right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-cover" >
+      class="absolute aspect-square w-125 right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-cover" />
   </div>
 </template>
 
