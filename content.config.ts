@@ -2,6 +2,7 @@ import { defineCollection, z } from "@nuxt/content";
 
 const portfolioSchema = z.object({
   name: z.string().min(1, "Name is required"),
+  slug: z.string().min(1, "Slug is required"),
   description: z.string().min(1, "Description is required"),
   image: z.string().url("Image must be a valid URL"),
   platform: z.string(),
