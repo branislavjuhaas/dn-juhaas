@@ -47,7 +47,7 @@
     <img
       src="./../assets/images/juhaas.webp"
       alt="Branislav's photo"
-      class="absolute aspect-square w-125 right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-cover" />
+      class="absolute aspect-square w-125 right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-cover" >
   </div>
 </template>
 
@@ -57,9 +57,16 @@ import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
 
 const titles = useTitles();
-
 definePageMeta({
   layout: "minimal",
+});
+
+useHead({
+  title: "Home",
+});
+
+useSeoMeta({
+  title: "Home",
 });
 
 const { animatedTitle, animatedSubtitle } = useTitleAnimator(
