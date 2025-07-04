@@ -3,3 +3,7 @@
     <slot />
   </div>
 </template>
+
+<style scoped>
+@reference "./../assets/css/main.css";
+</style>
