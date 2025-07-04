@@ -67,13 +67,13 @@ const getYearRange = (development: { start: string; end?: string }): string => {
         </div>
       </div>
       <div class="flex flex-row gap-8">
-        <NuxtLink to="/portfolio" class="social-link">
+        <NuxtLink to="/portfolio" class="social-link-dark">
           <Icon name="ph:arrow-u-up-left" />
           Return
         </NuxtLink>
         <a
           v-if="project?.link"
-          class="social-link"
+          class="social-link-dark"
           :href="project?.link"
           target="_blank"
           rel="noopener noreferrer">
@@ -82,7 +82,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
         </a>
         <a
           v-if="project?.source"
-          class="social-link"
+          class="social-link-dark"
           :href="project?.source"
           target="_blank"
           rel="noopener noreferrer">
