@@ -48,8 +48,4 @@
 .router-link-active {
   @apply font-bold;
 }
-
-body {
-  overflow-y: scroll;
-}
 </style>

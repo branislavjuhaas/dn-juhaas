@@ -28,9 +28,9 @@
   @apply bg-peach text-ebony font-normal;
 }
 
-/* body {
-  @apply overflow-y-scroll;
-} */
+body {
+  @apply overflow-y-auto;
+}
 
 h1 {
   @apply font-bold text-5xl mb-2 text-left uppercase;

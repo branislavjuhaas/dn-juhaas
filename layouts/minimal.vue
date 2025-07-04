@@ -3,9 +3,3 @@
     <slot />
   </div>
 </template>
-
-<style>
-body {
-  overflow: hidden;
-}
-</style>
