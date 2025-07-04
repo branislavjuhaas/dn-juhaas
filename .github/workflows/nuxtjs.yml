@@ -77,6 +77,8 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Debug with tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Static HTML export with Nuxt
         # Add an environment variable here if needed for the build
         # env:
