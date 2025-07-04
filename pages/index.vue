@@ -87,8 +87,4 @@ const { animatedTitle, animatedSubtitle } = useTitleAnimator(
 .fade-leave-to {
   opacity: 0;
 }
-
-.social-link {
-  @apply flex flex-row gap-2 items-center hover:text-ocean;
-}
 </style>
