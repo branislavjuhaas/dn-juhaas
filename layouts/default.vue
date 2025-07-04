@@ -1,0 +1,55 @@
+<template>
+  <div>
+    <header
+      class="fixed top-0 left-0 w-full h-16 px-5 bg-white flex items-center border-b-2">
+      <div
+        class="flex flex-row items-center justify-between w-full max-w-content mx-auto">
+        <NuxtLink
+          to="/"
+          class="uppercase font-bold text-ebony hover:text-ocean transition-colors duration-200">
+          <span class="max-[400px]:hidden">Branislav</span>
+          Juhaas
+        </NuxtLink>
+        <nav>
+          <ul class="flex space-x-2 uppercase nav-list">
+            <li class="max-[420px]:hidden">
+              <NuxtLink to="/" class="nav-link">Home</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/portfolio" class="nav-link">Portfolio</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/skills" class="nav-link">Skills</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/about" class="nav-link">About</NuxtLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <slot />
+  </div>
+</template>
+
+<style scoped>
+@reference "./../assets/css/main.css";
+
+.nav-link {
+  @apply text-ebony hover:text-ocean transition-colors duration-200;
+}
+
+.nav-list li:not(:last-child)::after {
+  content: "|";
+  color: var(--color-ebony);
+  margin-left: 0.5rem;
+}
+
+.router-link-active {
+  @apply font-bold;
+}
+
+body {
+  overflow-y: scroll;
+}
+</style>

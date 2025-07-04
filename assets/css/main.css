@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-peach: #ffdbbb;
+  --color-ebony: #222428;
+  --color-white: #bafff5;
+  --color-sky: #baddff;
+  --color-ocean: #496580;
+  --color-transparent: transparent;
+
+  --spacing-content: 1300px;
+  --radius-5: 1.25rem;
+
+  --font-family-mono: "Space Mono", monospace;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --delay: 0s;
+
+  font-size: 12px;
+  font-family: "Space Mono", monospace;
+
+  @apply bg-peach text-ebony font-normal;
+}
+
+/* body {
+  @apply overflow-y-scroll;
+} */
+
+h1 {
+  @apply font-bold text-5xl mb-2 text-left uppercase;
+}
+
+h2 {
+  @apply font-bold text-4xl mb-2 text-left;
+}
+
+h3 {
+  @apply font-bold text-3xl mb-2 text-left;
+}
+
+h4 {
+  @apply font-bold text-2xl text-left uppercase;
+}
+
+h5 {
+  @apply font-bold text-xl mb-2 text-left;
+}
+
+h6 {
+  @apply font-bold text-base mb-2 text-left;
+}
+
+.icon {
+  @apply shrink-0;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
