@@ -14,6 +14,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "slide-fade", mode: "out-in" },
     layoutTransition: { name: "fade", mode: "out-in" },
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+      titleTemplate: "%s | Branislav Juhaas",
+      title: "Branislav Juhaas",
+    },
   },
   runtimeConfig: {
     public: {
