@@ -19,6 +19,7 @@ const portfolioSchema = z.object({
       z.object({
         icon: z.string().min(1, "Tag icon is required"),
         content: z.string().min(1, "Tag content is required"),
+        link: z.string().url("Link must be a valid URL").optional(),
       }),
     )
     .optional(),
