@@ -14,6 +14,16 @@ if (!project) {
   throw createError({ statusCode: 404, statusMessage: "Project not found" });
 }
 
+useHead({
+  title: project.name,
+  meta: [
+    {
+      name: "description",
+      content: project.description,
+    },
+  ],
+});
+
 const icon = (status: "active" | "archived" | "planned") => {
   switch (status) {
     case "active":

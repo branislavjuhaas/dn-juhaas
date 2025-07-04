@@ -23,4 +23,4 @@ seo:
 
 # DN Juhaas
 
-This is a personal project that serves as a collection of my notes, projects, and skills. It is built using Nuxt with TypeScript and is currently in [active development](/development)
+This is a personal project that serves as a collection of my notes, projects, and skills. It is built using Nuxt with TypeScript and is currently in development.
