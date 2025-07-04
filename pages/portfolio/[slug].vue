@@ -2,6 +2,10 @@
 import { NuxtLink } from "#components";
 import ContentChip from "~/components/content/chip.vue";
 
+definePageMeta({
+  layout: "default",
+});
+
 const lang = "sk";
 
 const route = useRoute();

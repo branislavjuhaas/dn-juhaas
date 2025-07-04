@@ -18,6 +18,10 @@
 <script setup lang="ts">
 import { PortfolioCard } from "#components";
 
+definePageMeta({
+  layout: "default",
+});
+
 useHead({
   title: "Portfolio",
   meta: [
