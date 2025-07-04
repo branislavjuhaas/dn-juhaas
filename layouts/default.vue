@@ -7,21 +7,22 @@
         <NuxtLink
           to="/"
           class="uppercase font-bold text-ebony hover:text-ocean transition-colors duration-200">
-          Branislav Juhaas
+          <span class="max-[400px]:hidden">Branislav</span>
+          Juhaas
         </NuxtLink>
         <nav>
           <ul class="flex space-x-2 uppercase nav-list">
-            <li>
+            <li class="max-[420px]:hidden">
               <NuxtLink to="/" class="nav-link">Home</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/about" class="nav-link">About</NuxtLink>
+              <NuxtLink to="/portfolio" class="nav-link">Portfolio</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/skills" class="nav-link">Skills</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/portfolio" class="nav-link">Portfolio</NuxtLink>
+              <NuxtLink to="/about" class="nav-link">About</NuxtLink>
             </li>
           </ul>
         </nav>
