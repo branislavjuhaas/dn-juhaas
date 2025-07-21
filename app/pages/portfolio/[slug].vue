@@ -45,7 +45,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
   if (development.end) {
     const endYear = development.end.split("-")[0];
     if (startYear === endYear) {
-      return startYear;
+      return startYear ?? "N/A";
     }
     return `${startYear} - ${endYear}`;
   }
@@ -66,6 +66,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
             accent />
           <ContentChip
             v-for="tag in project?.tags || []"
+            :key="tag.content"
             :title="tag.content"
             :icon="tag.icon" />
         </div>
@@ -96,9 +97,9 @@ const getYearRange = (development: { start: string; end?: string }): string => {
       </div>
     </div>
     <ContentRenderer
+      v-if="project"
       class="xl:col-start-2 text-justify"
-      :value="project"
-      v-if="project" />
+      :value="project" />
   </div>
 </template>
 
