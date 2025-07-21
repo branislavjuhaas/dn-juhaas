@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/tailwindcss",
   ],
-  css: ["~/assets/css/main.css"],
+  css: ["~/app/assets/css/main.css"],
   app: {
     pageTransition: { name: "fade", mode: "out-in" },
     layoutTransition: { name: "fade", mode: "out-in" },
