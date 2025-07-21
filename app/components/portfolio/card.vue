@@ -21,7 +21,7 @@
       v-if="props.image"
       :src="props.image"
       alt="Project image"
-      class="w-full aspect-video object-cover rounded-[0.625rem] border-2" />
+      class="w-full aspect-video object-cover rounded-[0.625rem] border-2" >
   </NuxtLink>
 </template>
 
