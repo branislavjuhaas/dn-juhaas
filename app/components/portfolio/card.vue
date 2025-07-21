@@ -1,8 +1,7 @@
 <template>
   <NuxtLink
     :to="`/portfolio/${props.slug}`"
-    class="flex flex-col w-full rounded-2xl p-8 border-2 border-ebony gap-4 transition-colors duration-200"
-    :class="['card-' + (props.dark ? 'dark' : 'light')]">
+    class="flex flex-col w-full rounded-2xl p-8 border-2 border-ebony gap-4 transition-colors duration-200 text-ebony hover:bg-ebony hover:text-peach">
     <div class="flex flex-col gap-0">
       <h4>{{ props.title }}</h4>
       <div class="flex flex-row gap-2">
@@ -35,17 +34,9 @@ const props = defineProps<{
   platform: string;
   technology: string;
   image: string;
-  dark?: boolean;
 }>();
 </script>
 
 <style scoped>
 @reference "./../../assets/css/main.css";
-
-.card-dark {
-  @apply bg-ebony text-peach hover:bg-peach hover:text-ebony;
-}
-.card-light {
-  @apply text-ebony hover:bg-ebony hover:text-peach;
-}
 </style>
