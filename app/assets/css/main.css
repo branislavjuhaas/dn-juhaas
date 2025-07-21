@@ -29,7 +29,7 @@
 }
 
 body {
-  @apply overflow-y-auto;
+  @apply overflow-y-scroll;
 }
 
 h1 {
