@@ -2,7 +2,7 @@
   <div class="flex flex-col h-[calc(100dvh-12.5rem)] justify-between relative">
     <div class="flex flex-col">
       <div class="flex flex-col sm:flex-row text-nowrap">
-        <h1>Meet Branislav&nbsp;</h1>
+        <h1>{{ $t("home.greeting") }}&nbsp;</h1>
         <h1>&rarr; {{ animatedTitle }}</h1>
       </div>
       <transition name="fade" mode="out-in">
@@ -13,14 +13,17 @@
       <div class="flex flex-row gap-3 mt-2 max-w-fill">
         <ContentButton
           to="/portfolio"
-          text="Portfolio"
+          :text="$t('home.portfolio')"
           icon="ph:flag-banner-fold-fill"
           accent />
         <ContentButton
           to="/skills"
-          text="My skills"
+          :text="$t('home.skills')"
           icon="ph:certificate-fill" />
-        <ContentButton to="/about" text="Learn more" icon="ph:signpost-fill" />
+        <ContentButton
+          to="/about"
+          :text="$t('home.more')"
+          icon="ph:signpost-fill" />
       </div>
     </div>
     <div class="w-full md:w-fit flex flex-col items-center">

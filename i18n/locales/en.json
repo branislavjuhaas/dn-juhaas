@@ -1,0 +1,30 @@
+{
+  "home": {
+    "greeting": "Meet Branislav",
+    "portfolio": "Portfolio",
+    "skills": "My skills",
+    "more": "Learn more",
+    "titles": {
+      "developer": {
+        "title": "Developer",
+        "subtitle": "Professional with {yearsOfExperience} years of industry experience, specializing in web development."
+      },
+      "designer": {
+        "title": "Designer",
+        "subtitle": "Participating in international projects, creating elegant user interfaces."
+      },
+      "student": {
+        "title": "Student",
+        "subtitle": "Educated at the best grammar school Slovakia. Graduating with academic honors."
+      },
+      "debater": {
+        "title": "Debater",
+        "subtitle": "The 2024 champion of Slovakia, excellent public speaker and critical thinker."
+      },
+      "volunteer": {
+        "title": "Volunteer",
+        "subtitle": "Manager of critical infrastructure at SDA, ex-leader of the boy-scout unit."
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "home": {
+    "greeting": "Som Branislav",
+    "portfolio": "Portfólio",
+    "skills": "Zručnosti",
+    "more": "Zisti viac",
+    "titles": {
+      "developer": {
+        "title": "Vývojár",
+        "subtitle": "Profesionál s {yearsOfExperience}-mi rokmi skúseností, špecializujúci sa na webový vývoj."
+      },
+      "designer": {
+        "title": "Dizajnér",
+        "subtitle": "Prispievateľ do medzinárodných projektov, tvorca elegantných rozhraní."
+      },
+      "student": {
+        "title": "Študent",
+        "subtitle": "Vzdelávaný na najlepšom gymnáziu Slovenska prospievajúci s vyznamenaním."
+      },
+      "debater": {
+        "title": "Debatér",
+        "subtitle": "Majster Slovenska roku 2024, excelentný rečník a kritický mysliteľ."
+      },
+      "volunteer": {
+        "title": "Dobrovoľník",
+        "subtitle": "Manažér kritickej softvérovej infraštruktúry SDA, bývalý vedúci skautskej družiny."
+      }
+    }
+  }
+}

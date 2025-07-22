@@ -1,29 +1,31 @@
+import { useI18n } from "vue-i18n";
+
 export function useTitles() {
+  const { t } = useI18n();
   const config = useRuntimeConfig();
+
   return [
     {
-      title: "Developer",
-      subtitle: `Professional with ${config.public.yearsOfExperience} years of industry experience, specializing in web development.`,
+      title: t("home.titles.developer.title"),
+      subtitle: t("home.titles.developer.subtitle", {
+        yearsOfExperience: config.public.yearsOfExperience,
+      }),
     },
     {
-      title: "Designer",
-      subtitle:
-        "Participating in international projects, creating elegant user interfaces.",
+      title: t("home.titles.designer.title"),
+      subtitle: t("home.titles.designer.subtitle"),
     },
     {
-      title: "Student",
-      subtitle:
-        "Educated at the best grammar school Slovakia. Graduating with academic honors.",
+      title: t("home.titles.student.title"),
+      subtitle: t("home.titles.student.subtitle"),
     },
     {
-      title: "Debater",
-      subtitle:
-        "The 2024 champion of Slovakia, excellent public speaker and critical thinker.",
+      title: t("home.titles.debater.title"),
+      subtitle: t("home.titles.debater.subtitle"),
     },
     {
-      title: "Volunteer",
-      subtitle:
-        "Manager of critical infrastructure at SDA, ex-leader of the boy-scout unit.",
+      title: t("home.titles.volunteer.title"),
+      subtitle: t("home.titles.volunteer.subtitle"),
     },
   ];
 }
