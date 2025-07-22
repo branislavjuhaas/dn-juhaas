@@ -29,6 +29,18 @@
     <div class="w-full md:w-fit flex flex-col items-center">
       <div
         class="mb-14 max-md:bg-peach px-4 py-2 border-2 rounded-2xl md:p-0 md:rounded-none md:border-0 flex flex-row gap-8">
+        <div class="lang flex items-center gap-1">
+          <Icon
+            class="transition-colors duration-200"
+            name="ph:globe-hemisphere-west" />
+          <NuxtLink :to="$switchLocalePath('en')" class="social-link">
+            EN
+          </NuxtLink>
+          /
+          <NuxtLink :to="$switchLocalePath('sk')" class="social-link">
+            SK
+          </NuxtLink>
+        </div>
         <a
           class="social-link"
           href="https://github.com/branislavjuhaas"
@@ -50,7 +62,7 @@
     <img
       src="./../assets/images/juhaas.webp"
       alt="Branislav's photo"
-      class="absolute aspect-square w-125 max-h-[calc(100dvh-30rem)] md:max-h-[calc(100dvh-20rem)] xl:max-h-none right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-contain" >
+      class="absolute aspect-square w-125 max-h-[calc(100dvh-30rem)] md:max-h-[calc(100dvh-20rem)] xl:max-h-none right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-contain" />
   </div>
 </template>
 
@@ -94,6 +106,10 @@ const { animatedTitle, animatedSubtitle } = useTitleAnimator(
 
 <style scoped>
 @reference "./../assets/css/main.css";
+
+.router-link-active {
+  @apply font-bold;
+}
 
 .fade-enter-active,
 .fade-leave-active {

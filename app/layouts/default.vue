@@ -12,11 +12,6 @@
         </NuxtLink>
         <nav>
           <ul class="flex space-x-2 uppercase nav-list">
-            <li class="max-[420px]:hidden">
-              <NuxtLink :to="$localePath('/')" class="nav-link">
-                {{ $t("header.home") }}
-              </NuxtLink>
-            </li>
             <li>
               <NuxtLink :to="$localePath('portfolio')" class="nav-link">
                 {{ $t("header.portfolio") }}
@@ -32,6 +27,11 @@
                 {{ $t("header.about") }}
               </NuxtLink>
             </li>
+            <li>
+              <NuxtLink :to="$switchLocalePath('en')">EN</NuxtLink>
+              /
+              <NuxtLink :to="$switchLocalePath('sk')">SK</NuxtLink>
+            </li>
           </ul>
         </nav>
       </div>
@@ -44,7 +44,7 @@
 @reference "./../assets/css/main.css";
 
 .nav-link {
-  @apply text-ebony hover:text-ocean transition-colors duration-200;
+  @apply text-ebony hover:text-ocean transition-colors duration-200 cursor-pointer;
 }
 
 .nav-list li:not(:last-child)::after {
