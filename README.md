@@ -23,6 +23,10 @@ The DN Juhaas website can be accessed through the following URL:
 4.  Start the development server by running `npm run dev`.
 5.  The application should now be running on your local machine at `http://localhost:3000`.
 
+## Deployment
+
+Deployed on GitHub Pages, deployed automatically via [GitHub Actions](https://github.com/branislavjuhaas/dn-juhaas/actions/workflows/nuxtjs.yml) on every push to the `main` branch.
+
 ## Remarks
 
 This project is a living portfolio and is subject to continuous updates and changes.
