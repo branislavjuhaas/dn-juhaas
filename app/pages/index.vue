@@ -33,13 +33,14 @@
           <Icon
             class="transition-colors duration-200"
             name="ph:globe-hemisphere-west" />
-          <NuxtLink :to="$switchLocalePath('en')" class="social-link">
-            EN
-          </NuxtLink>
-          /
-          <NuxtLink :to="$switchLocalePath('sk')" class="social-link">
-            SK
-          </NuxtLink>
+          <template v-for="(locale, index) in locales">
+            <span v-if="index > 0">/</span>
+            <NuxtLink
+              :to="$switchLocalePath(locale.code)"
+              class="social-link uppercase">
+              {{ locale.code }}
+            </NuxtLink>
+          </template>
         </div>
         <a
           class="social-link"
@@ -72,7 +73,7 @@ import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
 import { onBeforeUnmount, ref, watch } from "vue";
 
-const { t, locale } = useI18n();
+const { t, locale, locales } = useI18n();
 const i18nHead = useLocaleHead();
 
 useHead(() => ({

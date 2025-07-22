@@ -27,10 +27,15 @@
                 {{ $t("header.about") }}
               </NuxtLink>
             </li>
-            <li class="max-[420px]:hidden">
-              <NuxtLink :to="$switchLocalePath('en')">EN</NuxtLink>
-              /
-              <NuxtLink :to="$switchLocalePath('sk')">SK</NuxtLink>
+            <li class="max-[420px]:hidden flex items-center gap-1">
+              <template v-for="(locale, index) in locales">
+                <span v-if="index > 0">/</span>
+                <NuxtLink
+                  :to="$switchLocalePath(locale.code)"
+                  class="social-link">
+                  {{ locale.code }}
+                </NuxtLink>
+              </template>
             </li>
           </ul>
         </nav>
@@ -39,6 +44,11 @@
     <slot />
   </div>
 </template>
+
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { locales } = useI18n();
+</script>
 
 <style scoped>
 @reference "./../assets/css/main.css";
