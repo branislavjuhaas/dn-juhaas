@@ -18,7 +18,8 @@
           :dark="props.dark" />
       </div>
     </div>
-    <div class="flex flex-col overflow-hidden w-full! h-48! border-t-2">
+    <div
+      class="flex flex-col overflow-hidden w-full! h-48! border-t-2 border-ocean">
       <img
         v-if="props.image"
         :src="props.image"
