@@ -1,5 +1,10 @@
 {
-  "name": "nuxt-app",
+  "name": "dn-juhaas",
+  "version": "2.25.0.1",
+  "description": "Collection of personal notes, projects, and skills of Branislav Juhaas.",
+  "author": "Branislav Juhás",
+  "license": "MIT",
+  "homepage": "https://juhaas.com",
   "private": true,
   "type": "module",
   "scripts": {
