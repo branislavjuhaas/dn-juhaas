@@ -1,27 +1,38 @@
 <template>
   <NuxtLink
     :to="$localePath({ name: 'portfolio-slug', params: { slug: props.slug } })"
-    class="card flex flex-col w-full rounded-2xl border-2 border-ebony gap-4 transition-colors duration-200 overflow-hidden bg-ebony text-peach hover:bg-ocean">
+    class="card flex flex-col w-full rounded-2xl border-2 border-ebony gap-4 transition-colors duration-200 overflow-hidden bg-ebony text-peach hover:bg-ocean"
+    :aria-label="`View details for ${props.title}`"
+    role="link"
+    tabindex="0">
     <div class="flex flex-col gap-0 px-8 pt-5 pb-0">
-      <h4>{{ props.title }}</h4>
-      <div class="flex flex-row gap-2">
+      <h4 id="card-title-{{props.slug}}">{{ props.title }}</h4>
+      <div
+        class="flex flex-row gap-2"
+        aria-label="Project platform and technology">
         <ContentChip
           v-if="props.platform"
           :title="props.platform"
-          icon="ph:circuitry" />
+          icon="ph:circuitry"
+          aria-label="Platform: {{ props.platform }}" />
         <ContentChip
           v-if="props.technology"
           :title="props.technology"
-          icon="ph:git-branch" />
+          icon="ph:git-branch"
+          aria-label="Technology: {{ props.technology }}" />
       </div>
     </div>
     <div
-      class="flex flex-col overflow-hidden w-full! aspect-[17/8]! border-t-2 border-ocean">
+      class="flex flex-col overflow-hidden w-full! aspect-[17/8]! border-t-2 border-ocean"
+      role="img"
+      :aria-labelledby="`card-title-${props.slug}`">
       <img
         v-if="props.image"
         :src="props.image"
-        alt="Project image"
-        class="w-full h-full object-cover" />
+        :alt="`${props.title} project image`"
+        class="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async" />
     </div>
   </NuxtLink>
 </template>

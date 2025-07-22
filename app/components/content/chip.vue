@@ -3,10 +3,17 @@
     v-if="props.to || props.href"
     :to="props.to || props.href"
     class="chip"
-    :class="['chip-' + (props.accent ? 'accent' : 'default')]">
-    :target="props.to ? undefined : '_blank'" :rel="props.to ? undefined :
-    'noopener noreferrer'">
-    <Icon v-if="props.icon" :name="props.icon" />
+    :class="['chip-' + (props.accent ? 'accent' : 'default')]"
+    :target="props.to ? undefined : '_blank'"
+    :rel="props.to ? undefined : 'noopener noreferrer'"
+    :aria-label="ariaLabel"
+    role="link"
+    tabindex="0">
+    <Icon
+      v-if="props.icon"
+      :name="props.icon"
+      aria-hidden="true"
+      focusable="false" />
     <slot>
       {{ props.title }}
     </slot>
@@ -14,8 +21,16 @@
   <span
     v-else
     class="chip"
-    :class="['chip-' + (props.accent ? 'accent' : 'default')]">
-    <Icon v-if="props.icon" :name="props.icon" size="0.9375rem" />
+    :class="['chip-' + (props.accent ? 'accent' : 'default')]"
+    role="text"
+    :aria-label="ariaLabel"
+    tabindex="0">
+    <Icon
+      v-if="props.icon"
+      :name="props.icon"
+      size="0.9375rem"
+      aria-hidden="true"
+      focusable="false" />
     <slot>
       {{ props.title }}
     </slot>
@@ -30,6 +45,12 @@ const props = defineProps<{
   to?: string;
   accent?: boolean;
 }>();
+
+const ariaLabel = props.title
+  ? props.icon
+    ? `${props.title} (${props.icon})`
+    : props.title
+  : "Chip";
 </script>
 
 <style scoped>

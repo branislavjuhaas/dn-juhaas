@@ -5,8 +5,9 @@
     :target="target"
     :rel="rel"
     class="button"
-    :class="`button-${accent ? 'accent' : 'standard'}`">
-    <Icon v-if="icon" :name="icon" />
+    :class="`button-${accent ? 'accent' : 'standard'}`"
+    :aria-label="text">
+    <Icon v-if="icon" :name="icon" aria-hidden="true" />
     <slot>
       {{ text }}
     </slot>
@@ -17,8 +18,9 @@
     :target="target"
     :rel="rel"
     class="button"
-    :class="`button-${accent ? 'accent' : 'standard'}`">
-    <Icon v-if="icon" :name="icon" />
+    :class="`button-${accent ? 'accent' : 'standard'}`"
+    :aria-label="text">
+    <Icon v-if="icon" :name="icon" aria-hidden="true" />
     <slot>
       {{ text }}
     </slot>

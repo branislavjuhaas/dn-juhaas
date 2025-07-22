@@ -32,12 +32,19 @@
         <div class="lang flex items-center gap-1">
           <Icon
             class="transition-colors duration-200"
-            name="ph:globe-hemisphere-west" />
+            name="ph:globe-hemisphere-west"
+            aria-hidden="true" />
+          <span id="language-label" class="sr-only">
+            {{ $t("accessibility.languageLabel") }}
+          </span>
           <template v-for="(locale, index) in locales">
             <span v-if="index > 0">/</span>
             <NuxtLink
               :to="$switchLocalePath(locale.code)"
-              class="social-link uppercase">
+              class="social-link uppercase"
+              :aria-label="
+                $t('accessibility.switchLanguage', { language: locale.code })
+              ">
               {{ locale.code.substring(0, 2) }}
             </NuxtLink>
           </template>
@@ -46,16 +53,18 @@
           class="social-link"
           href="https://github.com/branislavjuhaas"
           target="_blank"
-          rel="noopener noreferrer">
-          <Icon name="ph:github-logo" />
+          rel="noopener noreferrer"
+          aria-label="GitHub (opens in a new tab)">
+          <Icon name="ph:github-logo" aria-hidden="true" />
           GitHub
         </a>
         <a
           class="social-link"
           href="https://www.linkedin.com/in/juhaas/"
           target="_blank"
-          rel="noopener noreferrer">
-          <Icon name="ph:linkedin-logo" />
+          rel="noopener noreferrer"
+          aria-label="LinkedIn (opens in a new tab)">
+          <Icon name="ph:linkedin-logo" aria-hidden="true" />
           LinkedIn
         </a>
       </div>
