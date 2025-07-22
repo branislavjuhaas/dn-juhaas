@@ -46,10 +46,10 @@ useSeoMeta({
 
 // Preparation for i18n: Language selection is currently hardcoded to "sk".
 // In the future, this can be replaced with a dynamic language selection based on user preference or locale.
-const lang = "sk";
+const { locale } = useI18n();
 
 //Sort alphabetically by development.start
-const portfolio = await queryCollection(`portfolio_${lang}`)
+const portfolio = await queryCollection(`portfolio_${locale.value}`)
   .order("development", "ASC")
   .all();
 </script>

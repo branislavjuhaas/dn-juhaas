@@ -1,7 +1,7 @@
 ---
 name: DN Juhaas
 slug: dn-juhaas
-description: Zbierka osobných dát, projektov a zručností Branislava Juhása.
+description: Collection of personal notes, projects, and skills of Branislav Juhás.
 platform: Web
 technology: Nuxt 4
 development:
@@ -18,7 +18,7 @@ source: https://github.com/branislavjuhaas/dn-juhaas
 title: DN Juhaas
 seo:
   title: DN Juhaas
-  description: Zbierka osobných poznámok, projektov a zručností Branislava Juhása.
+  description: Collection of personal notes, projects, and skills of Branislav Juhás.
 ---
 
 #
