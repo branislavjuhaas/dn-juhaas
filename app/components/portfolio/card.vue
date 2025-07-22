@@ -45,7 +45,7 @@ const props = defineProps<{
 @reference "./../../assets/css/main.css";
 
 .card-dark {
-  @apply bg-ebony text-peach;
+  @apply bg-ebony text-peach hover:bg-ocean;
 }
 .card-light {
   @apply text-ebony;
