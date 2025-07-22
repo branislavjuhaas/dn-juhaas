@@ -3,7 +3,7 @@
     <header
       class="fixed top-0 left-0 w-full h-16 px-5 bg-white flex items-center border-b-2 z-20">
       <div
-        class="flex flex-row items-center justify-between w-full max-w-content mx-auto">
+        class="flex flex-row items-center justify-between w-full max-w-content mx-auto gap-4">
         <NuxtLink
           :to="$localePath('/')"
           class="uppercase font-bold text-ebony hover:text-ocean transition-colors duration-200">
@@ -27,7 +27,7 @@
                 {{ $t("header.about") }}
               </NuxtLink>
             </li>
-            <li>
+            <li class="max-[420px]:hidden">
               <NuxtLink :to="$switchLocalePath('en')">EN</NuxtLink>
               /
               <NuxtLink :to="$switchLocalePath('sk')">SK</NuxtLink>
@@ -47,10 +47,10 @@
   @apply text-ebony hover:text-ocean transition-colors duration-200 cursor-pointer;
 }
 
-.nav-list li:not(:last-child)::after {
+.nav-list li:not(:first-child)::before {
   content: "|";
   color: var(--color-ebony);
-  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .router-link-active {

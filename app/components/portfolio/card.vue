@@ -16,12 +16,12 @@
       </div>
     </div>
     <div
-      class="flex flex-col overflow-hidden w-full! h-48! border-t-2 border-ocean">
+      class="flex flex-col overflow-hidden w-full! aspect-[17/8]! border-t-2 border-ocean">
       <img
         v-if="props.image"
         :src="props.image"
         alt="Project image"
-        class="w-full h-full object-cover" >
+        class="w-full h-full object-cover" />
     </div>
   </NuxtLink>
 </template>
