@@ -5,8 +5,10 @@ tags:
   - icon: ph:git-branch
     content: Development [Js]
 title: DN Cascade
+description: Comprehensive data management solution transforming organizational efficiency through intelligent technology.
 seo:
   title: DN Cascade
+  description: Comprehensive data management solution transforming organizational efficiency through intelligent technology.
 name: DN Cascade
 slug: dn-cascade
 platform: Web

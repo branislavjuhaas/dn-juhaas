@@ -5,8 +5,10 @@ tags:
   - icon: ph:git-branch
     content: Development [Js]
 title: DN Cascade
+description: Prehľadný systém správy dát, ktorý transformuje efektivitu organizácie prostredníctvom inteligentnej technológie.
 seo:
   title: DN Cascade
+  description: Prehľadný systém správy dát, ktorý transformuje efektivitu organizácie prostredníctvom inteligentnej technológie.
 name: DN Cascade
 slug: dn-cascade
 platform: Web
