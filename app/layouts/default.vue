@@ -5,7 +5,7 @@
       <div
         class="flex flex-row items-center justify-between w-full max-w-content mx-auto">
         <NuxtLink
-          to="/"
+          :to="$localePath('/')"
           class="uppercase font-bold text-ebony hover:text-ocean transition-colors duration-200">
           <span class="max-[400px]:hidden">Branislav</span>
           Juhaas
@@ -13,16 +13,24 @@
         <nav>
           <ul class="flex space-x-2 uppercase nav-list">
             <li class="max-[420px]:hidden">
-              <NuxtLink to="/" class="nav-link">Home</NuxtLink>
+              <NuxtLink :to="$localePath('/')" class="nav-link">
+                {{ $t("header.home") }}
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/portfolio" class="nav-link">Portfolio</NuxtLink>
+              <NuxtLink :to="$localePath('portfolio')" class="nav-link">
+                {{ $t("header.portfolio") }}
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/skills" class="nav-link">Skills</NuxtLink>
+              <NuxtLink :to="$localePath('skills')" class="nav-link">
+                {{ $t("header.skills") }}
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/about" class="nav-link">About</NuxtLink>
+              <NuxtLink :to="$localePath('about')" class="nav-link">
+                {{ $t("header.about") }}
+              </NuxtLink>
             </li>
           </ul>
         </nav>

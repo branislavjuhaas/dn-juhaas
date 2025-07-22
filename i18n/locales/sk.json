@@ -26,5 +26,11 @@
         "subtitle": "Manažér kritickej softvérovej infraštruktúry SDA, bývalý vedúci skautskej družiny."
       }
     }
+  },
+  "header": {
+    "home": "Domov",
+    "portfolio": "Portfólio",
+    "skills": "Zručnosti",
+    "about": "O mne"
   }
 }

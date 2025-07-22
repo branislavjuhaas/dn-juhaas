@@ -26,5 +26,11 @@
         "subtitle": "Manager of critical infrastructure at SDA, ex-leader of the boy-scout unit."
       }
     }
+  },
+  "header": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "skills": "Skills",
+    "about": "About"
   }
 }
