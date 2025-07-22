@@ -59,17 +59,30 @@ import { useTitleAnimator } from "~/composables/useTitleAnimator";
 import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
 
+const { t } = useI18n();
+const i18nHead = useLocaleHead();
+
+useHead(() => ({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+}));
+
+useSeoMeta({
+  title: t("home.title"),
+  meta: [
+    {
+      name: "description",
+      content: t("home.description"),
+    },
+  ],
+});
+
 const titles = useTitles();
 definePageMeta({
   layout: "minimal",
-});
-
-useHead({
-  title: "Home",
-});
-
-useSeoMeta({
-  title: "Home",
 });
 
 const { animatedTitle, animatedSubtitle } = useTitleAnimator(

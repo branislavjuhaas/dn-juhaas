@@ -23,17 +23,23 @@
 <script setup lang="ts">
 import { PortfolioCard } from "#components";
 
-definePageMeta({
-  layout: "default",
-});
+const { t } = useI18n();
+const i18nHead = useLocaleHead();
 
-useHead({
-  title: "Portfolio",
+useHead(() => ({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+}));
+
+useSeoMeta({
+  title: t("portfolio.title"),
   meta: [
     {
       name: "description",
-      content:
-        "A selection of my finest work, showcasing my skills and projects.",
+      content: t("portfolio.description"),
     },
   ],
 });
