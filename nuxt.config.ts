@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/icon",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
   ],
   css: ["~/assets/css/main.css"],
   app: {
@@ -61,5 +62,12 @@ export default defineNuxtConfig({
       port: 4000,
       showURL: false,
     },
+  },
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "sk", name: "Slovak", file: "sk.json" },
+    ],
   },
 });
