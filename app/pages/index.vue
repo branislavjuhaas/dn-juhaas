@@ -12,16 +12,16 @@
       </transition>
       <div class="flex flex-row gap-3 mt-2 max-w-fill">
         <ContentButton
-          to="/portfolio"
+          :to="$localePath('portfolio')"
           :text="$t('home.portfolio')"
           icon="ph:flag-banner-fold-fill"
           accent />
         <ContentButton
-          to="/skills"
+          :to="$localePath('skills')"
           :text="$t('home.skills')"
           icon="ph:certificate-fill" />
         <ContentButton
-          to="/about"
+          :to="$localePath('about')"
           :text="$t('home.more')"
           icon="ph:signpost-fill" />
       </div>
