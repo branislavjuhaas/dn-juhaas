@@ -70,8 +70,9 @@
 import { useTitleAnimator } from "~/composables/useTitleAnimator";
 import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
+import { onBeforeUnmount, ref, watch } from "vue";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const i18nHead = useLocaleHead();
 
 useHead(() => ({
@@ -92,15 +93,29 @@ useSeoMeta({
   ],
 });
 
-const titles = useTitles();
 definePageMeta({
   layout: "minimal",
 });
 
-const { animatedTitle, animatedSubtitle } = useTitleAnimator(
-  titles,
-  false,
-  true,
+let titles = useTitles(locale.value);
+let { animatedTitle, animatedSubtitle } = useTitleAnimator(titles, false, true);
+
+onBeforeUnmount(() => {
+  animatedTitle = "";
+  animatedSubtitle = "";
+});
+
+watch(
+  () => locale.value,
+  (newLocale) => {
+    titles = useTitles(newLocale);
+    ({ animatedTitle, animatedSubtitle } = useTitleAnimator(
+      titles,
+      false,
+      true,
+    ));
+  },
+  { immediate: true },
 );
 </script>
 

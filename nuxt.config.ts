@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   ],
   css: ["~/assets/css/main.css"],
   app: {
-    pageTransition: { name: "fade", mode: "out-in" },
     layoutTransition: { name: "fade", mode: "out-in" },
     head: {
       charset: "utf-8",
@@ -70,5 +69,6 @@ export default defineNuxtConfig({
       { code: "sk", name: "Slovak", file: "sk.json", language: "sk-SK" },
     ],
     baseUrl: "https://juhaas.eu",
+    skipSettingLocaleOnNavigate: true,
   },
 });
