@@ -71,9 +71,8 @@
 import { useTitleAnimator } from "~/composables/useTitleAnimator";
 import { useTitles } from "~/composables/useTitles";
 import ContentButton from "~/components/content/button.vue";
-import { onBeforeUnmount, ref, watch } from "vue";
 
-const { t, locale, locales } = useI18n();
+const { t, locales } = useI18n();
 const i18nHead = useLocaleHead();
 
 useHead(() => ({
@@ -98,23 +97,11 @@ definePageMeta({
   layout: "minimal",
 });
 
-const titles = ref(useTitles(locale.value));
+const titles = useTitles();
 const { animatedTitle, animatedSubtitle } = useTitleAnimator(
-  titles.value,
+  titles,
   false,
   true,
-);
-
-watch(
-  () => locale.value,
-  (newLocale) => {
-    titles.value = useTitles(newLocale);
-    // If useTitleAnimator returns new refs, update their values instead of reassigning
-    const newAnimator = useTitleAnimator(titles.value, false, true);
-    animatedTitle.value = newAnimator.animatedTitle.value;
-    animatedSubtitle.value = newAnimator.animatedSubtitle.value;
-  },
-  { immediate: true },
 );
 </script>
 

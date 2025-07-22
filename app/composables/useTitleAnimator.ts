@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 export interface ITitle {
   title: string;
@@ -205,29 +205,18 @@ export const useTitleAnimator = (
     }
   };
 
-  // Start animation manually
-  const startAnimation = () => {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
+  onMounted(() => {
     timeoutId = setTimeout(deAnimate, pauseBetweenTitles);
-  };
+  });
 
-  // Stop animation manually
-  const stopAnimation = () => {
+  onUnmounted(() => {
     if (timeoutId) {
       clearTimeout(timeoutId);
-      timeoutId = null;
     }
-  };
-
-  // Start the animation initially
-  startAnimation();
+  });
 
   return {
     animatedTitle,
     animatedSubtitle,
-    startAnimation,
-    stopAnimation,
   };
 };

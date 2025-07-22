@@ -69,6 +69,9 @@ export default defineNuxtConfig({
       { code: "sk", name: "Slovak", file: "sk.json", language: "sk-SK" },
     ],
     baseUrl: "https://juhaas.eu",
-    skipSettingLocaleOnNavigate: true,
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: {
+      useCookie: true,
+    },
   },
 });
