@@ -63,10 +63,10 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    defaultLocale: "en",
+    defaultLocale: "en-us",
     locales: [
-      { code: "en", name: "English", file: "en.json", language: "en-US" },
-      { code: "sk", name: "Slovak", file: "sk.json", language: "sk-SK" },
+      { code: "en-us", name: "English", file: "en.json", language: "en-US" },
+      { code: "sk-sk", name: "Slovak", file: "sk.json", language: "sk-SK" },
     ],
     baseUrl: "https://juhaas.eu",
     strategy: "prefix_except_default",

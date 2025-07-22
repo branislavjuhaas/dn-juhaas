@@ -38,7 +38,7 @@
             <NuxtLink
               :to="$switchLocalePath(locale.code)"
               class="social-link uppercase">
-              {{ locale.code }}
+              {{ locale.code.substring(0, 2) }}
             </NuxtLink>
           </template>
         </div>

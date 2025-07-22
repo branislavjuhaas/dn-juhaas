@@ -48,7 +48,9 @@ useSeoMeta({
 const { locale } = useI18n();
 
 //Sort alphabetically by development.start
-const portfolio = await queryCollection(`portfolio_${locale.value}`)
+const portfolio = await queryCollection(
+  `portfolio_${locale.value.substring(0, 2)}`,
+)
   .order("development", "ASC")
   .all();
 </script>

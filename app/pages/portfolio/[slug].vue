@@ -72,7 +72,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
         </div>
       </div>
       <div class="flex flex-row gap-8">
-        <NuxtLink to="/portfolio" class="social-link-dark">
+        <NuxtLink :to="$localePath('portfolio')" class="social-link-dark">
           <Icon name="ph:arrow-u-up-left" />
           Return
         </NuxtLink>
