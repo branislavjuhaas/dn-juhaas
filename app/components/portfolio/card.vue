@@ -1,8 +1,9 @@
 <template>
   <NuxtLink
-    :to="`/portfolio/${props.slug}`"
-    class="flex flex-col w-full rounded-2xl p-8 border-2 border-ebony gap-4 transition-colors duration-200 text-ebony hover:bg-ebony hover:text-peach">
-    <div class="flex flex-col gap-0">
+    :to="$localePath({ name: 'portfolio-slug', params: { slug: props.slug } })"
+    class="card flex flex-col w-full rounded-2xl border-2 border-ebony gap-4 transition-colors duration-200 overflow-hidden"
+    :class="['card-' + (props.dark ? 'dark' : 'light')]">
+    <div class="flex flex-col gap-0 px-8 pt-5 pb-0">
       <h4>{{ props.title }}</h4>
       <div class="flex flex-row gap-2">
         <ContentChip
@@ -17,11 +18,13 @@
           :dark="props.dark" />
       </div>
     </div>
-    <img
-      v-if="props.image"
-      :src="props.image"
-      alt="Project image"
-      class="w-full aspect-video object-cover rounded-[0.625rem] border-2" >
+    <div class="flex flex-col overflow-hidden w-full! h-48! border-t-2">
+      <img
+        v-if="props.image"
+        :src="props.image"
+        alt="Project image"
+        class="w-full h-full object-cover" />
+    </div>
   </NuxtLink>
 </template>
 
@@ -34,9 +37,26 @@ const props = defineProps<{
   platform: string;
   technology: string;
   image: string;
+  dark?: boolean;
 }>();
 </script>
 
 <style scoped>
 @reference "./../../assets/css/main.css";
+
+.card-dark {
+  @apply bg-ebony text-peach;
+}
+.card-light {
+  @apply text-ebony;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+img {
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
 </style>

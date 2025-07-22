@@ -1,15 +1,16 @@
 <template>
   <div class="flex flex-col w-full gap-8">
     <h1>Selection of the finest work</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
       <PortfolioCard
-        v-for="item in portfolio"
+        v-for="(item, index) in portfolio"
         :key="item.id"
         :slug="item.slug"
         :title="item.name"
         :platform="item.platform"
         :technology="item.technology"
-        :image="item.image" />
+        :image="item.image"
+        :dark="true" />
     </div>
   </div>
 </template>
