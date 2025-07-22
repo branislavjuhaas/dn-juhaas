@@ -32,5 +32,10 @@
     "portfolio": "Portfolio",
     "skills": "Skills",
     "about": "About"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "heading": "Featured Projects",
+    "description": "Collection of my most impactful work, spanning from web applications to desktop software."
   }
 }

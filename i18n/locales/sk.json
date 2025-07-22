@@ -32,5 +32,10 @@
     "portfolio": "Portfólio",
     "skills": "Zručnosti",
     "about": "O mne"
+  },
+  "portfolio": {
+    "title": "Portfólio",
+    "heading": "Výber z tvorby",
+    "description": "Kolekcia mojich najvýznamnejších prác, od webových aplikácií po desktopový softvér."
   }
 }
