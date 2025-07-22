@@ -97,23 +97,21 @@ definePageMeta({
   layout: "minimal",
 });
 
-let titles = useTitles(locale.value);
-let { animatedTitle, animatedSubtitle } = useTitleAnimator(titles, false, true);
-
-onBeforeUnmount(() => {
-  animatedTitle = "";
-  animatedSubtitle = "";
-});
+const titles = ref(useTitles(locale.value));
+const { animatedTitle, animatedSubtitle } = useTitleAnimator(
+  titles.value,
+  false,
+  true,
+);
 
 watch(
   () => locale.value,
   (newLocale) => {
-    titles = useTitles(newLocale);
-    ({ animatedTitle, animatedSubtitle } = useTitleAnimator(
-      titles,
-      false,
-      true,
-    ));
+    titles.value = useTitles(newLocale);
+    // If useTitleAnimator returns new refs, update their values instead of reassigning
+    const newAnimator = useTitleAnimator(titles.value, false, true);
+    animatedTitle.value = newAnimator.animatedTitle.value;
+    animatedSubtitle.value = newAnimator.animatedSubtitle.value;
   },
   { immediate: true },
 );
