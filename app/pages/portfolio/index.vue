@@ -8,14 +8,13 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
       <PortfolioCard
-        v-for="(item, index) in portfolio"
+        v-for="item in portfolio"
         :key="item.id"
         :slug="item.slug"
         :title="item.name"
         :platform="item.platform"
         :technology="item.technology"
-        :image="item.image"
-        :dark="true" />
+        :image="item.image" />
     </div>
   </div>
 </template>

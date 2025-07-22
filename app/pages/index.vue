@@ -50,7 +50,7 @@
     <img
       src="./../assets/images/juhaas.webp"
       alt="Branislav's photo"
-      class="absolute aspect-square w-125 max-h-[calc(100dvh-30rem)] md:max-h-[calc(100dvh-20rem)] xl:max-h-none right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-contain" />
+      class="absolute aspect-square w-125 max-h-[calc(100dvh-30rem)] md:max-h-[calc(100dvh-20rem)] xl:max-h-none right-1/2 max-md:translate-x-3/5 bottom-0 md:right-0 -z-10 object-contain" >
   </div>
 </template>
 
