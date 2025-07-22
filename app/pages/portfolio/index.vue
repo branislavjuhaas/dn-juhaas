@@ -1,6 +1,12 @@
 <template>
   <div class="flex flex-col w-full gap-8">
-    <h1>Selection of the finest work</h1>
+    <div class="flex flex-col">
+      <h1>Featured Projects</h1>
+      <p>
+        Collection of my most impactful work, spanning from web applications to
+        desktop software.
+      </p>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
       <PortfolioCard
         v-for="(item, index) in portfolio"
