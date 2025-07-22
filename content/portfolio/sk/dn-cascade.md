@@ -15,7 +15,7 @@ development:
   start: 2024-05-09
   status: active
 link: http://debrief.sda.sk
-image: /thumbnails/dn-cascade.png
+image: /thumbnails/dn-cascade.webp
 ---
 
 # DN Cascade page
