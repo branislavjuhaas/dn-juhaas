@@ -95,14 +95,8 @@ useHead(() => ({
 
 useSeoMeta({
   title: t("home.title"),
-  meta: [
-    {
-      name: "description",
-      content: t("home.description"),
-    },
-  ],
+  description: t("home.description"),
 });
-
 definePageMeta({
   layout: "minimal",
 });

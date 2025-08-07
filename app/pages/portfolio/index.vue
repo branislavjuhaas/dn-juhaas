@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { PortfolioCard } from "#components";
+import type { Collections } from "@nuxt/content";
 
 const { t, locale } = useI18n();
 const i18nHead = useLocaleHead();
@@ -43,16 +44,11 @@ useHead(() => ({
 
 useSeoMeta({
   title: t("portfolio.title"),
-  meta: [
-    {
-      name: "description",
-      content: t("portfolio.description"),
-    },
-  ],
+  description: t("portfolio.description"),
 });
 
 const portfolio = await queryCollection(
-  `portfolio_${locale.value.substring(0, 2)}`,
+  `portfolio_${locale.value.substring(0, 2)}` as keyof Collections,
 )
   .order("development", "ASC")
   .all();
