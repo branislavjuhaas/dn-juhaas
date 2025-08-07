@@ -1,5 +1,6 @@
 <template>
-  <div class="flex flex-col h-[calc(100dvh-12.5rem)] justify-between relative">
+  <div
+    class="flex flex-col h-[calc(100dvh-min(25dvh,12.5rem))] justify-between relative">
     <div class="flex flex-col">
       <div class="flex flex-col sm:flex-row text-nowrap">
         <h1>{{ $t("home.greeting") }}&nbsp;</h1>
