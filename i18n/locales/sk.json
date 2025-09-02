@@ -38,6 +38,9 @@
   "portfolio": {
     "title": "Portfólio",
     "heading": "Výber z tvorby",
-    "description": "Kolekcia mojich najvýznamnejších prác, od webových aplikácií po desktopový softvér."
+    "description": "Kolekcia mojich najvýznamnejších prác, od webových aplikácií po desktopový softvér.",
+    "return": "Návrat",
+    "source": "Zdroj",
+    "visit": "Navštíviť"
   }
 }

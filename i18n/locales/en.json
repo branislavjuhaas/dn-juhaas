@@ -38,6 +38,9 @@
   "portfolio": {
     "title": "Portfolio",
     "heading": "Featured Projects",
-    "description": "Collection of my most impactful work, spanning from web applications to desktop software."
+    "description": "Collection of my most impactful work, spanning from web applications to desktop software.",
+    "return": "Return",
+    "source": "Source",
+    "visit": "Visit"
   }
 }

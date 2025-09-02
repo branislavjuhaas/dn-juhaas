@@ -74,7 +74,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
       <div class="flex flex-row gap-8">
         <NuxtLink :to="$localePath('portfolio')" class="social-link-dark">
           <Icon name="ph:arrow-u-up-left" />
-          Return
+          {{ $t("portfolio.return") }}
         </NuxtLink>
         <a
           v-if="project?.link"
@@ -83,7 +83,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
           target="_blank"
           rel="noopener noreferrer">
           <Icon name="ph:browsers" />
-          Visit App
+          {{ $t("portfolio.visit") }}
         </a>
         <a
           v-if="project?.source"
@@ -92,7 +92,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
           target="_blank"
           rel="noopener noreferrer">
           <Icon name="ph:github-logo" />
-          Source
+          {{ $t("portfolio.source") }}
         </a>
       </div>
     </div>
