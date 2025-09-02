@@ -6,11 +6,14 @@ definePageMeta({
   layout: "default",
 });
 
-const lang = "sk";
+const { t } = useI18n();
+
+// get the language as the key of locales "lang"
+const lang = t("lang");
 
 const route = useRoute();
 
-const project = await queryCollection(`portfolio_${lang}`)
+const project = await queryCollection(`portfolio_${lang as "sk" | "en"}`)
   .where("slug", "=", route.params.slug)
   .first();
 
