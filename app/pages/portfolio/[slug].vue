@@ -57,9 +57,9 @@ const getYearRange = (development: { start: string; end?: string }): string => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+  <div class="flex flex-col gap-8">
     <div
-      class="xl:fixed bg-ebony max-xl:-mx-5 max-xl:-mt-50 text-peach top-0 left-0 xl:h-full xl:w-1/2 pl-5 xl:pl-25 pt-50 xl:pt-[40dvh] pb-12 flex flex-col justify-between items-start gap-32">
+      class="xl:fixed bg-ebony max-xl:-mx-5 max-xl:-mt-50 text-peach top-0 left-0 xl:h-full xl:w-2/5 pl-5 xl:pl-25 pt-50 xl:pt-[40dvh] pb-12 flex flex-col justify-between items-start gap-32">
       <div class="flex flex-col">
         <h1 class="text-3xl font-bold mb-4">{{ project?.name }}</h1>
         <div class="flex flex-row gap-2">
@@ -101,7 +101,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
     </div>
     <ContentRenderer
       v-if="project"
-      class="xl:col-start-2 text-justify"
+      class="xl:col-start-2 xl:ml-[calc(40vw-(100vw-1300px)/2+3rem)] text-justify pb-12"
       :value="project" />
   </div>
 </template>
