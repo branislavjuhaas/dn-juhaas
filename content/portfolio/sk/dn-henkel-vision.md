@@ -19,4 +19,4 @@ source: https://github.com/branislavjuhaas/dn-henkel-vision
 image: /thumbnails/dn-henkel-vision.webp
 ---
 
-# DN Henkel Vision
+Pokročilé softvérové riešenie navrhnuté na zefektívnenie a profesionalizáciu procesu registrácie porúch v spoločnosti KraussMaffei Technologies, spol. s r.o. Vďaka využitiu umelej inteligencie automatizuje DN Henkel Vision klasifikáciu porúch, čo výrazne znižuje manuálnu záťaž a zvyšuje kvalitu prevádzky vo výrobnom prostredí
