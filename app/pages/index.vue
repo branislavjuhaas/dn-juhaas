@@ -112,7 +112,7 @@ const { animatedTitle, animatedSubtitle } = useTitleAnimator(
 <style scoped>
 @reference "./../assets/css/main.css";
 
-.router-link-active {
+.router-link-active.social-link {
   @apply font-bold;
 }
 

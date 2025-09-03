@@ -63,7 +63,7 @@ const { locales } = useI18n();
   margin-right: 0.5rem;
 }
 
-.router-link-active {
+li > .router-link-active {
   @apply font-bold;
 }
 </style>
