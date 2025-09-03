@@ -133,4 +133,12 @@ const getYearRange = (development: { start: string; end?: string }): string => {
 :deep(.content-renderer) ul {
   @apply list-disc list-inside pl-5 mb-4;
 }
+
+:deep(.content-renderer) code:not(pre) {
+  @apply bg-ebony/15 py-0.5 px-2 rounded-lg font-family-mono;
+}
+
+:deep(.content-renderer) pre {
+  @apply bg-ebony/15 p-4 rounded-lg overflow-x-auto mb-4;
+}
 </style>
