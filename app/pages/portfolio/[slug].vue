@@ -101,7 +101,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
     </div>
     <ContentRenderer
       v-if="project"
-      class="xl:col-start-2 xl:ml-[calc(40vw-(100vw-1300px)/2+3rem)] text-justify pb-12"
+      class="xl:col-start-2 xl:ml-[calc(40vw-(100vw-1300px)/2+3rem)] text-justify pb-12 content-renderer"
       :value="project" />
   </div>
 </template>
@@ -113,7 +113,24 @@ const getYearRange = (development: { start: string; end?: string }): string => {
   @apply text-ocean hover:text-ebony transition-colors duration-200;
 }
 
-:deep(img) {
-  @apply rounded-2xl;
+:deep(.content-renderer) img {
+  @apply rounded-lg;
+}
+
+:deep(.content-renderer) h1 > a,
+:deep(.content-renderer) h2 > a,
+:deep(.content-renderer) h3 > a,
+:deep(.content-renderer) h4 > a,
+:deep(.content-renderer) h5 > a,
+:deep(.content-renderer) h6 > a {
+  @apply no-underline text-ebony;
+}
+
+:deep(.content-renderer) p {
+  @apply mb-4;
+}
+
+:deep(.content-renderer) ul {
+  @apply list-disc list-inside pl-5 mb-4;
 }
 </style>
