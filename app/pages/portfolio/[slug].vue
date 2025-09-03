@@ -135,7 +135,7 @@ const getYearRange = (development: { start: string; end?: string }): string => {
 }
 
 :deep(.content-renderer) code:not(pre) {
-  @apply bg-ebony/15 py-0.5 px-2 rounded-lg font-family-mono;
+  @apply bg-ebony/15 px-2 rounded-lg font-family-mono;
 }
 
 :deep(.content-renderer) pre {
