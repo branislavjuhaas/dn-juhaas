@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   ],
   css: ["~/assets/css/main.css"],
   app: {
-    layoutTransition: { name: "fade", mode: "out-in" },
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1, maximum-scale=1",

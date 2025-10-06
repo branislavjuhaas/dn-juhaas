@@ -4,7 +4,7 @@
       class="flex flex-col"
       aria-labelledby="portfolio-heading"
       aria-describedby="portfolio-description">
-      <h1 id="portfolio-heading" tabindex="0">{{ $t("portfolio.heading") }}</h1>
+      <h1 id="portfolio-heading">{{ $t("portfolio.heading") }}</h1>
       <p id="portfolio-description">
         {{ $t("portfolio.description") }}
       </p>

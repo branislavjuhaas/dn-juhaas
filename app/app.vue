@@ -4,12 +4,7 @@
       <div
         class="flex flex-col max-w-content w-full h-full pt-[min(25dvh,12.5rem)] gap-16">
         <NuxtLayout>
-          <NuxtPage
-            :transition="{
-              name: 'fade',
-              mode: 'out-in',
-              onBeforeEnter,
-            }" />
+          <NuxtPage />
         </NuxtLayout>
       </div>
     </main>

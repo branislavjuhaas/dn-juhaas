@@ -7,8 +7,7 @@
     :target="props.to ? undefined : '_blank'"
     :rel="props.to ? undefined : 'noopener noreferrer'"
     :aria-label="ariaLabel"
-    role="link"
-    tabindex="0">
+    role="link">
     <Icon
       v-if="props.icon"
       :name="props.icon"
@@ -23,8 +22,7 @@
     class="chip"
     :class="['chip-' + (props.accent ? 'accent' : 'default')]"
     role="text"
-    :aria-label="ariaLabel"
-    tabindex="0">
+    :aria-label="ariaLabel">
     <Icon
       v-if="props.icon"
       :name="props.icon"

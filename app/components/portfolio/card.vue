@@ -3,8 +3,7 @@
     :to="$localePath({ name: 'portfolio-slug', params: { slug: props.slug } })"
     class="card flex flex-col w-full rounded-2xl border-2 border-ebony gap-4 transition-colors duration-200 overflow-hidden bg-ebony text-peach hover:bg-ocean"
     :aria-label="`View details for ${props.title}`"
-    role="link"
-    tabindex="0">
+    role="link">
     <div class="flex flex-col gap-0 px-8 pt-5 pb-0">
       <h4 id="card-title-{{props.slug}}">{{ props.title }}</h4>
       <div
