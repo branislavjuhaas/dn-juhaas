@@ -37,4 +37,4 @@ Ako som už mohol tušiť pri samom vytváraní .sln projektu, idilické rozhran
 
 #### Predčasný dôchodok
 
-Cesta nebola najpríjemnejšia, ale jednoznačná. Už počas aktívnej práci na aplikácii som objavil [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk), respektíve jeho kľúčovnú súčasť `WinUI`. Netrvalo dlho a ja som nabral odvahu začať s prácou na novom riešení pôvodného problému. Odpoveďou bol [DN Henkel Vision](https://github.com/branislavjuhaas/dn-henkel-vision) - projekt Henkel, teraz však so skutočnou _víziou_ a s vizuálnym rozhraním.
+Cesta nebola najpríjemnejšia, ale jednoznačná. Už počas aktívnej práci na aplikácii som objavil [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk), respektíve jeho kľúčovnú súčasť `WinUI`. Netrvalo dlho a ja som nabral odvahu začať s prácou na novom riešení pôvodného problému. Odpoveďou bol [DN Henkel Vision](/sk-sk/portfolio/dn-henkel-vision) - projekt Henkel, teraz však so skutočnou _víziou_ a s vizuálnym rozhraním.

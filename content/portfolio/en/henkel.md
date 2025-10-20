@@ -37,4 +37,4 @@ As I could have guessed when creating the .sln project, the idyllic terminal int
 
 #### Early Retirement
 
-The path was not the most pleasant, but it was clear. While actively working on the application, I discovered the [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk), or its key component `WinUI`. It didn't take long for me to muster the courage to start working on a new solution to the original problem. The answer was [DN Henkel Vision](https://github.com/branislavjuhaas/dn-henkel-vision) — the Henkel project, but now with a true _vision_ and a _visual_ interface.
+The path was not the most pleasant, but it was clear. While actively working on the application, I discovered the [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk), or its key component `WinUI`. It didn't take long for me to muster the courage to start working on a new solution to the original problem. The answer was [DN Henkel Vision](/portfolio/dn-henkel-vision) — the Henkel project, but now with a true _vision_ and a _visual_ interface.
