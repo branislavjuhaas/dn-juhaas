@@ -15,7 +15,7 @@ development:
   start: 2021-05-04
   end: 2021-05-07
   status: archived
-source: https://github.com/branislavjuhaas/dn-henkel-vision
+source: https://github.com/branislavjuhaas/dn-gasbag/tree/v1
 image: /thumbnails/gasbag.webp
 ---
 
