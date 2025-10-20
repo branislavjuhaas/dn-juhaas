@@ -1,6 +1,6 @@
 # DN Juhaas
 
-![Version](https://img.shields.io/badge/Version-2.25.0.1-blue) ![License](https://img.shields.io/badge/License-MIT-red) ![Nuxt Version](https://img.shields.io/badge/Nuxt_Version-4.0.1-mediumseagreen) ![Deployment Status](https://github.com/branislavjuhaas/dn-juhaas/actions/workflows/nuxtjs.yml/badge.svg)
+![Version](https://img.shields.io/badge/Version-2.25.0.1-blue) ![License](https://img.shields.io/badge/License-MIT-red) ![Nuxt Version](https://img.shields.io/badge/Nuxt_Version-4.1.2-mediumseagreen) ![Deployment Status](https://github.com/branislavjuhaas/dn-juhaas/actions/workflows/nuxtjs.yml/badge.svg)
 ![DN Juhaas Banner](/readme/banner.png)
 
 ## Description
