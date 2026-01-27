@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       dialect: 'sqlite',
       driver: 'd1',
       connection: { databaseId: 'bd4a200e-75ba-4f6e-87c4-8ac7a141adbc' }
-    },
+    }
   },
 
   eslint: {
