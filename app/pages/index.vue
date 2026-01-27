@@ -1,7 +1,30 @@
+<script setup lang="ts">
+import { SplitText } from 'gsap/SplitText'
+
+const pageTitle = useTemplateRef('page-title')
+
+onMounted(() => {
+  useGSAP().registerPlugin(SplitText)
+  const split = new SplitText(pageTitle.value!, { type: 'words,chars' })
+  useGSAP().fromTo(split.chars, {
+    opacity: 0,
+    yPercent: 20
+  }, {
+    opacity: 1,
+    yPercent: 0,
+    duration: 1,
+    ease: 'power2.out',
+    stagger: {
+      each: 0.011,
+      from: 'random'
+    }
+  })
+})
+</script>
+
 <template>
   <div>
     <UPageHero
-      title="Nuxt Starter Template"
       description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
       :links="[{
         label: 'Get started',
@@ -18,7 +41,11 @@
         color: 'neutral',
         variant: 'subtle'
       }]"
-    />
+    >
+      <template #title>
+        <span ref="page-title">Meet Branislav, Developer!</span>
+      </template>
+    </UPageHero>
 
     <UPageSection
       id="features"

@@ -19,6 +19,7 @@
     "@nuxt/ui": "^4.4.0",
     "nuxt": "^4.3.0",
     "tailwindcss": "^4.1.18",
+    "v-gsap-nuxt": "1.4.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
