@@ -1,55 +1,78 @@
-<template>
-  <div class="flex flex-col w-full overflow-x-hidden">
-    <main class="flex flex-col w-full h-full px-5 items-center">
-      <div
-        class="flex flex-col max-w-content w-full h-full pt-[min(25dvh,12.5rem)] gap-16">
-        <NuxtLayout>
-          <NuxtPage />
-        </NuxtLayout>
-      </div>
-    </main>
-  </div>
-</template>
+<script setup>
+useHead({
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  ],
+  link: [
+    { rel: 'icon', href: '/favicon.ico' }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
+})
 
-<script setup lang="ts">
-const { finalizePendingLocaleChange } = useI18n();
+const title = 'Nuxt Starter Template'
+const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
 
-const onBeforeEnter = async () => {
-  await finalizePendingLocaleChange();
-};
-
-await finalizePendingLocaleChange();
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  twitterCard: 'summary_large_image'
+})
 </script>
 
-<style scoped>
-/* .slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition:
-    transform 0.21s,
-    opacity 0.21s ease;
-  position: relative;
-}
-.slide-fade-enter,
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateY(5%);
-}
-.slide-fade-enter-from,
-.slide-fade-leave {
-  opacity: 0;
-  transform: translateY(0%);
-} */
+<template>
+  <UApp>
+    <UHeader>
+      <template #left>
+        <NuxtLink to="/">
+          <AppLogo class="w-auto h-6 shrink-0" />
+        </NuxtLink>
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.21s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-.fade-enter-from,
-.fade-leave {
-  opacity: 0;
-}
-</style>
+        <TemplateMenu />
+      </template>
+
+      <template #right>
+        <UColorModeButton />
+
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UHeader>
+
+    <UMain>
+      <NuxtPage />
+    </UMain>
+
+    <USeparator icon="i-simple-icons-nuxtdotjs" />
+
+    <UFooter>
+      <template #left>
+        <p class="text-sm text-muted">
+          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        </p>
+      </template>
+
+      <template #right>
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UFooter>
+  </UApp>
+</template>
