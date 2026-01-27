@@ -7,17 +7,16 @@
     "dev": "nuxt dev",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.87",
-    "@iconify-json/simple-icons": "^1.2.67",
+    "@iconify-json/simple-icons": "^1.2.68",
     "@nuxt/a11y": "1.0.0-alpha.1",
     "@nuxt/content": "3.11.0",
     "@nuxt/hints": "1.0.0-alpha.5",
     "@nuxt/ui": "^4.4.0",
-    "better-sqlite3": "^12.6.2",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18"
   },
@@ -27,9 +26,5 @@
     "typescript": "^5.9.3",
     "vue-tsc": "^3.2.4"
   },
-  "packageManager": "pnpm@10.28.1",
-  "trustedDependencies": [
-    "@parcel/watcher",
-    "unrs-resolver"
-  ]
+  "packageManager": "pnpm@10.28.2"
 }
