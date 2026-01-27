@@ -44,7 +44,9 @@ jobs:
         run: bun run build
 
       - name: Verify output exists
-        run: ls -R .output
+        run: |
+          test -d .output || (echo "Nuxt build did not create .output" && exit 1)
+          ls -R .output
 
       - name: Upload build output
         uses: actions/upload-artifact@v4
