@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { SplitText } from 'gsap/SplitText'
+import { SplitText } from 'gsap/SplitText';
 
-const pageTitle = useTemplateRef('page-title')
+const pageTitle = useTemplateRef('page-title');
 
 onMounted(() => {
-  useGSAP().registerPlugin(SplitText)
-  const split = new SplitText(pageTitle.value!, { type: 'words,chars' })
+  useGSAP().registerPlugin(SplitText);
+  const split = new SplitText(pageTitle.value!, { type: 'words,chars' });
   useGSAP().fromTo(split.chars, {
     opacity: 0,
     yPercent: 20
@@ -18,8 +18,8 @@ onMounted(() => {
       each: 0.011,
       from: 'random'
     }
-  })
-})
+  });
+});
 </script>
 
 <template>
