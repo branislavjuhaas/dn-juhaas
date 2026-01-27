@@ -5,8 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/a11y',
     '@nuxt/content',
-    '@nuxt/hints',
-    '@nuxthub/core'
+    '@nuxt/hints'
   ],
 
   devtools: {
@@ -20,14 +19,6 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-01-15',
-
-  hub: {
-    db: {
-      dialect: 'sqlite',
-      driver: 'd1',
-      connection: { databaseId: 'bd4a200e-75ba-4f6e-87c4-8ac7a141adbc' }
-    }
-  },
 
   eslint: {
     config: {
