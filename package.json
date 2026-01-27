@@ -17,6 +17,7 @@
     "@nuxt/content": "3.11.0",
     "@nuxt/hints": "1.0.0-alpha.5",
     "@nuxt/ui": "^4.4.0",
+    "better-sqlite3": "^12.6.2",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18"
   },
