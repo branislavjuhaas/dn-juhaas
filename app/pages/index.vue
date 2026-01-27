@@ -25,6 +25,7 @@ onMounted(() => {
 <template>
   <div>
     <UPageHero
+      orientation="horizontal"
       description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
       :links="[{
         label: 'Get started',
