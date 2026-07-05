@@ -1,60 +1,82 @@
-# Nuxt Starter Template
+# Docus Default Starter
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+> A beautiful, minimal starter for creating documentation with Docus
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+This is the default Docus starter template that provides everything you need to build beautiful documentation sites with Markdown and Vue components.
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+> [!TIP]
+> If you're looking for i18n support, check out the [i18n starter](https://github.com/nuxt-themes/docus/tree/main/.starters/i18n).
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-  </picture>
-</a>
+## ✨ Features
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+- 🎨 **Beautiful Design** - Clean, modern documentation theme
+- 📱 **Responsive** - Mobile-first responsive design  
+- 🌙 **Dark Mode** - Built-in dark/light mode support
+- 🔍 **Search** - Full-text search functionality
+- 📝 **Markdown Enhanced** - Extended markdown with custom components
+- 🎨 **Customizable** - Easy theming and brand customization
+- ⚡ **Fast** - Optimized for performance with Nuxt 4
+- 🔧 **TypeScript** - Full TypeScript support
 
-## Quick Start
-
-```bash [Terminal]
-npm create nuxt@latest -- -t github:nuxt-ui-templates/starter
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
-
-## Setup
-
-Make sure to install the dependencies:
+## 🚀 Quick Start
 
 ```bash
-pnpm install
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-## Development Server
+Your documentation site will be running at `http://localhost:3000`
 
-Start the development server on `http://localhost:3000`:
+## 📁 Project Structure
+
+```
+my-docs/
+├── content/              # Your markdown content
+│   ├── index.md         # Homepage
+│   ├── 1.getting-started/  # Getting started section
+│   └── 2.essentials/    # Essential documentation
+├── public/              # Static assets
+└── package.json         # Dependencies and scripts
+```
+
+## ⚡ Built with
+
+This starter comes pre-configured with:
+
+- [Nuxt 4](https://nuxt.com) - The web framework
+- [Nuxt Content](https://content.nuxt.com/) - File-based CMS
+- [Nuxt UI](https://ui.nuxt.com) - UI components
+- [Nuxt Image](https://image.nuxt.com/) - Optimized images
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS
+- [Docus Layer](https://www.npmjs.com/package/docus) - Documentation theme
+
+## 📖 Documentation
+
+For detailed documentation on customizing your Docus project, visit the [Docus Documentation](https://docus.dev)
+
+### 🤖 AI Assistant Skill
+
+Get started quickly with Docus by adding specialized knowledge to your AI assistant (Cursor, Claude, etc.):
 
 ```bash
-pnpm dev
+npx skills add nuxt-content/docus
 ```
 
-## Production
+This skill helps you create documentation faster by providing your AI assistant with best practices, MDC component usage, ready-to-use templates, writing guidelines, and configuration tips for Docus. Perfect for quickly scaffolding new documentation projects.
 
-Build the application for production:
+## 🚀 Deployment
+
+Build for production:
 
 ```bash
-pnpm build
+npm run build
 ```
 
-Locally preview production build:
+The built files will be in the `.output` directory, ready for deployment to any hosting provider that supports Node.js.
 
-```bash
-pnpm preview
-```
+## 📄 License
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[MIT License](https://opensource.org/licenses/MIT) 

@@ -1,31 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    '@nuxt/a11y',
-    '@nuxt/content',
-    '@nuxt/hints',
-    'v-gsap-nuxt'
-  ],
-
-  components: [
-    {
-      path: '~/components',
-      pathPrefix: false
-    }
-  ],
-
-  devtools: {
-    enabled: true
-  },
-
-  css: ['~/assets/css/main.css'],
-
-  routeRules: {
-    '/': { prerender: true }
-  },
-
-  compatibilityDate: '2025-01-15'
-
-});
+  extends: ['docus'],
+})
