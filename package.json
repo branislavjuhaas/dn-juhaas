@@ -2,11 +2,23 @@
   "name": "dn-juhaas",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt build"
+    "build": "nuxt build",
+    "prepare": "vp config"
   },
   "dependencies": {
-    "docus": "latest",
     "better-sqlite3": "^12.11.1",
+    "docus": "latest",
     "nuxt": "^4.4.8"
+  },
+  "devDependencies": {
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.10.0",
+      "onFail": "download"
+    }
   }
 }
