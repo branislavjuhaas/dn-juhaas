@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  modules: ["@nuxt/ui", "@nuxt/content"],
+  modules: ["@nuxt/ui", "@nuxt/content", "motion-v/nuxt"],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -19,4 +19,8 @@ export default defineNuxtConfig({
   },
 
   css: ["~/assets/css/main.css"],
+
+  motionV: {
+    directives: true,
+  },
 });
