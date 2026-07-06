@@ -5,5 +5,18 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/ui", "@nuxt/content"],
 
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+    head: {
+      charset: "utf-8",
+      title: "Intelligent Engineer",
+      titleTemplate: "%s | Branislav Juhás",
+      htmlAttrs: {
+        lang: "en",
+      },
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
+  },
+
   css: ["~/assets/css/main.css"],
 });
