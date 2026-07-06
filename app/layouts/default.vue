@@ -2,7 +2,7 @@
 
 <template>
   <UMain>
-    <UContainer class="pt-20">
+    <UContainer>
       <slot />
     </UContainer>
   </UMain>

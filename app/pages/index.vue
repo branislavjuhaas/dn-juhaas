@@ -4,6 +4,7 @@
   <UPageHero
     align="center"
     :ui="{
+      root: 'pt-10',
       title: 'text-4xl font-bold tracking-tight sm:text-6xl relative z-10',
       description: 'relative z-10',
     }">
