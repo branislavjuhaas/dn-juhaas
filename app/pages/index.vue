@@ -5,6 +5,7 @@
     orientation="horizontal"
     :ui="{
       root: 'pt-6',
+      container: 'px-0 sm:px-0 lg:px-0',
       title: 'text-4xl font-bold tracking-tight sm:text-5xl relative z-10',
       description: 'relative z-10',
     }">
