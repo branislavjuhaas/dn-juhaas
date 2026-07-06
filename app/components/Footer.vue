@@ -8,7 +8,7 @@ const source = "https://github.com/branislavjuhaas";
   <USeparator />
   <UFooter :ui="{ top: 'border-b border-default' }">
     <template #top>
-      <UContainer class="py-6">
+      <UContainer class="pt-6">
         <motion.svg
           width="472"
           height="115"
@@ -85,6 +85,41 @@ const source = "https://github.com/branislavjuhaas";
               },
             }" />
         </motion.svg>
+        <div class="flex gap-2 justify-center mt-6">
+          <UButton
+            icon="i-ph-mailbox"
+            color="neutral"
+            variant="soft"
+            to="mailto:branislav@juhaas.eu"
+            target="_blank"
+            label="Email"
+            aria-label="Email" />
+          <UButton
+            icon="i-ph-github-logo"
+            color="neutral"
+            variant="soft"
+            to="https://github.com/branislavjuhaas"
+            target="_blank"
+            label="Github"
+            aria-label="GitHub" />
+          <UButton
+            icon="i-ph-linkedin-logo"
+            color="neutral"
+            variant="soft"
+            to="https://www.linkedin.com/in/juhaas/"
+            target="_blank"
+            label="LinkedIn"
+            aria-label="LinkedIn" />
+          <!-- Strava -->
+          <UButton
+            icon="i-ph-bicycle"
+            color="neutral"
+            variant="soft"
+            to="https://www.strava.com/athletes/112978847"
+            target="_blank"
+            label="Strava"
+            aria-label="Strava" />
+        </div>
       </UContainer>
     </template>
 
