@@ -16,7 +16,7 @@
 
     <template #links>
       <UButton size="lg" color="neutral" icon="i-ph-lightning-fill">
-        Explore engineering
+        View selected work
       </UButton>
       <UButton
         size="lg"
