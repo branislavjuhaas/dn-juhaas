@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
     head: {
       charset: "utf-8",
-      title: "Intelligent Engineer",
+      title: "Strategic Engineer",
       titleTemplate: "%s | Branislav Juhás",
       htmlAttrs: {
         lang: "en",
