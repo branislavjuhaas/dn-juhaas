@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { version } from "~~/package.json";
 import { motion } from "motion-v";
 
 const source = "https://github.com/branislavjuhaas";
@@ -94,9 +93,6 @@ const source = "https://github.com/branislavjuhaas";
     </template>
 
     <template #right>
-      <UBadge variant="subtle" color="primary" class="mr-1"
-        >v{{ version }}</UBadge
-      >
       <UColorModeButton />
       <UButton
         icon="ph:github-logo"
