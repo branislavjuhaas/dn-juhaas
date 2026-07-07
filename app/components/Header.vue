@@ -32,12 +32,12 @@ const items = ref<NavigationMenuItem[]>([
       {
         label: "Tools",
         description: "The tools I use to build things.",
-        icon: "i-ph-sparkle",
+        icon: "i-ph-crane",
       },
       {
         label: "Development stack",
         description: "The tools and libraries I use to build things.",
-        icon: "i-ph-gear-six",
+        icon: "i-ph-memory",
       },
     ],
   },
