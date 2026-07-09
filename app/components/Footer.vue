@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 
+const { data: contacts } = await useAsyncData(() => {
+  return queryCollection("contacts").first();
+});
+
 const source = "https://github.com/branislavjuhaas";
 </script>
 
@@ -87,38 +91,9 @@ const source = "https://github.com/branislavjuhaas";
         </motion.svg>
         <div class="flex gap-2 justify-center mt-6">
           <UButton
-            icon="i-ph-mailbox"
-            color="neutral"
-            variant="soft"
-            to="mailto:branislav@juhaas.eu"
-            target="_blank"
-            label="Email"
-            aria-label="Email" />
-          <UButton
-            icon="i-ph-github-logo"
-            color="neutral"
-            variant="soft"
-            to="https://github.com/branislavjuhaas"
-            target="_blank"
-            label="Github"
-            aria-label="GitHub" />
-          <UButton
-            icon="i-ph-linkedin-logo"
-            color="neutral"
-            variant="soft"
-            to="https://www.linkedin.com/in/juhaas/"
-            target="_blank"
-            label="LinkedIn"
-            aria-label="LinkedIn" />
-          <!-- Strava -->
-          <UButton
-            icon="i-ph-bicycle"
-            color="neutral"
-            variant="soft"
-            to="https://www.strava.com/athletes/112978847"
-            target="_blank"
-            label="Strava"
-            aria-label="Strava" />
+            v-for="contact in contacts?.contacts"
+            :key="contact.label"
+            v-bind="contact" />
         </div>
       </UContainer>
     </template>

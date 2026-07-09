@@ -1,0 +1,29 @@
+contacts:
+  - label: Email
+    icon: i-ph:mailbox
+    to: mailto:branislav@juhaas.eu
+    color: neutral
+    variant: soft
+    size: md
+    target: _blank
+  - label: GitHub
+    icon: i-ph:github-logo
+    to: https://github.com/branislavjuhaas
+    color: neutral
+    variant: soft
+    size: md
+    target: _blank
+  - label: LinkedIn
+    icon: i-ph:linkedin-logo
+    to: https://www.linkedin.com/in/juhaas/
+    color: neutral
+    variant: soft
+    size: md
+    target: _blank
+  - label: Strava
+    icon: i-la:strava
+    to: https://www.strava.com/athletes/112978847
+    color: neutral
+    variant: soft
+    size: md
+    target: _blank
