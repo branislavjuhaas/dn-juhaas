@@ -36,9 +36,6 @@ export default defineNuxtConfig({
       branch: "v3",
     },
     route: "/admin",
-    editor: {
-      iconLibraries: ["ph"],
-    },
     git: {
       commit: {
         messagePrefix: "feat:",

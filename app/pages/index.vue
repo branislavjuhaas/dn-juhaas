@@ -1,12 +1,40 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type Role = {
+  title: string;
+  description: string;
+};
+
+const roles = [
+  {
+    title: "Developer",
+    description:
+      "Engineering high-performance web ecosystems, robust corporate tooling, and self-hosted infrastructure with a sharp eye for detail.",
+  },
+  {
+    title: "Designer",
+    description:
+      "Creating intuitive and visually appealing user interfaces that enhance the overall user experience and drive engagement.",
+  },
+  {
+    title: "Cyclist",
+    description:
+      "Exploring the world on two wheels, embracing the freedom of the open road, and challenging myself to push the limits of endurance and speed.",
+  },
+];
+
+const currentRole = ref(0);
+
+const loadNextRole = () => {
+  currentRole.value = (currentRole.value + 1) % roles.length;
+};
+</script>
 
 <template>
   <UPageHero
     orientation="horizontal"
     :ui="{
       root: 'pt-6',
-      container: 'px-0 sm:px-0 lg:px-0',
-      title: 'text-4xl font-bold sm:text-5xl/13 relative z-10',
+      title: 'text-4xl font-bold sm:text-5xl relative z-10',
       description: 'relative z-10',
     }">
     <template #title>
@@ -25,9 +53,6 @@
         icon="i-ph-text-align-left">
         Read latest blog
       </UButton>
-
-      <span
-        class="text-lg sm:text-xl/8 text-muted text-pretty mt-6 relative z-10"></span>
     </template>
 
     <div
@@ -52,6 +77,39 @@
       </div>
     </div>
   </UPageHero>
+  <USeparator />
+  <UPageSection
+    orientation="horizontal"
+    :ui="{
+      title: 'text-3xl font-bold sm:text-4xl lg:text-4xl',
+    }">
+    <template #title>
+      Meet Branislav,
+      <FlipWords
+        :words="roles.map((role) => role.title)"
+        @animation-start="loadNextRole"
+        :duration="10000"
+        class="text-primary!" />
+    </template>
+
+    <template #description>
+      <Transition name="fade" mode="out-in">
+        <p :key="currentRole" class="text-lg sm:text-xl lg:text-xl">
+          {{ roles[currentRole]?.description }}
+        </p>
+      </Transition>
+    </template>
+  </UPageSection>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
