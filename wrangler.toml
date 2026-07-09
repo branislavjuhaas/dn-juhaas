@@ -5,5 +5,5 @@ NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID = "Ov23li5Y2Z7WwuDLgOS5"
 NUXT_STUDIO_AUTH_GITHUB_MODERATORS = "juhas.branislaw@gmail.com"
 
 [[kv_namespaces]]
-"binding": "KV"
-"id": "ee0ca293f32c4db0854cfafea95e8d18"
+binding = "KV"
+id = "ee0ca293f32c4db0854cfafea95e8d18"
