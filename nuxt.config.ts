@@ -27,4 +27,22 @@ export default defineNuxtConfig({
   motionV: {
     directives: true,
   },
+
+  studio: {
+    repository: {
+      provider: "github",
+      owner: "branislavjuhaas",
+      repo: "dn-juhaas",
+      branch: "v3",
+    },
+    route: "/admin",
+    editor: {
+      iconLibraries: ["ph"],
+    },
+    git: {
+      commit: {
+        messagePrefix: "feat:",
+      },
+    },
+  },
 });
