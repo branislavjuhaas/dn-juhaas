@@ -6,11 +6,11 @@
     :ui="{
       root: 'pt-6',
       container: 'px-0 sm:px-0 lg:px-0',
-      title: 'text-4xl font-bold tracking-tight sm:text-5xl relative z-10',
+      title: 'text-4xl font-bold sm:text-5xl/13 relative z-10',
       description: 'relative z-10',
     }">
     <template #title>
-      Architect's Strategy.<br />
+      Architect's Strategy,<br />
       <span class="text-primary"> Developer's Execution. </span>
     </template>
 
