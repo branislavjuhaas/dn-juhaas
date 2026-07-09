@@ -89,7 +89,7 @@ const source = "https://github.com/branislavjuhaas";
               },
             }" />
         </motion.svg>
-        <div class="flex gap-2 justify-center mt-6">
+        <div class="flex gap-2 justify-center flex-wrap mt-6">
           <UButton
             v-for="contact in contacts?.contacts"
             :key="contact.label"
