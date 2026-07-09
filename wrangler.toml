@@ -2,7 +2,7 @@ name = "dn-juhaas"
 
 [vars]
 NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID = "Ov23li5Y2Z7WwuDLgOS5"
-NUXT_STUDIO_AUTH_GITHUB_MODERATORS = "juhas.branislaw@gmail.com"
+# NUXT_STUDIO_AUTH_GITHUB_MODERATORS = "juhas.branislaw@gmail.com"
 
 [[kv_namespaces]]
 binding = "CACHE"

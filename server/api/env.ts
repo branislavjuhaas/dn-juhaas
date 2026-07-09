@@ -1,7 +1,9 @@
+// server/api/runtime.ts
 export default defineEventHandler((event) => {
+  const config = useRuntimeConfig(event);
+
   return {
-    success: true,
-    cloudflare: event.context.cloudflare?.env,
-    env: process.env,
+    studio: config.studio,
+    public: config.public,
   };
 });
