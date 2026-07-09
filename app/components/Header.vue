@@ -50,14 +50,19 @@ const items = ref<NavigationMenuItem[]>([
 </script>
 
 <template>
-  <UHeader :toggle="false">
+  <UHeader>
     <template #left>
       <NuxtLink to="/" class="flex items-center gap-2" aria-label="Domov">
         <JuhaasLogo />
       </NuxtLink>
     </template>
     <template #right>
-      <UNavigationMenu :items="items" class="w-full justify-end" />
+      <UNavigationMenu
+        :items="items"
+        class="w-full justify-end max-lg:hidden" />
+    </template>
+    <template #body>
+      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
     </template>
   </UHeader>
 </template>
