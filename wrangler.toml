@@ -7,3 +7,7 @@ NUXT_STUDIO_AUTH_GITHUB_MODERATORS = "juhas.branislaw@gmail.com"
 [[kv_namespaces]]
 binding = "CACHE"
 id = "ee0ca293f32c4db0854cfafea95e8d18"
+
+[observability.logs]
+enabled = true
+invocation_logs = false
