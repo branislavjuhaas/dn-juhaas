@@ -45,4 +45,13 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  nitro: {
+    storage: {
+      cache: {
+        driver: "cloudflare-kv-binding",
+        binding: "CACHE",
+      },
+    },
+  },
 });
