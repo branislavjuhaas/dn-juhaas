@@ -20,8 +20,8 @@ const source = "https://github.com/branislavjuhaas";
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           class="mx-auto max-w-[calc(100%-3rem)]"
-          :initial="'hidden'"
-          :whileInView="'visible'"
+          initial="hidden"
+          whileInView="visible"
           :inViewOptions="{ once: true }">
           <motion.path
             d="M0 114.304L32 0H48.768L16.768 114.304H0Z"
