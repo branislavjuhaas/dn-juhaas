@@ -5,7 +5,7 @@ roles:
       src: /assets/roles/bikers.jpg
       alt: Branislav on bike
       width: ""
-      class: rotate-2
+      rotation: 2
     links:
       - label: Let's dev sth together
         to: /contact
@@ -14,3 +14,24 @@ roles:
         variant: solid
         target: _blank
         icon: i-ph:code
+  - title: Designer
+    description: Crafting visually stunning and user-friendly interfaces, with a focus on accessibility, usability, and delightful user experiences.
+    image:
+      src: ""
+      alt: Branislav as designer
+      width: ""
+    links:
+      - label: Let's design something together
+        to: /contact
+        color: primary
+        size: lg
+        variant: solid
+        target: _blank
+        icon: i-ph:paint-brush
+  - title: Cyclist
+    description: Exploring the world on two wheels, embracing the freedom of the open road, and enjoying the thrill of cycling adventures.
+    image:
+      src: /assets/roles/bikers.jpg
+      alt: Branislav on bike
+      height: 400
+      rotation: 3

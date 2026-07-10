@@ -5,7 +5,6 @@ const Image = z.object({
   alt: z.string(),
   width: z.number().optional(),
   height: z.number().optional(),
-  class: z.string().optional(),
 });
 
 const Button = z.object({
@@ -41,7 +40,9 @@ export default defineContentConfig({
           z.object({
             title: z.string(),
             description: z.string(),
-            image: Image,
+            image: Image.extend({
+              rotation: z.number().optional(),
+            }),
             links: z.array(Button),
           }),
         ),

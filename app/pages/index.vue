@@ -103,6 +103,7 @@ const loadNextRole = () => {
       <NuxtImg
         :key="currentRole"
         v-bind="roles?.roles[currentRole]?.image"
+        :style="`transform: rotate(${roles?.roles[currentRole]?.image?.rotation ?? 0}deg)`"
         class="h-72 rounded-xl ml-auto object-cover" />
     </Transition>
   </UPageSection>
