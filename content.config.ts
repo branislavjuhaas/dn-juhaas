@@ -5,6 +5,7 @@ const Image = z.object({
   alt: z.string(),
   width: z.number().optional(),
   height: z.number().optional(),
+  class: z.string().optional(),
 });
 
 const Button = z.object({

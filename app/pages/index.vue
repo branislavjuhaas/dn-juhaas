@@ -68,6 +68,7 @@ const loadNextRole = () => {
   <UPageSection
     orientation="horizontal"
     :ui="{
+      container: 'sm:py-16 lg:py-16',
       title: 'text-3xl font-bold sm:text-4xl lg:text-4xl',
     }">
     <template #title>
@@ -86,6 +87,24 @@ const loadNextRole = () => {
         </p>
       </Transition>
     </template>
+
+    <template #links>
+      <Transition name="fade" mode="out-in">
+        <div :key="currentRole" class="flex flex-wrap gap-x-6 gap-y-3">
+          <UButton
+            v-for="link in roles?.roles[currentRole]?.links"
+            :key="link.label"
+            v-bind="link" />
+        </div>
+      </Transition>
+    </template>
+
+    <Transition name="slide-blur" mode="out-in">
+      <NuxtImg
+        :key="currentRole"
+        v-bind="roles?.roles[currentRole]?.image"
+        class="h-72 rounded-xl ml-auto object-cover" />
+    </Transition>
   </UPageSection>
 </template>
 
@@ -98,5 +117,22 @@ const loadNextRole = () => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.slide-blur-enter-active,
+.slide-blur-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-blur-enter-from {
+  opacity: 0;
+  transform: translateY(15px) scale(0.98);
+  filter: blur(8px);
+}
+
+.slide-blur-leave-to {
+  opacity: 0;
+  transform: translateY(-15px) scale(0.98);
+  filter: blur(8px);
 }
 </style>

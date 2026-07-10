@@ -1,3 +1,16 @@
 roles:
-  - title: "Developer"
-    description: "Engineering high-performance web ecosystems, robust corporate tooling, and self-hosted infrastructure with a sharp eye for detail."
+  - title: Developer
+    description: Engineering high-performance web ecosystems, robust corporate tooling, and self-hosted infrastructure with a sharp eye for detail.
+    image:
+      src: /assets/roles/bikers.jpg
+      alt: Branislav on bike
+      width: ""
+      class: rotate-2
+    links:
+      - label: Let's dev sth together
+        to: /contact
+        color: primary
+        size: lg
+        variant: solid
+        target: _blank
+        icon: i-ph:code
