@@ -32,5 +32,19 @@ export default defineContentConfig({
         contacts: z.array(Button),
       }),
     }),
+    roles: defineCollection({
+      type: "data",
+      source: "roles.yml",
+      schema: z.object({
+        roles: z.array(
+          z.object({
+            title: z.string(),
+            description: z.string(),
+            image: Image,
+            links: z.array(Button),
+          }),
+        ),
+      }),
+    }),
   },
 });

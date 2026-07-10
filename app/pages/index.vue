@@ -4,28 +4,15 @@ type Role = {
   description: string;
 };
 
-const roles = [
-  {
-    title: "Developer",
-    description:
-      "Engineering high-performance web ecosystems, robust corporate tooling, and self-hosted infrastructure with a sharp eye for detail.",
-  },
-  {
-    title: "Designer",
-    description:
-      "Creating intuitive and visually appealing user interfaces that enhance the overall user experience and drive engagement.",
-  },
-  {
-    title: "Cyclist",
-    description:
-      "Exploring the world on two wheels, embracing the freedom of the open road, and challenging myself to push the limits of endurance and speed.",
-  },
-];
+const { data: roles } = await useAsyncData(() => {
+  return queryCollection("roles").first();
+});
 
 const currentRole = ref(0);
 
 const loadNextRole = () => {
-  currentRole.value = (currentRole.value + 1) % roles.length;
+  currentRole.value =
+    (currentRole.value + 1) % (roles.value?.roles?.length ?? 1);
 };
 </script>
 
@@ -86,7 +73,7 @@ const loadNextRole = () => {
     <template #title>
       Meet Branislav,
       <FlipWords
-        :words="roles.map((role) => role.title)"
+        :words="roles?.roles.map((role) => role.title) ?? []"
         @animation-start="loadNextRole"
         :duration="10000"
         class="text-primary!" />
@@ -95,7 +82,7 @@ const loadNextRole = () => {
     <template #description>
       <Transition name="fade" mode="out-in">
         <p :key="currentRole" class="text-lg sm:text-xl lg:text-xl">
-          {{ roles[currentRole]?.description }}
+          {{ roles?.roles[currentRole]?.description }}
         </p>
       </Transition>
     </template>
