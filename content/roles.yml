@@ -2,36 +2,48 @@ roles:
   - title: Developer
     description: Engineering high-performance web ecosystems, robust corporate tooling, and self-hosted infrastructure with a sharp eye for detail.
     image:
-      src: /assets/roles/bikers.jpg
+      src: /assets/roles/developer.jpg
       alt: Branislav on bike
-      width: ""
-      rotation: 2
+      width: 720
+      rotation: 1
+      height: 405
     links:
-      - label: Let's dev sth together
-        to: /contact
+      - label: Visit GitHub profile
+        to: https://github.com/branislavjuhaas
         color: primary
         size: lg
         variant: solid
         target: _blank
-        icon: i-ph:code
+        icon: i-ph:github-logo
   - title: Designer
     description: Crafting visually stunning and user-friendly interfaces, with a focus on accessibility, usability, and delightful user experiences.
     image:
-      src: ""
+      src: /assets/roles/designer.jpg
       alt: Branislav as designer
-      width: ""
+      width: 720
+      rotation: -1
+      height: 405
     links:
-      - label: Let's design something together
-        to: /contact
+      - label: Explore highlighted project
+        to: https://v2.debrief.sda.sk
         color: primary
         size: lg
         variant: solid
         target: _blank
-        icon: i-ph:paint-brush
+        icon: i-ph:sparkle
   - title: Cyclist
-    description: Exploring the world on two wheels, embracing the freedom of the open road, and enjoying the thrill of cycling adventures.
+    description: Balancing high-performance development and design with long road kilometers and self-paced cycling to keep the mind sharp.
     image:
       src: /assets/roles/bikers.jpg
       alt: Branislav on bike
-      height: 400
-      rotation: 3
+      height: 405
+      rotation: 1
+      width: 720
+    links:
+      - label: Follow on Strava
+        icon: i-la:strava
+        to: https://www.strava.com/athletes/112978847
+        color: primary
+        size: lg
+        variant: solid
+        target: _blank
