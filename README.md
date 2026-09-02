@@ -1,36 +1,82 @@
-# DN Juhaas
+# Docus Default Starter
 
-![Version](https://img.shields.io/badge/Version-2.25.0.1-blue) ![License](https://img.shields.io/badge/License-MIT-red) ![Nuxt Version](https://img.shields.io/badge/Nuxt_Version-4.1.2-mediumseagreen) ![Deployment Status](https://github.com/branislavjuhaas/dn-juhaas/actions/workflows/nuxtjs.yml/badge.svg)
-![DN Juhaas Banner](/readme/banner.png)
+> A beautiful, minimal starter for creating documentation with Docus
 
-## Description
+This is the default Docus starter template that provides everything you need to build beautiful documentation sites with Markdown and Vue components.
 
-**DN Juhaas** is a personal portfolio and website designed to showcase projects, skills, and professional information of its author, Branislav Juhás. It is built with a focus on a clean user interface, performance, and responsiveness. The project utilizes modern web technologies to provide a seamless and engaging user experience. The content is dynamically managed through Nuxt Studio, allowing for easy and efficient updates.
+> [!TIP]
+> If you're looking for i18n support, check out the [i18n starter](https://github.com/nuxt-themes/docus/tree/main/.starters/i18n).
 
-![DN Juhaas Branding](readme/branding.png)
+## ✨ Features
 
-## Access Point
+- 🎨 **Beautiful Design** - Clean, modern documentation theme
+- 📱 **Responsive** - Mobile-first responsive design
+- 🌙 **Dark Mode** - Built-in dark/light mode support
+- 🔍 **Search** - Full-text search functionality
+- 📝 **Markdown Enhanced** - Extended markdown with custom components
+- 🎨 **Customizable** - Easy theming and brand customization
+- ⚡ **Fast** - Optimized for performance with Nuxt 4
+- 🔧 **TypeScript** - Full TypeScript support
 
-The DN Juhaas website can be accessed through the following URL:
+## 🚀 Quick Start
 
-- [https://juhaas.eu](https://juhaas.eu)
+```bash
+# Install dependencies
+npm install
 
-## Setup Instructions
+# Start development server
+npm run dev
+```
 
-1.  Clone the repository to your local machine.
-2.  Navigate to the project directory.
-3.  Install the necessary dependencies by running `npm install`.
-4.  Start the development server by running `npm run dev`.
-5.  The application should now be running on your local machine at `http://localhost:3000`.
+Your documentation site will be running at `http://localhost:3000`
 
-## Deployment
+## 📁 Project Structure
 
-Deployed on GitHub Pages, deployed automatically via [GitHub Actions](https://github.com/branislavjuhaas/dn-juhaas/actions/workflows/nuxtjs.yml) on every push to the `main` branch.
+```
+my-docs/
+├── content/              # Your markdown content
+│   ├── index.md         # Homepage
+│   ├── 1.getting-started/  # Getting started section
+│   └── 2.essentials/    # Essential documentation
+├── public/              # Static assets
+└── package.json         # Dependencies and scripts
+```
 
-## Remarks
+## ⚡ Built with
 
-This project is a living portfolio and is subject to continuous updates and changes.
+This starter comes pre-configured with:
 
----
+- [Nuxt 4](https://nuxt.com) - The web framework
+- [Nuxt Content](https://content.nuxt.com/) - File-based CMS
+- [Nuxt UI](https://ui.nuxt.com) - UI components
+- [Nuxt Image](https://image.nuxt.com/) - Optimized images
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS
+- [Docus Layer](https://www.npmjs.com/package/docus) - Documentation theme
 
-Since its official integration into the DN Family the DN Juhaas project has proudly embraced the organization's core values of openness, innovation, and philanthropy.
+## 📖 Documentation
+
+For detailed documentation on customizing your Docus project, visit the [Docus Documentation](https://docus.dev)
+
+### 🤖 AI Assistant Skill
+
+Get started quickly with Docus by adding specialized knowledge to your AI assistant (Cursor, Claude, etc.):
+
+```bash
+npx skills add nuxt-content/docus
+```
+
+This skill helps you create documentation faster by providing your AI assistant with best practices, MDC component usage, ready-to-use templates, writing guidelines, and configuration tips for Docus. Perfect for quickly scaffolding new documentation projects.
+
+## 🚀 Deployment
+
+Build for production:
+
+```bash
+npm run build
+```
+
+The built files will be in the `.output` directory, ready for deployment to any hosting provider that supports Node.js.
+
+## 📄 License
+
+[MIT License](https://opensource.org/licenses/MIT)
