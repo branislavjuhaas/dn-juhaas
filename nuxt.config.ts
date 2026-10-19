@@ -12,6 +12,10 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "motion-v/nuxt"],
   css: ["~/assets/css/main.css"],
 
+  routeRules: {
+    "/": { prerender: true },
+  },
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
