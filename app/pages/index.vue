@@ -1,7 +1,5 @@
 <script setup lang="ts">
-// useHead({
-//   titleTemplate: "Branislav Juhás",
-// });
+import { motion, useScroll, useTransform } from "motion-v";
 
 useSeoMeta({
   titleTemplate: "Branislav Juhás",
@@ -11,6 +9,12 @@ useSeoMeta({
   ogDescription:
     "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.",
 });
+
+const { scrollYProgress } = useScroll();
+
+const waveY = useTransform(scrollYProgress, [0, 0.6], ["0px", "-100px"]);
+const waveScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.1]);
+const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 </script>
 
 <template>
@@ -33,9 +37,19 @@ useSeoMeta({
         Architect's Strategy,<br /><span class="text-primary">Developer's Execution</span>
       </template>
     </UPageHero>
-    <div class="w-full relative">
+
+    <!-- Combined Motion Transform Wrapper -->
+    <motion.div
+      class="w-full relative pointer-events-none will-change-transform origin-center"
+      :style="{
+        y: waveY,
+        scale: waveScale,
+        opacity: waveOpacity,
+      }"
+    >
       <Waves />
-    </div>
+    </motion.div>
+
     <UPageSection />
   </UPage>
 </template>
