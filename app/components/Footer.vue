@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const config = useRuntimeConfig();
+const gitHash = config.public.commitSha;
+</script>
 
 <template>
   <UFooter>
@@ -8,7 +11,7 @@
     <template #right>
       <div class="flex items-center gap-2">
         <UButton
-          label="bf5f0dd"
+          :label="gitHash"
           to="https://github.com/branislavjuhaas/dn-juhaas"
           trailing-icon="i-ph-github-logo"
           color="neutral"

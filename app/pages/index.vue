@@ -1,4 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// useHead({
+//   titleTemplate: "Branislav Juhás",
+// });
+
+useSeoMeta({
+  titleTemplate: "Branislav Juhás",
+  ogTitle: "Branislav Juhás",
+  description:
+    "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.",
+  ogDescription:
+    "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.",
+
+  twitterCard: "summary_large_image",
+});
+</script>
 
 <template>
   <UPage class="overflow-hidden">
