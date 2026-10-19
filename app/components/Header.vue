@@ -1,7 +1,18 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
-const items = ref<NavigationMenuItem[]>([
+const colorMode = useColorMode();
+
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? "dark" : "light";
+  },
+});
+
+const navItems = ref<NavigationMenuItem[]>([
   {
     label: "Projects",
     to: "/projects",
@@ -25,10 +36,12 @@ const items = ref<NavigationMenuItem[]>([
       </NuxtLink>
     </template>
 
-    <UNavigationMenu :items="items" variant="link" color="neutral" />
+    <UNavigationMenu :items="navItems" variant="link" color="neutral" />
 
     <template #right>
-      <UColorModeButton />
+      <UTooltip :text="isDark ? 'Switch to Light' : 'Switch to Dark'">
+        <UColorModeButton />
+      </UTooltip>
       <div
         data-orientation="vertical"
         role="separator"
@@ -48,7 +61,7 @@ const items = ref<NavigationMenuItem[]>([
     </template>
 
     <template #body>
-      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+      <UNavigationMenu :items="navItems" orientation="vertical" class="-mx-2.5" />
     </template>
   </UHeader>
 </template>
