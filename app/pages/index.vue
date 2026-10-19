@@ -10,8 +10,6 @@ useSeoMeta({
     "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.",
   ogDescription:
     "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.",
-
-  twitterCard: "summary_large_image",
 });
 </script>
 

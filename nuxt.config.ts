@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       titleTemplate: "%s | Branislav Juhás",
+      meta: [
+        { name: "twitter:card", content: "summary_large_image" },
+        { property: "og:image", content: "https://juhaas.dev/opengraph.png" },
+      ],
       htmlAttrs: {
         lang: "en-US",
       },
