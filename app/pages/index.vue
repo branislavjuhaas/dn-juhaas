@@ -21,39 +21,27 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 <template>
   <UPage class="overflow-hidden">
     <UPageHero :ui="{ description: 'text-wrap max-w-3xl mx-auto', container: 'pb-12!' }">
-      <!-- Staggered Title -->
       <template #title>
-        <motion.div
-          :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, ease: 'easeOut', delay: 0.15 }"
-          class="tracking-tight"
-        >
+        <div class="tracking-tight animate-fade-up" style="--delay: 150ms">
           Architect's Strategy,<br />
           <span class="text-primary"> Developer's Execution </span>
-        </motion.div>
+        </div>
       </template>
 
-      <!-- Staggered Description -->
       <template #description>
-        <motion.div
-          :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, ease: 'easeOut', delay: 0.25 }"
-          class="text-neutral-400 leading-relaxed text-balance"
+        <div
+          class="text-neutral-400 leading-relaxed text-balance animate-fade-up"
+          style="--delay: 250ms"
         >
           Building scalable web applications, modern cloud infrastructure, and developer tooling.
           Combining clean architecture with end-to-end technical execution.
-        </motion.div>
+        </div>
       </template>
 
-      <!-- Interactive Animated Buttons -->
       <template #links>
-        <motion.div
-          :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, ease: 'easeOut', delay: 0.35 }"
-          class="flex flex-wrap items-center justify-center gap-4 pt-2"
+        <div
+          class="flex flex-wrap items-center justify-center gap-4 pt-2 animate-fade-up"
+          style="--delay: 350ms"
         >
           <UButton
             label="Explore projects"
@@ -71,27 +59,58 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
             to="/contacts"
             class="font-semibold"
           />
-        </motion.div>
+        </div>
       </template>
     </UPageHero>
 
-    <!-- Parallax Waves Overlay -->
-    <motion.div
-      class="w-full relative pointer-events-none will-change-transform origin-center"
-      :style="{
-        y: waveY,
-        scale: waveScale,
-        opacity: waveOpacity,
-      }"
-      :initial="{
-        opacity: 0,
-      }"
-      :animate="{ opacity: 1 }"
-      :transition="{ duration: 0.8, ease: 'easeOut', delay: 0.4 }"
-    >
-      <Waves />
-    </motion.div>
+    <div class="animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
+      <motion.div
+        class="w-full relative pointer-events-none origin-center will-change-[transform,opacity] transform-[translateZ(0)]"
+        :style="{
+          y: waveY,
+          scale: waveScale,
+          '--wave-opacity': waveOpacity,
+          opacity: 'var(--wave-opacity)',
+        }"
+      >
+        <Waves />
+      </motion.div>
+    </div>
 
     <UPageSection />
   </UPage>
 </template>
+
+<style scoped>
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp var(--duration, 0.5s) cubic-bezier(0, 0, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn var(--duration, 0.8s) cubic-bezier(0, 0, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+</style>
