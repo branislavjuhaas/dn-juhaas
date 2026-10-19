@@ -26,6 +26,10 @@ const navItems = ref<NavigationMenuItem[]>([
     to: "/contacts",
   },
 ]);
+
+const githubLink = "https://github.com/branislavjuhaas";
+const linkedinLink = "https://www.linkedin.com/in/juhaas";
+const mailLink = "mailto:branislav@juhaas.dev";
 </script>
 
 <template>
@@ -50,13 +54,34 @@ const navItems = ref<NavigationMenuItem[]>([
         aria-orientation="vertical"
       ></div>
       <UTooltip text="GitHub">
-        <UButton variant="ghost" color="neutral" icon="i-ph-github-logo" square />
+        <UButton
+          :to="githubLink"
+          target="_blank"
+          variant="ghost"
+          color="neutral"
+          icon="i-ph-github-logo"
+          square
+        />
       </UTooltip>
       <UTooltip text="LinkedIn">
-        <UButton variant="ghost" color="neutral" icon="i-ph-linkedin-logo" square />
+        <UButton
+          :to="linkedinLink"
+          target="_blank"
+          variant="ghost"
+          color="neutral"
+          icon="i-ph-linkedin-logo"
+          square
+        />
       </UTooltip>
       <UTooltip text="Mail">
-        <UButton variant="ghost" color="neutral" icon="i-ph-mailbox" square />
+        <UButton
+          :to="mailLink"
+          target="_blank"
+          variant="ghost"
+          color="neutral"
+          icon="i-ph-mailbox"
+          square
+        />
       </UTooltip>
     </template>
 
