@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const gitHash = config.public.commitSha;
+
+const repositoryLink = "https://github.com/branislavjuhaas/dn-juhaas";
 </script>
 
 <template>
@@ -12,7 +14,7 @@ const gitHash = config.public.commitSha;
       <div class="flex items-center gap-2">
         <UButton
           :label="gitHash"
-          to="https://github.com/branislavjuhaas/dn-juhaas"
+          :to="repositoryLink"
           trailing-icon="i-ph-github-logo"
           color="neutral"
           variant="outline"
