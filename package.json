@@ -3,13 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "bun --bun nuxt build",
+    "dev": "bun --bun nuxt dev",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/ph": "^1.2.2",
     "@nuxt/ui": "^4.12.0",
     "nuxt": "npm:nuxt-nightly@^5.0.0-0",
     "tailwindcss": "^4.3.3",

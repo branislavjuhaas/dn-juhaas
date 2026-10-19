@@ -49,5 +49,10 @@ export default defineAppConfig({
       upload: "i-ph-upload",
       warning: "i-ph-warning",
     },
+    pageHero: {
+      slots: {
+        title: "sm:text-6xl",
+      },
+    },
   },
 });
