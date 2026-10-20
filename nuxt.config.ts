@@ -76,4 +76,11 @@ export default defineNuxtConfig({
       commitSha: env.WORKERS_CI_COMMIT_SHA?.slice(0, 7) || "d1n2j7u",
     },
   },
+
+  icon: {
+    clientBundle: {
+      scan: true,
+    },
+    serverBundle: false,
+  },
 });
