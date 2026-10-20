@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { PageFeatureProps } from "@nuxt/ui";
 import { motion, useScroll, useTransform } from "motion-v";
 
 const descriptionText =
@@ -11,11 +12,47 @@ useSeoMeta({
   ogDescription: descriptionText,
 });
 
-const { scrollYProgress } = useScroll();
+// 1. Hero Waves Parallax
+const { scrollYProgress: globalScroll } = useScroll();
 
-const waveY = useTransform(scrollYProgress, [0, 0.6], ["0px", "-100px"]);
-const waveScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.1]);
-const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+const waveY = useTransform(globalScroll, [0, 0.4], ["0px", "-80px"]);
+const waveScale = useTransform(globalScroll, [0, 0.4], [1, 1.08]);
+const waveOpacity = useTransform(globalScroll, [0, 0.35], [1, 0]);
+
+// 2. Section Compressed Parallax
+const sectionRef = useTemplateRef("sectionRef");
+
+const { scrollYProgress: sectionProgress } = useScroll({
+  target: sectionRef,
+  // Starts when section top reaches 95% of viewport (just entering)
+  // Finishes completely when section top reaches 35% of viewport (upper-middle)
+  offset: ["start 95%", "start 35%"],
+});
+
+// Accelerated 140px rise that snaps to 0px long before hitting page bottom
+const sectionY = useTransform(sectionProgress, [0, 1], ["200px", "0px"]);
+const sectionOpacity = useTransform(sectionProgress, [0, 0.6], [0, 1]);
+
+const features = ref<PageFeatureProps[]>([
+  {
+    title: "Full-Stack Engineer & Architect",
+    description:
+      "Building scalable web platforms, desktop tools, and cloud infrastructure. Focused on clean system architecture, maintainability, and speed.",
+    icon: "i-ph-head-circuit",
+  },
+  {
+    title: "Debater & Community Lead",
+    description:
+      "National Academic Debate Champion active in non-profits. Using structured logic and communication to bring projects together.",
+    icon: "i-ph-hand-heart",
+  },
+  {
+    title: "Endurance Road Cyclist",
+    description:
+      "Tackling long-distance mountain passes and elevation gains. Bringing pacing, grit, and discipline straight into long-term project management.",
+    icon: "i-ph-bicycle",
+  },
+]);
 </script>
 
 <template>
@@ -24,7 +61,7 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
       :ui="{
         description: 'text-wrap max-w-5xl mx-auto',
         container: 'pb-8!',
-        root: 'min-h-[calc(100vh-var(--ui-header-height))]',
+        root: 'min-h-[calc(100vh-var(--ui-header-height))] mb-4',
       }"
     >
       <template #title>
@@ -73,7 +110,45 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
       </div>
     </UPageHero>
 
-    <UPageSection title="" />
+    <!-- Parallax Section Wrapper -->
+    <div ref="sectionRef" class="w-full">
+      <motion.div
+        class="will-change-[transform,opacity] transform-[translateZ(0)]"
+        :style="{
+          y: sectionY,
+          opacity: sectionOpacity,
+        }"
+      >
+        <UPageSection
+          :features="features"
+          orientation="horizontal"
+          reverse
+          description="Where software architecture, competitive debate, and endurance sports intersect. Driven by logic, discipline, and execution."
+          :ui="{ container: 'lg:pt-0' }"
+        >
+          <template #title> Meet <span class="text-primary">Branislav</span> </template>
+        </UPageSection>
+
+        <USeparator />
+
+        <UPageSection :ui="{ container: 'sm:gap-9' }">
+          <div class="text-xl text-center text-muted">
+            Branislav is a unicorn. In 16 years of Sučany Alumni leadership, I haven't met anyone
+            who so seamlessly combines deep technical skill, patience, and superior communication.
+            His active input and technical solutions were crucial to our success.
+          </div>
+          <UUser
+            name="Tomáš Jacko"
+            description="CEO & Compliance Partner"
+            size="2xl"
+            class="mx-auto"
+            :avatar="{
+              src: '/assets/avatars/tomas-jacko.jpg',
+            }"
+          />
+        </UPageSection>
+      </motion.div>
+    </div>
   </UPage>
 </template>
 
