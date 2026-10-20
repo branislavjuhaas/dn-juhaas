@@ -129,7 +129,7 @@ const features: PageFeatureProps[] = [
 
         <UPageSection :ui="{ container: 'sm:gap-9' }">
           <figure class="flex flex-col items-center gap-6">
-            <blockquote class="text-xl text-center text-muted max-w-3xl">
+            <blockquote class="text-xl text-center text-muted">
               "Branislav is a unicorn. In 16 years of Sučany Alumni leadership, I haven't met anyone
               who so seamlessly combines deep technical skill, patience, and superior communication.
               His active input and technical solutions were crucial to our success."
