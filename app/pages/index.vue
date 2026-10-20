@@ -15,7 +15,7 @@ useSeoMeta({
 // Hero Waves Parallax
 const { scrollYProgress: globalScroll } = useScroll();
 
-const waveY = useTransform(globalScroll, [0, 0.4], ["0px", "-80px"]);
+const waveY = useTransform(globalScroll, [0, 0.4], ["0px", "-200px"]);
 const waveScale = useTransform(globalScroll, [0, 0.4], [1, 1.08]);
 const waveOpacity = useTransform(globalScroll, [0, 0.35], [1, 0]);
 
