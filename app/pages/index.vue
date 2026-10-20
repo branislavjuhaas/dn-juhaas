@@ -12,28 +12,26 @@ useSeoMeta({
   ogDescription: descriptionText,
 });
 
-// 1. Hero Waves Parallax
+// Hero Waves Parallax
 const { scrollYProgress: globalScroll } = useScroll();
 
 const waveY = useTransform(globalScroll, [0, 0.4], ["0px", "-80px"]);
 const waveScale = useTransform(globalScroll, [0, 0.4], [1, 1.08]);
 const waveOpacity = useTransform(globalScroll, [0, 0.35], [1, 0]);
 
-// 2. Section Compressed Parallax
-const sectionRef = useTemplateRef("sectionRef");
+// Section Compressed Parallax
+const sectionRef = useTemplateRef<HTMLDivElement>("sectionRef");
 
 const { scrollYProgress: sectionProgress } = useScroll({
   target: sectionRef,
-  // Starts when section top reaches 95% of viewport (just entering)
-  // Finishes completely when section top reaches 35% of viewport (upper-middle)
   offset: ["start 95%", "start 35%"],
 });
 
-// Accelerated 140px rise that snaps to 0px long before hitting page bottom
 const sectionY = useTransform(sectionProgress, [0, 1], ["200px", "0px"]);
 const sectionOpacity = useTransform(sectionProgress, [0, 0.6], [0, 1]);
 
-const features = ref<PageFeatureProps[]>([
+// Plain constant for static feature items
+const features: PageFeatureProps[] = [
   {
     title: "Full-Stack Engineer & Architect",
     description:
@@ -52,7 +50,7 @@ const features = ref<PageFeatureProps[]>([
       "Tackling long-distance mountain passes and elevation gains. Bringing pacing, grit, and discipline straight into long-term project management.",
     icon: "i-ph-bicycle",
   },
-]);
+];
 </script>
 
 <template>
@@ -73,8 +71,7 @@ const features = ref<PageFeatureProps[]>([
 
       <template #description>
         <div class="text-neutral-400 animate-fade-up" style="--delay: 250ms">
-          Building scalable web applications, modern cloud infrastructure, and developer tooling.
-          Combining clean architecture with end-to-end technical execution.
+          {{ descriptionText }}
         </div>
       </template>
 
@@ -101,8 +98,7 @@ const features = ref<PageFeatureProps[]>([
           :style="{
             y: waveY,
             scale: waveScale,
-            '--wave-opacity': waveOpacity,
-            opacity: 'var(--wave-opacity)',
+            opacity: waveOpacity,
           }"
         >
           <Waves />
@@ -132,20 +128,24 @@ const features = ref<PageFeatureProps[]>([
         <USeparator />
 
         <UPageSection :ui="{ container: 'sm:gap-9' }">
-          <div class="text-xl text-center text-muted">
-            Branislav is a unicorn. In 16 years of Sučany Alumni leadership, I haven't met anyone
-            who so seamlessly combines deep technical skill, patience, and superior communication.
-            His active input and technical solutions were crucial to our success.
-          </div>
-          <UUser
-            name="Tomáš Jacko"
-            description="CEO & Compliance Partner"
-            size="2xl"
-            class="mx-auto"
-            :avatar="{
-              src: '/assets/avatars/tomas-jacko.jpg',
-            }"
-          />
+          <figure class="flex flex-col items-center gap-6">
+            <blockquote class="text-xl text-center text-muted max-w-3xl">
+              "Branislav is a unicorn. In 16 years of Sučany Alumni leadership, I haven't met anyone
+              who so seamlessly combines deep technical skill, patience, and superior communication.
+              His active input and technical solutions were crucial to our success."
+            </blockquote>
+            <figcaption>
+              <UUser
+                name="Tomáš Jacko"
+                description="CEO & Compliance Partner"
+                size="2xl"
+                class="mx-auto"
+                :avatar="{
+                  src: '/assets/avatars/tomas-jacko.jpg',
+                }"
+              />
+            </figcaption>
+          </figure>
         </UPageSection>
       </motion.div>
     </div>
