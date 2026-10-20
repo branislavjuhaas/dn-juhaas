@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "SF Mono", monospace;
+}
+
+.dark {
+  --ui-bg: var(--ui-color-neutral-950);
+}

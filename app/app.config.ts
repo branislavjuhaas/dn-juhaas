@@ -4,27 +4,6 @@ export default defineAppConfig({
       primary: "red",
       neutral: "zinc",
     },
-    pageHeader: {
-      slots: {
-        root: "border-b-0 pb-2",
-      },
-    },
-    pageBody: {
-      base: "mt-6 space-y-8",
-    },
-    input: {
-      slots: {
-        root: "w-full",
-      },
-    },
-    selectMenu: {
-      slots: {
-        base: "w-full",
-      },
-    },
-    dashboardSidebarCollapse: {
-      base: "text-highlighted",
-    },
     icons: {
       arrowDown: "i-ph-arrow-down",
       arrowLeft: "i-ph-arrow-left",
@@ -63,11 +42,17 @@ export default defineAppConfig({
       reload: "i-ph-arrow-counter-clockwise",
       search: "i-ph-magnifying-glass",
       stop: "i-ph-square",
+      star: "i-ph-star",
       success: "i-ph-check-circle",
       system: "i-ph-monitor",
       tip: "i-ph-lightbulb",
       upload: "i-ph-upload",
       warning: "i-ph-warning",
+    },
+    pageHero: {
+      slots: {
+        title: "sm:text-6xl",
+      },
     },
   },
 });
