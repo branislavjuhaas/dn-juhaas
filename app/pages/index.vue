@@ -20,7 +20,13 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
 <template>
   <UPage class="overflow-hidden">
-    <UPageHero :ui="{ description: 'text-wrap max-w-5xl mx-auto', container: 'pb-12!' }">
+    <UPageHero
+      :ui="{
+        description: 'text-wrap max-w-5xl mx-auto',
+        container: 'pb-8!',
+        root: 'min-h-[calc(100vh-var(--ui-header-height))]',
+      }"
+    >
       <template #title>
         <div class="tracking-tight animate-fade-up" style="--delay: 150ms">
           Architect's Strategy,<br />
@@ -51,23 +57,23 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
           />
         </div>
       </template>
+
+      <div class="relative -mt-8 animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
+        <motion.div
+          class="w-[110vw] absolute left-1/2 -translate-x-1/2 pointer-events-none origin-center will-change-[transform,opacity] transform-[translateZ(0)]"
+          :style="{
+            y: waveY,
+            scale: waveScale,
+            '--wave-opacity': waveOpacity,
+            opacity: 'var(--wave-opacity)',
+          }"
+        >
+          <Waves />
+        </motion.div>
+      </div>
     </UPageHero>
 
-    <div class="animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
-      <motion.div
-        class="w-full relative pointer-events-none origin-center will-change-[transform,opacity] transform-[translateZ(0)]"
-        :style="{
-          y: waveY,
-          scale: waveScale,
-          '--wave-opacity': waveOpacity,
-          opacity: 'var(--wave-opacity)',
-        }"
-      >
-        <Waves />
-      </motion.div>
-    </div>
-
-    <UPageSection />
+    <UPageSection title="" />
   </UPage>
 </template>
 
