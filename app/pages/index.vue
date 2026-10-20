@@ -20,7 +20,7 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
 <template>
   <UPage class="overflow-hidden">
-    <UPageHero :ui="{ description: 'text-wrap max-w-3xl mx-auto', container: 'pb-12!' }">
+    <UPageHero :ui="{ description: 'text-wrap max-w-5xl mx-auto', container: 'pb-12!' }">
       <template #title>
         <div class="tracking-tight animate-fade-up" style="--delay: 150ms">
           Architect's Strategy,<br />
@@ -29,10 +29,7 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
       </template>
 
       <template #description>
-        <div
-          class="text-neutral-400 leading-relaxed text-balance animate-fade-up"
-          style="--delay: 250ms"
-        >
+        <div class="text-neutral-400 animate-fade-up" style="--delay: 250ms">
           Building scalable web applications, modern cloud infrastructure, and developer tooling.
           Combining clean architecture with end-to-end technical execution.
         </div>
@@ -43,13 +40,7 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
           class="flex flex-wrap items-center justify-center gap-4 pt-2 animate-fade-up"
           style="--delay: 350ms"
         >
-          <UButton
-            label="Explore projects"
-            icon="i-ph-sparkle"
-            size="lg"
-            to="/projects"
-            class="font-semibold shadow-sm"
-          />
+          <UButton label="Explore projects" icon="i-ph-sparkle" size="lg" to="/projects" />
           <UButton
             label="Contact me"
             icon="i-ph-mailbox"
@@ -57,7 +48,6 @@ const waveOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
             color="neutral"
             size="lg"
             to="/contacts"
-            class="font-semibold"
           />
         </div>
       </template>
