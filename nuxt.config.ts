@@ -16,6 +16,42 @@ export default defineNuxtConfig({
     "/": { prerender: true },
   },
 
+  nitro: {
+    preset: "cloudflare_module",
+    cloudflare: {
+      deployConfig: true,
+      wrangler: {
+        d1_databases: [
+          {
+            binding: "DB",
+            database_name: "dn-juhaas",
+            database_id: "690fe975-b605-4e59-8d04-8cda880902ce",
+          },
+        ],
+        kv_namespaces: [
+          {
+            binding: "CACHE",
+            id: "f3dcc05fb44244adb4aaab0bb279741c",
+          },
+          {
+            binding: "KV",
+            id: "6f373921abae499789e4cf504731046f",
+          },
+        ],
+      },
+    },
+    storage: {
+      cache: {
+        driver: "cloudflare-kv-binding",
+        binding: "CACHE",
+      },
+      kv: {
+        driver: "cloudflare-kv-binding",
+        binding: "KV",
+      },
+    },
+  },
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
