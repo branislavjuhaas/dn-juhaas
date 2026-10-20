@@ -80,6 +80,7 @@ export default defineNuxtConfig({
   icon: {
     clientBundle: {
       scan: true,
+      icons: ["ph:moon", "ph:sun", "ph:list"],
     },
     serverBundle: false,
   },
