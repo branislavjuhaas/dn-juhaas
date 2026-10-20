@@ -98,7 +98,8 @@ const features: PageFeatureProps[] = [
           :style="{
             y: waveY,
             scale: waveScale,
-            opacity: waveOpacity,
+            '--wave-opacity': waveOpacity,
+            opacity: 'var(--wave-opacity)',
           }"
         >
           <Waves />
