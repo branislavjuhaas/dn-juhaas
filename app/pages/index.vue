@@ -58,7 +58,7 @@ const features: PageFeatureProps[] = [
     <UPageHero
       :ui="{
         description: 'text-wrap max-w-5xl mx-auto',
-        container: 'pb-8!',
+        container: 'pb-8! lg:pt-[calc(max(2rem,20vh))]',
         root: 'min-h-[calc(100vh-var(--ui-header-height))] mb-4',
       }"
     >
