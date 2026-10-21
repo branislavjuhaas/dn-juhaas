@@ -1,11 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <Header />
-    <slot />
-    <Footer />
-  </div>
+  <Header />
+  <slot />
+  <Footer />
 </template>
 
 <style scoped></style>

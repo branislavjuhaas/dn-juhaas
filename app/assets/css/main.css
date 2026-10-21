@@ -9,3 +9,9 @@
 .dark {
   --ui-bg: var(--ui-color-neutral-950);
 }
+
+html,
+body,
+#__nuxt {
+  overflow-x: hidden;
+}
