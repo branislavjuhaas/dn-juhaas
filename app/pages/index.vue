@@ -175,37 +175,3 @@ const profileBadges: BadgeItem[] = [
     </div>
   </UPage>
 </template>
-
-<style scoped>
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-up {
-  opacity: 0;
-  animation: fadeUp var(--duration, 0.5s) cubic-bezier(0, 0, 0.2, 1) both;
-  animation-delay: var(--delay, 0ms);
-}
-
-.animate-fade-in {
-  opacity: 0;
-  animation: fadeIn var(--duration, 0.8s) cubic-bezier(0, 0, 0.2, 1) both;
-  animation-delay: var(--delay, 0ms);
-}
-</style>
