@@ -2,7 +2,9 @@
 
 <template>
   <Header />
-  <slot />
+  <UMain>
+    <slot />
+  </UMain>
   <Footer />
 </template>
 
