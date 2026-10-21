@@ -75,6 +75,8 @@ export default defineNuxtConfig({
     public: {
       commitSha: env.WORKERS_CI_COMMIT_SHA?.slice(0, 7) || "d1n2j7u",
     },
+    githubToken: "",
+    hackatimeApiKey: "",
   },
 
   icon: {
