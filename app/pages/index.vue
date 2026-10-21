@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PageFeatureProps } from "@nuxt/ui";
 import { motion, useScroll, useTransform } from "motion-v";
+import type { BadgeItem } from "~/components/Satelites.vue";
 
 const descriptionText =
   "Architect & developer building scalable web applications, modern cloud infrastructure, and developer tooling. Combining clean architecture with end-to-end technical execution.";
@@ -49,7 +50,16 @@ const features: PageFeatureProps[] = [
     description:
       "Tackling long-distance mountain passes and elevation gains. Bringing pacing, grit, and discipline straight into long-term project management.",
     icon: "i-ph-bicycle",
+    class: "sm:col-span-2 sm:max-w-1/2 sm:mx-auto lg:col-span-1 lg:max-w-full",
   },
+];
+
+const profileBadges: BadgeItem[] = [
+  { title: "Full-Stack & Cloud Dev", icon: "i-ph-cloud-check" },
+  { title: "Academic Weapon", icon: "i-ph-exam" },
+  { title: "Endurance Cyclist", icon: "i-ph-mountains" },
+  { title: "Non-Profit Lead", icon: "i-ph-handshake" },
+  { title: "'24 Debate Champion", icon: "i-ph-medal" },
 ];
 </script>
 
@@ -119,11 +129,24 @@ const features: PageFeatureProps[] = [
         <UPageSection
           :features="features"
           orientation="horizontal"
-          reverse
           description="Where software architecture, competitive debate, and endurance sports intersect. Driven by logic, discipline, and execution."
-          :ui="{ container: 'lg:pt-0' }"
+          :ui="{
+            container: 'xl:pt-0 lg:flex lg:flex-col xl:grid xl:grid-cols-2 xl:items-center',
+            wrapper: 'xl:order-last',
+            title: 'text-center xl:text-left',
+            description: 'text-center xl:text-left text-pretty',
+            features: 'sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-4 xl:grid-cols-1',
+          }"
         >
           <template #title> Meet <span class="text-primary">Branislav</span> </template>
+          <Satelites
+            :items="profileBadges"
+            avatar-src="/assets/avatars/branislav-juhas.jpg"
+            avatar-alt="Branislav Juhás"
+            :max-arc="110"
+            :max-step="70"
+            :radius="140"
+          />
         </UPageSection>
 
         <USeparator />
