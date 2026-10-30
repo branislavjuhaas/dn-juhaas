@@ -57,6 +57,7 @@ export default defineNuxtConfig({
             id: "6f373921abae499789e4cf504731046f",
           },
         ],
+        vars: { NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID: "Ov23li5Y2Z7WwuDLgOS5" },
       },
     },
     storage: {
