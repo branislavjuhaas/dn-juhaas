@@ -25,3 +25,4 @@ logs
 
 # Cloudflare files
 .wrangler
+.nuxt-docs
