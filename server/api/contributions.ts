@@ -1,6 +1,6 @@
 import { Octokit } from "@octokit/core";
 
-const MIN_COMMITS_FILTER = 3;
+const MIN_COMMITS_FILTER = 1;
 
 interface Contribution {
   repository: string;
