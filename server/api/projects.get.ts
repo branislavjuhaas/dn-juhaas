@@ -115,9 +115,16 @@ export default defineCachedEventHandler(
               totalHours,
               description: repo.description ?? null,
               commitsLast7Days: repoCommits.length,
+              repository: repo.url,
             };
           } catch {
-            return { name: project.name, totalHours, description: null, commitsLast7Days: 0 };
+            return {
+              name: project.name,
+              totalHours,
+              description: null,
+              commitsLast7Days: 0,
+              repository: null,
+            };
           }
         }),
       ),
