@@ -1,0 +1,69 @@
+seo:
+  title: Branislav Juhás
+  description: >-
+    Architect & developer building scalable web applications, modern cloud infrastructure, and
+    developer tooling. Combining clean architecture with end-to-end technical execution.
+
+hero:
+  title: Architect's Strategy,
+  titleAccent: Developer's Execution
+  description: >-
+    Architect & developer building scalable web applications, modern cloud infrastructure, and
+    developer tooling. Combining clean architecture with end-to-end technical execution.
+  links:
+    - label: Explore projects
+      icon: i-ph-sparkle
+      to: /projects
+    - label: Contact me
+      icon: i-ph-mailbox
+      to: /contacts
+      variant: outline
+      color: neutral
+
+about:
+  title: Meet
+  titleAccent: Branislav
+  description: >-
+    Where software architecture, competitive debate, and endurance sports intersect. Driven by
+    logic, discipline, and execution.
+  avatar:
+    src: /assets/avatars/branislav-juhas.jpg
+    alt: Branislav Juhás
+  badges:
+    - title: Full-Stack & Cloud Dev
+      icon: i-ph-cloud-check
+    - title: Academic Weapon
+      icon: i-ph-exam
+    - title: Endurance Cyclist
+      icon: i-ph-mountains
+    - title: Non-Profit Lead
+      icon: i-ph-handshake
+    - title: "'24 Debate Champion"
+      icon: i-ph-medal
+  features:
+    - title: Full-Stack Engineer & Architect
+      description: >-
+        Building scalable web platforms, desktop tools, and cloud infrastructure. Focused on
+        clean system architecture, maintainability, and speed.
+      icon: i-ph-head-circuit
+    - title: Debater & Community Lead
+      description: >-
+        National Academic Debate Champion active in non-profits. Using structured logic and
+        communication to bring projects together.
+      icon: i-ph-hand-heart
+    - title: Endurance Road Cyclist
+      description: >-
+        Tackling long-distance mountain passes and elevation gains. Bringing pacing, grit, and
+        discipline straight into long-term project management.
+      icon: i-ph-bicycle
+      class: sm:col-span-2 sm:max-w-1/2 sm:mx-auto lg:col-span-1 lg:max-w-full
+
+testimonial:
+  quote: >-
+    "Branislav is a unicorn. In 16 years of Sučany Alumni leadership, I haven't met anyone
+    who so seamlessly combines deep technical skill, patience, and superior communication.
+    His active input and technical solutions were crucial to our success."
+  author:
+    name: Tomáš Jacko
+    description: CEO & Compliance Partner
+    avatar: /assets/avatars/tomas-jacko.jpg

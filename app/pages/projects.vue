@@ -1,7 +1,22 @@
 <script setup lang="ts">
-const { data: projects, error } = await useFetch("/api/projects");
+const { data: stats, error: statsError } = await useFetch("/api/projects");
+const { data: contributions, error: contributionsError } = await useFetch("/api/contributions");
 
-if (error.value || !projects.value) {
+const { data: projectsPage } = await useAsyncData("projects-page", () =>
+  queryCollection("projectsPage").first(),
+);
+const { data: featuredProjects } = await useAsyncData("featured-projects", () =>
+  queryCollection("projects").all(),
+);
+
+if (
+  statsError.value ||
+  !stats.value ||
+  contributionsError.value ||
+  !contributions.value ||
+  !projectsPage.value ||
+  !featuredProjects.value
+) {
   throw createError({
     statusCode: 404,
     statusMessage: "Projects could not be loaded",
@@ -10,22 +25,25 @@ if (error.value || !projects.value) {
 }
 
 useSeoMeta({
-  title: "Projects",
-  ogTitle: "Projects",
-  description:
-    "Discover recent full-stack applications, cloud projects, and open-source tools by Branislav Juhás. Check out live builds, project specs, and recent code.",
-  ogDescription:
-    "Discover recent full-stack applications, cloud projects, and open-source tools by Branislav Juhás. Check out live builds, project specs, and recent code.",
+  title: projectsPage.value.seo.title,
+  ogTitle: projectsPage.value.seo.title,
+  description: projectsPage.value.seo.description,
+  ogDescription: projectsPage.value.seo.description,
 });
+
+const NuxtLink = resolveComponent("NuxtLink");
 </script>
 
 <template>
-  <UPage>
-    <UPageHero orientation="horizontal" :ui="{ title: 'max-lg:text-center', container: 'pb-16!' }">
+  <UPage v-if="projectsPage && stats && contributions && featuredProjects">
+    <UPageHero
+      orientation="horizontal"
+      :ui="{ title: 'max-lg:text-center', container: 'pb-16!', root: 'pb-20' }"
+    >
       <template #title>
         <div class="tracking-tight animate-fade-up" style="--delay: 150ms">
-          Cooking the<br />
-          <span class="text-primary">Next Big Thing!</span>
+          {{ projectsPage.hero.title }}<br />
+          <span class="text-primary">{{ projectsPage.hero.titleAccent }}</span>
         </div>
       </template>
       <div
@@ -33,26 +51,36 @@ useSeoMeta({
         style="--delay: 250ms"
       >
         <div class="grid grid-cols-3 gap-7 mt-4">
-          <Stat icon="i-ph-git-merge-fill" :fact="projects.commits.toString()" unit="commits" />
-          <Stat icon="i-ph-gauge-fill" :fact="projects.minutes.toString()" unit="minutes" />
-          <Stat icon="i-ph-swatches-fill" :fact="projects.projects.toString()" unit="projects" />
+          <Stat
+            v-for="stat in projectsPage.stats"
+            :key="stat.key"
+            :icon="stat.icon"
+            :fact="(stats[stat.key] ?? 0).toString()"
+            :unit="stat.unit"
+          />
         </div>
         <span class="text-base text-muted">
           {{
-            projects.minutes > 360 ? "Not bad for a week's work" : "Even I had to touch a grass"
+            stats.minutes > 360 ? projectsPage.statsMessage.working : projectsPage.statsMessage.idle
           }}</span
         >
       </div>
       <template #bottom>
         <UContainer>
           <UPageGrid class="animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
-            <UCard v-for="project in projects.topProjects">
+            <UCard
+              v-for="project in stats.topProjects"
+              :key="project.name"
+              :as="project.repository ? NuxtLink : 'div'"
+              :to="project.repository"
+              class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
+            >
               <div class="flex flex-col">
                 <div class="flex flex-row justify-between">
                   <span class="font-bold">{{ project.name }}</span>
                   <span class="text-dimmed">
                     {{ project.totalHours }}h
-                    <template v-if="project.description">
+                    <template v-if="project.repository">
                       · {{ project.commitsLast7Days }}
                       <UIcon name="i-ph-git-commit-bold" class="-mb-0.5" />
                     </template>
@@ -68,5 +96,57 @@ useSeoMeta({
         </UContainer>
       </template>
     </UPageHero>
+    <USeparator class="animate-fade-in" style="--delay: 700ms; --duration: 1.4s" />
+    <UPageSection
+      :title="projectsPage.sections.featured.title"
+      class="animate-fade-in"
+      style="--delay: 700ms; --duration: 1.4s"
+    >
+      <UPageGrid>
+        <UPageCard
+          v-for="project in featuredProjects"
+          :key="project.path"
+          :to="project.path"
+          :title="project.title"
+          :description="project.description"
+          reverse
+        />
+      </UPageGrid>
+    </UPageSection>
+    <USeparator class="animate-fade-in" style="--delay: 1000ms; --duration: 1.4s" />
+    <UPageSection
+      :title="projectsPage.sections.contributions.title"
+      class="animate-fade-in"
+      style="--delay: 1000ms; --duration: 1.4s"
+    >
+      <UPageGrid>
+        <UCard
+          v-for="contribution in contributions"
+          :key="contribution.repository"
+          :as="NuxtLink"
+          :to="contribution.repository"
+          class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
+        >
+          <div class="flex flex-col">
+            <div class="grid grid-cols-[1fr_auto] gap-2">
+              <span class="font-bold inline-flex items-baseline min-w-0 max-w-full">
+                <span class="text-dimmed truncate min-w-0 shrink">{{ contribution.owner }}</span>
+                <span class="shrink-0">/{{ contribution.name }}</span>
+              </span>
+              <span class="text-dimmed w-max">
+                {{ contribution.firstCommitYear }}
+                <template v-if="contribution.firstCommitYear != contribution.lastCommitYear">
+                  - {{ contribution.lastCommitYear }}
+                </template>
+              </span>
+            </div>
+            <span v-if="contribution.description" class="text-muted truncate">
+              {{ contribution.description }}
+            </span>
+            <span v-else class="text-dimmed/70 truncate"> no description provided </span>
+          </div>
+        </UCard>
+      </UPageGrid>
+    </UPageSection>
   </UPage>
 </template>

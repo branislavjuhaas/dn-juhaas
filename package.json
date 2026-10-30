@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@iconify-json/ph": "^1.2.2",
+    "@nuxt/content": "^3.16.2",
     "@nuxt/ui": "^4.12.0",
     "@octokit/core": "^7.0.8",
     "motion-v": "^2.9.0",
     "nuxt": "^4.6.3",
+    "nuxt-studio": "^1.8.0",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"

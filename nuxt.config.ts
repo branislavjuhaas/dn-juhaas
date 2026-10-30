@@ -9,11 +9,30 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  modules: ["@nuxt/ui", "motion-v/nuxt"],
+  modules: ["@nuxt/ui", "@nuxt/content", "nuxt-studio", "motion-v/nuxt"],
   css: ["~/assets/css/main.css"],
 
   routeRules: {
     "/": { prerender: true },
+  },
+
+  content: {
+    database: {
+      type: "d1",
+      bindingName: "DB",
+    },
+    experimental: {
+      sqliteConnector: "native",
+    },
+  },
+
+  studio: {
+    repository: {
+      provider: "github",
+      owner: "branislavjuhaas",
+      repo: "dn-juhaas",
+      branch: "main",
+    },
   },
 
   nitro: {

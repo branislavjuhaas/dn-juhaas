@@ -1,0 +1,30 @@
+seo:
+  title: Projects
+  description: >-
+    Discover recent full-stack applications, cloud projects, and open-source tools by
+    Branislav Juhás. Check out live builds, project specs, and recent code.
+
+hero:
+  title: Cooking the
+  titleAccent: Next Big Thing!
+
+stats:
+  - key: commits
+    icon: i-ph-git-merge-fill
+    unit: commits
+  - key: minutes
+    icon: i-ph-gauge-fill
+    unit: minutes
+  - key: projects
+    icon: i-ph-swatches-fill
+    unit: projects
+
+statsMessage:
+  working: Not bad for a week's work
+  idle: Even I had to touch a grass
+
+sections:
+  featured:
+    title: Featured work
+  contributions:
+    title: All OSS contributions
