@@ -1,19 +1,27 @@
 import type { ContactLocation } from "#shared/types/contacts";
 
 const PLACE_KEY = "contacts:place";
+const COUNTRY_KEY = "contacts:country";
 const TIMEZONE_KEY = "contacts:timezone";
 
-function formatLocalTime(timezone: string, date: Date) {
-  let parts: Intl.DateTimeFormatPart[];
+export default defineEventHandler(async (event): Promise<ContactLocation> => {
+  const storage = useStorage("kv");
+
+  const [place, country, timezone] = await Promise.all([
+    storage.getItem<string>(PLACE_KEY),
+    storage.getItem<string>(COUNTRY_KEY),
+    storage.getItem<string>(TIMEZONE_KEY),
+  ]);
+
+  if (!place || !country || !timezone) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: `Contacts location is not configured in the KV storage (${PLACE_KEY}, ${COUNTRY_KEY}, ${TIMEZONE_KEY})`,
+    });
+  }
 
   try {
-    parts = new Intl.DateTimeFormat("en-GB", {
-      timeZone: timezone,
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: false,
-      timeZoneName: "short",
-    }).formatToParts(date);
+    new Intl.DateTimeFormat("en-GB", { timeZone: timezone });
   } catch {
     throw createError({
       statusCode: 500,
@@ -21,38 +29,8 @@ function formatLocalTime(timezone: string, date: Date) {
     });
   }
 
-  const time = parts
-    .filter((part) => part.type === "hour" || part.type === "minute")
-    .map((part) => part.value)
-    .join(":");
-
-  return {
-    time,
-    timezoneAbbreviation: parts.find((part) => part.type === "timeZoneName")?.value ?? timezone,
-  };
-}
-
-export default defineEventHandler(async (event): Promise<ContactLocation> => {
-  const storage = useStorage("kv");
-
-  const [place, timezone] = await Promise.all([
-    storage.getItem<string>(PLACE_KEY),
-    storage.getItem<string>(TIMEZONE_KEY),
-  ]);
-
-  if (!place || !timezone) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: `Contacts location is not configured in the KV storage (${PLACE_KEY}, ${TIMEZONE_KEY})`,
-    });
-  }
-
-  // Local time has to be current, so this response must never be cached.
+  // KV values can change at any time, so this response must never be cached.
   setResponseHeader(event, "cache-control", "no-store");
 
-  return {
-    place,
-    timezone,
-    ...formatLocalTime(timezone, new Date()),
-  };
+  return { place, country, timezone };
 });

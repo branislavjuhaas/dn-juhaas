@@ -13,8 +13,12 @@ stats:
     icon: i-ph-map-pin-line-fill
     label: Current location
   time:
-    icon: i-ph-sun-horizon-fill
     label: Local time
+    icons:
+      night: i-ph-moon-stars-fill
+      morning: i-ph-sun-horizon-fill
+      day: i-ph-sun-fill
+      evening: i-ph-sun-dim-fill
 
 links:
   - label: branislav@juhaas.dev

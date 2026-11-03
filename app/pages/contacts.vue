@@ -21,6 +21,19 @@ useSeoMeta({
   description: contactsPage.value.seo.description,
   ogDescription: contactsPage.value.seo.description,
 });
+
+const { time, abbreviation, hour } = useLocalTime(() => location.value?.timezone ?? "UTC");
+
+const timeOfDay = computed(() => {
+  if (hour.value < 5 || hour.value >= 21) return "night";
+  if (hour.value < 9) return "morning";
+  if (hour.value < 17) return "day";
+  return "evening";
+});
+
+const timeIcon = computed(
+  () => contactsPage.value?.stats.time.icons[timeOfDay.value] ?? "i-ph-sun-fill",
+);
 </script>
 
 <template>
@@ -42,14 +55,15 @@ useSeoMeta({
         <div class="grid grid-cols-2 gap-7 mt-4">
           <Stat
             :icon="contactsPage.stats.location.icon"
-            :fact="location.place"
-            :label="`${contactsPage.stats.location.label}: ${location.place}`"
+            :fact="`${location.place},`"
+            :unit="location.country"
+            :label="`${contactsPage.stats.location.label}: ${location.place}, ${location.country}`"
           />
           <Stat
-            :icon="contactsPage.stats.time.icon"
-            :fact="location.time"
-            :unit="location.timezoneAbbreviation"
-            :label="`${contactsPage.stats.time.label}: ${location.time} ${location.timezoneAbbreviation}`"
+            :icon="timeIcon"
+            :fact="time"
+            :unit="abbreviation"
+            :label="`${contactsPage.stats.time.label}: ${time} ${abbreviation}`"
           />
         </div>
       </div>

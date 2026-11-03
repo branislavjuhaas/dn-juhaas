@@ -18,7 +18,9 @@ const accessibleLabel = computed(
       <span class="text-primary font-bold">
         {{ props.fact }}
       </span>
-      <template v-if="props.unit">&nbsp;{{ props.unit }}</template>
+      <template v-if="props.unit">
+        <span class="text-highlighted">&nbsp;{{ props.unit }}</span>
+      </template>
     </span>
     <span class="sr-only">{{ accessibleLabel }}</span>
   </div>

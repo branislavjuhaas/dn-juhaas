@@ -127,10 +127,15 @@ export default defineContentConfig({
               .editor({ description: "Accessible label for the current location statistic." }),
           }),
           time: z.object({
-            icon: icon(),
             label: z
               .string()
               .editor({ description: "Accessible label for the local time statistic." }),
+            icons: z.object({
+              night: icon(),
+              morning: icon(),
+              day: icon(),
+              evening: icon(),
+            }),
           }),
         }),
         links: z.array(
