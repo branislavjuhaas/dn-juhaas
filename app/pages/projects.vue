@@ -62,8 +62,8 @@ const NuxtLink = resolveComponent("NuxtLink");
         <span class="text-base text-muted">
           {{
             stats.minutes > 360 ? projectsPage.statsMessage.working : projectsPage.statsMessage.idle
-          }}</span
-        >
+          }}
+        </span>
       </div>
       <template #bottom>
         <UContainer>
@@ -71,8 +71,8 @@ const NuxtLink = resolveComponent("NuxtLink");
             <UCard
               v-for="project in stats.topProjects"
               :key="project.name"
-              :as="project.repository ? NuxtLink : 'div'"
-              :to="project.repository"
+              :as="project.url ? NuxtLink : 'div'"
+              :to="project.url"
               class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
             >
               <div class="flex flex-col">
@@ -80,7 +80,7 @@ const NuxtLink = resolveComponent("NuxtLink");
                   <span class="font-bold">{{ project.name }}</span>
                   <span class="text-dimmed">
                     {{ project.totalHours }}h
-                    <template v-if="project.repository">
+                    <template v-if="project.url">
                       · {{ project.commitsLast7Days }}
                       <UIcon name="i-ph-git-commit-bold" class="-mb-0.5" />
                     </template>
@@ -124,11 +124,11 @@ const NuxtLink = resolveComponent("NuxtLink");
           v-for="contribution in contributions"
           :key="contribution.repository"
           :as="NuxtLink"
-          :to="contribution.repository"
+          :to="contribution.url"
           class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
         >
           <div class="flex flex-col">
-            <div class="grid grid-cols-[1fr_auto] gap-2">
+            <div class="grid grid-cols-[1fr_auto] gap-6">
               <span class="font-bold inline-flex items-baseline min-w-0 max-w-full">
                 <span class="text-dimmed truncate min-w-0 shrink">{{ contribution.owner }}</span>
                 <span class="shrink-0">/{{ contribution.name }}</span>
