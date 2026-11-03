@@ -34,8 +34,8 @@ export default defineCachedEventHandler(
       return [];
     }
 
-    // 2. Fetch accessible repos AND search for user commits across GitHub concurrently
-    const [userReposRes, searchCommitsRes] = await Promise.all([
+    // 2. Concurrently fetch owned repos, search commits, AND search merged PRs
+    const [userReposRes, searchCommitsRes, searchPrsRes] = await Promise.all([
       octokit
         .request("GET /user/repos", {
           type: "all",
@@ -50,16 +50,28 @@ export default defineCachedEventHandler(
           headers: { "X-GitHub-Api-Version": "2022-11-28" },
         })
         .catch(() => ({ data: { items: [] } })),
+      octokit
+        .request("GET /search/issues", {
+          q: `type:pr author:${username} is:merged`,
+          per_page: 100,
+        })
+        .catch(() => ({ data: { items: [] } })),
     ]);
 
-    // 3. Deduplicate repositories and filter out all forks
     const repoMap = new Map<string, RepoMeta>();
 
-    for (const repo of userReposRes.data ?? []) {
-      // Skip fork repositories owned by the user
-      if (repo.fork) continue;
+    // Helper to register repositories safely
+    const addRepo = (meta: RepoMeta) => {
+      if (!repoMap.has(meta.full_name)) {
+        repoMap.set(meta.full_name, meta);
+      }
+    };
 
-      repoMap.set(repo.full_name, {
+    // 3a. Add user's owned non-fork repositories
+    for (const repo of userReposRes.data ?? []) {
+      if (repo.fork || repo.archived || repo.private) continue;
+
+      addRepo({
         owner: repo.owner.login,
         name: repo.name,
         full_name: repo.full_name,
@@ -68,11 +80,11 @@ export default defineCachedEventHandler(
       });
     }
 
+    // 3b. Add repositories discovered from commit search
     for (const item of searchCommitsRes.data?.items ?? []) {
       const repo = item.repository;
-      // Skip forks and already registered repositories
-      if (repo && !repo.fork && !repoMap.has(repo.full_name)) {
-        repoMap.set(repo.full_name, {
+      if (repo && !repo.fork && !repo.archived && !repo.private) {
+        addRepo({
           owner: repo.owner.login,
           name: repo.name,
           full_name: repo.full_name,
@@ -82,13 +94,44 @@ export default defineCachedEventHandler(
       }
     }
 
+    // 3c. Add public, non-archived repositories discovered via merged PRs
+    const prRepositories = new Map<string, { owner: string; name: string }>();
+    for (const pr of searchPrsRes.data?.items ?? []) {
+      if (!pr.repository_url) continue;
+
+      // Extract owner and repo name from api URL ("https://api.github.com/repos/owner/repo")
+      const urlParts = pr.repository_url.split("/");
+      const name = urlParts.pop();
+      const owner = urlParts.pop();
+      if (owner && name) prRepositories.set(`${owner}/${name}`, { owner, name });
+    }
+
+    const prRepoMetas = await Promise.all(
+      Array.from(prRepositories.values()).map(async ({ owner, name }) =>
+        octokit
+          .request("GET /repos/{owner}/{repo}", { owner, repo: name })
+          .then(({ data }) => data)
+          .catch(() => null),
+      ),
+    );
+    for (const repo of prRepoMetas) {
+      if (!repo || repo.private || repo.archived) continue;
+      addRepo({
+        owner: repo.owner.login,
+        name: repo.name,
+        full_name: repo.full_name,
+        html_url: repo.html_url,
+        description: repo.description ?? null,
+      });
+    }
+
     const repos = Array.from(repoMap.values());
 
-    // 4. Concurrently fetch commit counts and year ranges per repository
+    // 4. Concurrently fetch exact commit counts and year ranges per repository
     const rawContributions = await Promise.all(
       repos.map(async (repo): Promise<Contribution | null> => {
         try {
-          // Fetch the most recent commit authored by the user in this repo
+          // Fetch the most recent commit authored by the user in this target repo
           const { data: latest, headers } = await octokit.request(
             "GET /repos/{owner}/{repo}/commits",
             {
@@ -101,18 +144,16 @@ export default defineCachedEventHandler(
 
           if (!latest.length) return null;
 
-          // Extract total commit count from pagination link header
+          // Parse total commit count from pagination "Link" header
           const link = headers["link"] ?? "";
           const lastPageMatch = link.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="last"/);
           const commitsCount = parseInt(lastPageMatch?.[1] ?? String(latest.length), 10);
 
-          // Exclude repositories below the commit threshold
           if (commitsCount < MIN_COMMITS_FILTER) return null;
 
           const lastDate = latest[0]?.commit?.author?.date || latest[0]?.commit?.committer?.date;
           const lastCommitYear = lastDate ? new Date(lastDate).getFullYear() : null;
 
-          // Fetch oldest commit if more than 1 commit exists
           let firstDate = lastDate;
           if (commitsCount > 1 && lastPageMatch) {
             const { data: oldest } = await octokit.request("GET /repos/{owner}/{repo}/commits", {
