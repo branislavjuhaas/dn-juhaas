@@ -196,5 +196,5 @@ export default defineCachedEventHandler(
       return b.commitsCount - a.commitsCount;
     });
   },
-  { maxAge: 60 * 60 },
+  { maxAge: 60 * 60, swr: true },
 );
