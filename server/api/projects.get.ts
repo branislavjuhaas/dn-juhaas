@@ -115,7 +115,7 @@ export default defineCachedEventHandler(
               totalHours,
               description: repo.description ?? null,
               commitsLast7Days: repoCommits.length,
-              repository: repo.url,
+              url: repo.html_url ?? null,
             };
           } catch {
             return {
@@ -123,7 +123,7 @@ export default defineCachedEventHandler(
               totalHours,
               description: null,
               commitsLast7Days: 0,
-              repository: null,
+              url: null,
             };
           }
         }),
