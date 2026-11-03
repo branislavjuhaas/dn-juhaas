@@ -14,6 +14,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/": { prerender: true },
+    "/api/contacts": { cache: false },
   },
 
   content: {
@@ -68,6 +69,14 @@ export default defineNuxtConfig({
       kv: {
         driver: "cloudflare-kv-binding",
         binding: "KV",
+      },
+    },
+    // The Cloudflare KV binding is not available during local development,
+    // so fall back to a filesystem mount kept out of version control.
+    devStorage: {
+      kv: {
+        driver: "fs",
+        base: ".data/kv",
       },
     },
   },

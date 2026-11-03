@@ -1,0 +1,39 @@
+seo:
+  title: Contacts
+  description: >-
+    Get in touch with Branislav Juhás via email, LinkedIn, Bluesky, GitHub, or Instagram.
+    See where he is right now for enhanced connectivity.
+
+hero:
+  title: Don't Be Shy,
+  titleAccent: Say Hello!
+
+stats:
+  location:
+    icon: i-ph-map-pin-line-fill
+    label: Current location
+  time:
+    icon: i-ph-sun-horizon-fill
+    label: Local time
+
+links:
+  - label: branislav@juhaas.dev
+    icon: i-ph-mailbox-fill
+    to: mailto:branislav@juhaas.dev
+    ariaLabel: Email Branislav Juhás at branislav@juhaas.dev
+  - label: in/juhaas
+    icon: i-ph-linkedin-logo-fill
+    to: https://linkedin.com/in/juhaas
+    ariaLabel: Branislav Juhás on LinkedIn, profile in/juhaas
+  - label: "@juhaas.dev"
+    icon: i-ph-butterfly-fill
+    to: https://bsky.app/profile/juhaas.dev
+    ariaLabel: Branislav Juhás on Bluesky, handle @juhaas.dev
+  - label: branislavjuhaas
+    icon: i-ph-github-logo-fill
+    to: https://github.com/branislavjuhaas
+    ariaLabel: Branislav Juhás on GitHub, username branislavjuhaas
+  - label: "@branislavjuhaas"
+    icon: i-ph-instagram-logo-fill
+    to: https://instagram.com/branislavjuhaas
+    ariaLabel: Branislav Juhás on Instagram, handle @branislavjuhaas

@@ -110,6 +110,43 @@ export default defineContentConfig({
       }),
     }),
 
+    contactsPage: defineCollection({
+      type: "data",
+      source: "contacts-page.yml",
+      schema: z.object({
+        seo: seoSchema,
+        hero: z.object({
+          title: z.string(),
+          titleAccent: titleAccent(),
+        }),
+        stats: z.object({
+          location: z.object({
+            icon: icon(),
+            label: z
+              .string()
+              .editor({ description: "Accessible label for the current location statistic." }),
+          }),
+          time: z.object({
+            icon: icon(),
+            label: z
+              .string()
+              .editor({ description: "Accessible label for the local time statistic." }),
+          }),
+        }),
+        links: z.array(
+          z.object({
+            label: z.string(),
+            icon: icon(),
+            to: z.string(),
+            ariaLabel: property(z.string()).editor({
+              description:
+                "Accessible name announced by screen readers. It should contain the visible label.",
+            }),
+          }),
+        ),
+      }),
+    }),
+
     projects: defineCollection({
       type: "page",
       source: "projects/*.md",
