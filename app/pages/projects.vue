@@ -30,8 +30,6 @@ useSeoMeta({
   description: projectsPage.value.seo.description,
   ogDescription: projectsPage.value.seo.description,
 });
-
-const NuxtLink = resolveComponent("NuxtLink");
 </script>
 
 <template>
@@ -68,30 +66,11 @@ const NuxtLink = resolveComponent("NuxtLink");
       <template #bottom>
         <UContainer>
           <UPageGrid class="animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
-            <UCard
+            <TopProjectCard
               v-for="project in stats.topProjects"
               :key="project.name"
-              :as="project.url ? NuxtLink : 'div'"
-              :to="project.url"
-              class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
-            >
-              <div class="flex flex-col">
-                <div class="flex flex-row justify-between">
-                  <span class="font-bold">{{ project.name }}</span>
-                  <span class="text-dimmed">
-                    {{ project.totalHours }}h
-                    <template v-if="project.url">
-                      · {{ project.commitsLast7Days }}
-                      <UIcon name="i-ph-git-commit-bold" class="-mb-0.5" />
-                    </template>
-                  </span>
-                </div>
-                <span v-if="project.description" class="text-muted truncate">
-                  {{ project.description }}
-                </span>
-                <span v-else class="text-dimmed/70 truncate"> no description provided </span>
-              </div>
-            </UCard>
+              :project="project"
+            />
           </UPageGrid>
         </UContainer>
       </template>
@@ -120,32 +99,11 @@ const NuxtLink = resolveComponent("NuxtLink");
       style="--delay: 1000ms; --duration: 1.4s"
     >
       <UPageGrid>
-        <UCard
+        <ContributionCard
           v-for="contribution in contributions"
           :key="contribution.repository"
-          :as="NuxtLink"
-          :to="contribution.url"
-          class="has-[>a:focus-visible]:outline-3 transition hover:bg-elevated/50 has-[>a:focus-visible]:ring-primary"
-        >
-          <div class="flex flex-col">
-            <div class="grid grid-cols-[1fr_auto] gap-6">
-              <span class="font-bold inline-flex items-baseline min-w-0 max-w-full">
-                <span class="text-dimmed truncate min-w-0 shrink">{{ contribution.owner }}</span>
-                <span class="shrink-0">/{{ contribution.name }}</span>
-              </span>
-              <span class="text-dimmed w-max">
-                {{ contribution.firstCommitYear }}
-                <template v-if="contribution.firstCommitYear != contribution.lastCommitYear">
-                  - {{ contribution.lastCommitYear }}
-                </template>
-              </span>
-            </div>
-            <span v-if="contribution.description" class="text-muted truncate">
-              {{ contribution.description }}
-            </span>
-            <span v-else class="text-dimmed/70 truncate"> no description provided </span>
-          </div>
-        </UCard>
+          :contribution="contribution"
+        />
       </UPageGrid>
     </UPageSection>
   </UPage>

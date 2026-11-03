@@ -1,4 +1,5 @@
 import { Octokit } from "@octokit/core";
+import type { TopProject } from "#shared/types/projects";
 
 interface BreakdownItem {
   name: string;
@@ -79,7 +80,7 @@ export default defineCachedEventHandler(
 
       // Process and enrich top 3 projects
       Promise.all(
-        projects.slice(0, 3).map(async (project) => {
+        projects.slice(0, 3).map(async (project): Promise<TopProject> => {
           const totalHours = Math.round(project.total_seconds / 3600);
 
           if (!username) {

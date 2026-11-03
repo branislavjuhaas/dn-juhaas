@@ -1,17 +1,7 @@
 import { Octokit } from "@octokit/core";
+import type { Contribution } from "#shared/types/contributions";
 
 const MIN_COMMITS_FILTER = 1;
-
-interface Contribution {
-  repository: string;
-  owner: string;
-  name: string;
-  url: string;
-  description: string | null;
-  commitsCount: number;
-  firstCommitYear: number | null;
-  lastCommitYear: number | null;
-}
 
 interface RepoMeta {
   owner: string;
