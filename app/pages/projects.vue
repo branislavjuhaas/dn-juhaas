@@ -65,13 +65,19 @@ useSeoMeta({
       </div>
       <template #bottom>
         <UContainer>
-          <UPageGrid class="animate-fade-in" style="--delay: 400ms; --duration: 1.4s">
-            <TopProjectCard
+          <ul
+            role="list"
+            class="flex flex-wrap justify-center gap-8 animate-fade-in"
+            style="--delay: 400ms; --duration: 1.4s"
+          >
+            <li
               v-for="project in stats.topProjects"
               :key="project.name"
-              :project="project"
-            />
-          </UPageGrid>
+              class="flex w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.35rem)]"
+            >
+              <TopProjectCard :project="project" class="w-full" />
+            </li>
+          </ul>
         </UContainer>
       </template>
     </UPageHero>
@@ -81,16 +87,21 @@ useSeoMeta({
       class="animate-fade-in"
       style="--delay: 700ms; --duration: 1.4s"
     >
-      <UPageGrid>
-        <UPageCard
+      <ul role="list" class="flex flex-wrap justify-center gap-8">
+        <li
           v-for="project in featuredProjects"
           :key="project.path"
-          :to="project.path"
-          :title="project.title"
-          :description="project.description"
-          reverse
-        />
-      </UPageGrid>
+          class="flex w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.35rem)]"
+        >
+          <UPageCard
+            :to="project.path"
+            :title="project.title"
+            :description="project.description"
+            reverse
+            class="w-full"
+          />
+        </li>
+      </ul>
     </UPageSection>
     <USeparator class="animate-fade-in" style="--delay: 1000ms; --duration: 1.4s" />
     <UPageSection
@@ -98,13 +109,15 @@ useSeoMeta({
       class="animate-fade-in"
       style="--delay: 1000ms; --duration: 1.4s"
     >
-      <UPageGrid>
-        <ContributionCard
+      <ul role="list" class="flex flex-wrap justify-center gap-8">
+        <li
           v-for="contribution in contributions"
           :key="contribution.repository"
-          :contribution="contribution"
-        />
-      </UPageGrid>
+          class="flex w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.35rem)]"
+        >
+          <ContributionCard :contribution="contribution" class="w-full" />
+        </li>
+      </ul>
     </UPageSection>
   </UPage>
 </template>
