@@ -48,8 +48,41 @@ export default defineCachedEventHandler(
     const sevenDaysAgoISO = sevenDaysAgoDate.toISOString();
     const sevenDaysAgoDateStr = sevenDaysAgoISO.split("T")[0];
 
-    // 1. Fetch GitHub User & Hackatime Stats concurrently
-    const [userRes, wakatimeRes] = await Promise.all([
+    // List owned repos (private included) so visibility can be resolved without
+    // fetching each repository's details individually.
+    const fetchOwnedRepos = async () => {
+      const repos: Array<{
+        name: string;
+        isPrivate: boolean;
+        description: string | null;
+        url: string | null;
+      }> = [];
+
+      for (let page = 1; page <= 10; page++) {
+        const { data } = await octokit.request("GET /user/repos", {
+          type: "owner",
+          per_page: 100,
+          page,
+          sort: "updated",
+        });
+
+        for (const repo of data) {
+          repos.push({
+            name: repo.name,
+            isPrivate: repo.private || repo.visibility !== "public",
+            description: repo.description ?? null,
+            url: repo.html_url ?? null,
+          });
+        }
+
+        if (data.length < 100) break;
+      }
+
+      return repos;
+    };
+
+    // 1. Fetch GitHub User, owned repos & Hackatime Stats concurrently
+    const [userRes, wakatimeRes, ownedRepos] = await Promise.all([
       octokit.request("GET /user").catch(() => null),
       $fetch<WakatimeStatsResponse>(
         "https://hackatime.hackclub.com/api/hackatime/v1/users/current/stats/last_7_days",
@@ -60,14 +93,17 @@ export default defineCachedEventHandler(
           },
         },
       ).catch(() => null),
+      fetchOwnedRepos().catch(() => []),
     ]);
 
     const username = userRes?.data?.login;
     const projects = wakatimeRes?.data?.projects ?? [];
+    const reposByName = new Map(ownedRepos.map((repo) => [repo.name, repo]));
 
     // 2. Fetch total commits & top project details concurrently
     const [commits, topProjects] = await Promise.all([
-      // Total commit count search
+      // Total commit count search. Authenticated searches include private
+      // repositories the token can access, so private commits are counted too.
       username
         ? octokit
             .request("GET /search/commits", {
@@ -87,16 +123,34 @@ export default defineCachedEventHandler(
             return { name: project.name, totalHours, description: null, commitsLast7Days: 0 };
           }
 
-          try {
-            // Check repo status
-            const { data: repo } = await octokit.request("GET /repos/{owner}/{repo}", {
-              owner: username,
-              repo: project.name,
-            });
+          const knownRepo = reposByName.get(project.name);
 
-            // Return basic info if private or non-existent
-            if (repo.private || repo.visibility !== "public") {
-              return { name: project.name, totalHours, description: null, commitsLast7Days: 0 };
+          // Never fetch details of private repos: expose only name and hours.
+          if (knownRepo?.isPrivate) {
+            return { name: project.name, totalHours, description: null, commitsLast7Days: 0 };
+          }
+
+          try {
+            let description: string | null;
+            let url: string | null;
+
+            if (knownRepo) {
+              description = knownRepo.description;
+              url = knownRepo.url;
+            } else {
+              // Fall back to the repo endpoint only when the repo was not listed
+              // (e.g. it is owned by someone else).
+              const { data: repo } = await octokit.request("GET /repos/{owner}/{repo}", {
+                owner: username,
+                repo: project.name,
+              });
+
+              if (repo.private || repo.visibility !== "public") {
+                return { name: project.name, totalHours, description: null, commitsLast7Days: 0 };
+              }
+
+              description = repo.description ?? null;
+              url = repo.html_url ?? null;
             }
 
             // Fetch commits for this specific public repo
@@ -114,9 +168,9 @@ export default defineCachedEventHandler(
             return {
               name: project.name,
               totalHours,
-              description: repo.description ?? null,
+              description,
               commitsLast7Days: repoCommits.length,
-              url: repo.html_url ?? null,
+              url,
             };
           } catch {
             return {
