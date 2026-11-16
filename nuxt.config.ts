@@ -15,6 +15,8 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { prerender: true },
     "/api/contacts": { cache: false },
+    "/admin": { prerender: false },
+    "/api/admin/**": { cache: false },
   },
 
   content: {
@@ -101,6 +103,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    adminDevBypass: env.ADMIN_DEV_BYPASS === "1",
     public: {
       commitSha: env.WORKERS_CI_COMMIT_SHA?.slice(0, 7) || "d1n2j7u",
     },

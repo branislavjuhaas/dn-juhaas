@@ -1,0 +1,16 @@
+seo:
+  title: Blog
+  description: >-
+    Notes on software, AI experiments, and the occasional side project by
+    Branislav Juhás. Lessons learned while logging my trial and error.
+
+hero:
+  title: Logging My
+  titleAccent: Trial & Error!
+
+newsletter:
+  title: Subscribe to my newsletter
+  description: >-
+    Stay updated on new releases and features, guides, and community updates.
+  placeholder: you@domain.com
+  buttonLabel: Subscribe

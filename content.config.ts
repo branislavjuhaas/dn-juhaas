@@ -110,6 +110,24 @@ export default defineContentConfig({
       }),
     }),
 
+    blogPage: defineCollection({
+      type: "data",
+      source: "blog-page.yml",
+      schema: z.object({
+        seo: seoSchema,
+        hero: z.object({
+          title: z.string(),
+          titleAccent: titleAccent(),
+        }),
+        newsletter: z.object({
+          title: z.string(),
+          description: property(z.string()).editor({ input: "textarea" }),
+          placeholder: z.string(),
+          buttonLabel: z.string(),
+        }),
+      }),
+    }),
+
     contactsPage: defineCollection({
       type: "data",
       source: "contacts-page.yml",
@@ -161,6 +179,23 @@ export default defineContentConfig({
           input: "textarea",
           description: "Short summary shown on the featured project card.",
         }),
+      }),
+    }),
+
+    blog: defineCollection({
+      type: "page",
+      source: "blog/*.md",
+      schema: z.object({
+        title: z.string(),
+        description: property(z.string()).editor({
+          input: "textarea",
+          description: "Short summary shown on the blog card.",
+        }),
+        image: property(z.string()).editor({
+          input: "media",
+          description: "Cover image shown on the blog card and article page.",
+        }),
+        date: z.date(),
       }),
     }),
   },
