@@ -232,3 +232,20 @@ GUIDE|.nuxt-docs/3.guide/6.going-further/index.md|guide,going further,index
 ```
 
 <!-- END:nuxt-agent-rules -->
+
+<!-- BEGIN:nuxt-ui-rules -->
+
+# Nuxt UI: ALWAYS use and prefer Nuxt UI
+
+This project uses [Nuxt UI](https://ui.nuxt.com) (v4) for all UI. Always prefer Nuxt UI components (`U*`, e.g. `UButton`, `UCard`, `UForm`, `UModal`) over hand-rolled markup, other component libraries, or raw Tailwind-only elements. Check for an existing Nuxt UI component before building custom UI.
+
+Before writing Nuxt UI code, read the current docs — training data may be outdated, so the docs are the source of truth. Nuxt UI publishes LLM-friendly docs:
+
+- https://ui.nuxt.com/llms.txt — structured overview of all components and their docs links (~5K tokens). Start here.
+- https://ui.nuxt.com/llms-full.txt — full docs with implementation details, examples, theming, composables, and migration guidance (~1M+ tokens). Use only when the overview is not enough.
+
+For component API details (props, slots, events, real-world examples), use the Nuxt UI MCP server at https://ui.nuxt.com/mcp.
+
+The installed `nuxt-ui` skill (`.agents/skills/nuxt-ui/`) covers when to use which component and how to build well — load it for UI work.
+
+<!-- END:nuxt-ui-rules -->
