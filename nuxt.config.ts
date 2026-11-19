@@ -43,6 +43,7 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: true,
       wrangler: {
+        name: "dn-juhaas",
         d1_databases: [
           {
             binding: "DB",
@@ -108,6 +109,7 @@ export default defineNuxtConfig({
       commitSha: env.WORKERS_CI_COMMIT_SHA?.slice(0, 7) || "d1n2j7u",
     },
     githubToken: "",
+    githubTokenAster: "",
     hackatimeApiKey: "",
   },
 

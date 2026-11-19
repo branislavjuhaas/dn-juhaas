@@ -19,7 +19,7 @@ const NuxtLink = resolveComponent("NuxtLink");
         <span class="font-bold">{{ props.project.name }}</span>
         <span class="text-dimmed">
           {{ props.project.totalHours }}h
-          <template v-if="props.project.url">
+          <template v-if="props.project.url || props.project.commitsLast7Days">
             · {{ props.project.commitsLast7Days }}
             <UIcon name="i-ph-git-commit-bold" class="-mb-0.5" />
           </template>
